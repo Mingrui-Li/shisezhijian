@@ -1,7 +1,7 @@
 import {
   _decorator, BlockInputEvents, Color, Component, EventTouch, Graphics,
   JsonAsset, Label, Layers, Node, ResolutionPolicy, resources, sys, tween,
-  UITransform, view, game as engineGame, Game, Sprite, SpriteFrame, Vec3,
+  UITransform, view, game as engineGame, Game, Sprite, SpriteFrame, Vec3, Rect,
 } from 'cc';
 import { Action, adaptLevel, createGame, GameState, LevelDefinition, reduceGame, startLevel, recoverInterruptedGame } from './core';
 import { completeLevel, emptyProgress, ProgressSave, unlockedThrough } from './application/Progress';
@@ -12,6 +12,8 @@ import { boardLayout } from './render/BoardLayout';
 import { Feedback } from './platform/Feedback';
 import { BrowserTestBridge } from './platform/BrowserTestBridge';
 import { runtimeConfig } from './application/RuntimeConfig';
+import { LoadingScreen } from './render/LoadingScreen';
+import { TutorialScreen } from './render/TutorialScreen';
 
 const { ccclass } = _decorator;
 type Prop = 'locate' | 'peek' | 'addMoves';
@@ -31,11 +33,17 @@ export class ShiseBoot extends Component {
   private feedback!: Feedback;
   private bridge!: BrowserTestBridge;
   private brandFrame: SpriteFrame | null = null;
+  private homeFrame: SpriteFrame | null = null;
+  private splashFrame: SpriteFrame | null = null;
+  private iconsFrame: SpriteFrame | null = null;
+  private iconFrames = new Map<string, SpriteFrame>();
+  private loading: LoadingScreen | null = null;
+  private tutorial: TutorialScreen | null = null;
   private ready = false;
   private testOriginal: ProgressSave | null = null;
   private collectionPage = 0;
   private pendingSimulation: { finish: () => void; cancel: () => void; fail: () => void } | null = null;
-  private screen: 'home' | 'levels' | 'game' | 'collection' = 'home';
+  private screen: 'home' | 'levels' | 'game' | 'collection' | 'tutorial' = 'home';
   private chapterPage = 0;
   private selectedCell: string | null = null;
   private selectedPool: number | null = null;
@@ -69,10 +77,7 @@ export class ShiseBoot extends Component {
       level: this.save.game?.level.number ?? null, status: this.save.game?.attempt.status ?? null,
       moves: this.save.game?.attempt.remainingMoves ?? null, trayPage: this.trayPage + 1,
       inventory: this.save.game?.wallet.inventory ?? null, completed: this.save.completed.length,
-    }));
-    resources.load('art/brand/spriteFrame', SpriteFrame, (error, frame) => {
-      if (!error && frame) { this.brandFrame = frame; if (this.ready && this.screen === 'home') this.renderHome(); }
-    });
+    }), this.height);
     this.root = new Node('ShiseUI');
     this.root.layer = Layers.Enum.UI_2D;
     this.root.addComponent(UITransform).setContentSize(390, this.height);
@@ -80,7 +85,22 @@ export class ShiseBoot extends Component {
     engineGame.on(Game.EVENT_HIDE, this.suspend, this);
     engineGame.on(Game.EVENT_SHOW, this.resume, this);
     this.renderLoading();
-    resources.load('generated/levels', JsonAsset, (error, asset) => {
+    // First launch always reaches the home screen. Tutorial is an explicit home entry.
+    let assetsDone = 0;
+    const art = ['splash-v2', 'home-v2', 'icons-v2'];
+    const artworkReady = Promise.all(art.map((name, index) => new Promise<void>(resolve => {
+      resources.load(`art/${name}/spriteFrame`, SpriteFrame, (error, frame) => {
+        if (!error && frame) {
+          if (index === 0) { this.splashFrame = frame; this.loading?.setArtwork(frame); }
+          if (index === 1) this.homeFrame = frame;
+          if (index === 2) this.iconsFrame = frame;
+        } else console.error(`[Shise] Artwork unavailable: ${name}`, error);
+        this.loading?.setProgress(0.12 + ++assetsDone * 0.20);
+        resolve();
+      });
+    })));
+    const loadingStarted = Date.now();
+    resources.load('generated/levels', JsonAsset, async (error, asset) => {
       if (error || !asset) {
         this.clear();
         this.text('颜色还没准备好', 195, this.height / 2 - 24, 280, 30, 22);
@@ -91,11 +111,16 @@ export class ShiseBoot extends Component {
         const content = asset.json as { contentVersion: string; levels: unknown[] };
         this.levels = content.levels.map(adaptLevel);
         this.save = this.storage.load(content.contentVersion, this.levels);
-        this.ready = true;
         // Only valid level versions can be resumed; do not reinterpret old boards.
         if (this.save.game && !this.levels.some(l => l.id === this.save.game!.level.id)) this.save.game = null;
-        if (!this.save.game && this.save.completed.length === 0) this.enterLevel(0);
-        else this.renderHome();
+        await artworkReady;
+        this.loading?.setProgress(1, '准备好了');
+        // Keep the real completion state visible long enough for readable launch notices.
+        const finish = () => {
+          if (this.loading?.isAgeInfoOpen) { this.scheduleOnce(finish, 0.2); return; }
+          this.ready = true; this.renderHome();
+        };
+        this.scheduleOnce(finish, Math.max(0.25, (3000 - (Date.now() - loadingStarted)) / 1000));
       } catch (error) {
         console.error('[Shise] Failed to adapt level content', error);
         this.clear();
@@ -105,6 +130,7 @@ export class ShiseBoot extends Component {
   }
 
   onDestroy(): void {
+    this.tutorial?.dispose(); this.loading?.destroy();
     engineGame.off(Game.EVENT_HIDE, this.suspend, this);
     engineGame.off(Game.EVENT_SHOW, this.resume, this);
     this.video.dispose();
@@ -132,6 +158,8 @@ export class ShiseBoot extends Component {
   }
 
   private clear(): void {
+    this.tutorial?.dispose(); this.tutorial = null;
+    this.loading?.destroy(); this.loading = null;
     this.bridge.clear();
     for (const node of [...this.root.children]) { node.removeFromParent(); node.destroy(); }
     this.modalOpen = false;
@@ -178,7 +206,7 @@ export class ShiseBoot extends Component {
 
   private button(value: string, x: number, y: number, width: number, height: number,
     onTap: () => void, fill: string = C.primary, color: string = C.onPrimary,
-    parent = this.root, modalButton = false): Node {
+    parent = this.root, modalButton = false, semanticLabel?: string): Node {
     const node = this.round(x, y, width, height, theme.radii.button, fill, parent);
     // Label and shape share the same center; labels deliberately do not carry input.
     const label = new Node('Label');
@@ -205,7 +233,7 @@ export class ShiseBoot extends Component {
       else tween(node).to(0.09, { scale: new Vec3(1, 1, 1) }).start();
     };
     const invoke = () => { if ((!this.modalOpen || modalButton) && !this.actionBusy) onTap(); };
-    this.bridge.control(value, invoke);
+    this.bridge.control(semanticLabel || value, invoke, { x, y, width, height });
     node.on(Node.EventType.TOUCH_CANCEL, release);
     node.on(Node.EventType.TOUCH_END, (event: EventTouch) => {
       event.propagationStopped = true;
@@ -217,16 +245,62 @@ export class ShiseBoot extends Component {
 
   private renderLoading(): void {
     this.clear();
-    this.hero(this.height * 0.42);
-    this.text('拾色之间', 195, this.height * 0.62, 300, 48, 30, C.text, true);
-    this.text('正在拾起自然的颜色…', 195, this.height * 0.69, 300, 30, 15, C.textSecondary);
+    this.loading = new LoadingScreen({ parent: this.root, width: 390, height: this.height,
+      safeTop: this.top, safeBottom: this.bottom, artwork: this.splashFrame || undefined,
+      registerControl: (label, invoke, bounds) => this.bridge.control(label, invoke, bounds),
+      clearControls: labels => this.bridge.removeControls(labels) });
+    this.loading.setProgress(0.05, '正在准备颜色');
+  }
+
+  private artwork(frame: SpriteFrame, x: number, y: number, width: number, height: number, parent = this.root): Node {
+    const node = this.element('Illustration', x, y, width, height, parent);
+    const sprite = node.addComponent(Sprite); sprite.sizeMode = Sprite.SizeMode.CUSTOM; sprite.spriteFrame = frame;
+    node.getComponent(UITransform)!.setContentSize(width, height);
+    return node;
+  }
+
+  private icon(name: string, x: number, y: number, size = 40, parent = this.root): void {
+    const names = ['home', 'tutorial', 'settings', 'collection', 'locate', 'peek', 'addMoves', 'undo', 'back', 'next', 'return', 'cancel'];
+    const index = names.indexOf(name);
+    if (this.iconsFrame && index >= 0) {
+      let frame = this.iconFrames.get(name);
+      if (!frame) {
+        const source = this.iconsFrame;
+        const width = source.originalSize.width / 4, height = source.originalSize.height / 3;
+        frame = new SpriteFrame(); frame.texture = source.texture;
+        frame.rect = new Rect(index % 4 * width, Math.floor(index / 4) * height, width, height);
+        this.iconFrames.set(name, frame);
+      }
+      this.artwork(frame, x, y, size, size, parent);
+    } else {
+      const symbols: Record<string, string> = { home: '⌂', tutorial: '▤', settings: '⚙', collection: '▧',
+        locate: '✦', peek: '◉', addMoves: '+', undo: '↶', back: '‹', next: '›', return: '↧', cancel: '×' };
+      this.text(symbols[name] || '·', x, y, size, size, size * 0.65, C.text, false, parent);
+    }
+  }
+
+  private iconButton(name: string, label: string, x: number, y: number, size: number,
+    invoke: () => void, fill: string = C.surface): void {
+    this.button('', x, y, size, size, invoke, fill, C.text, this.root, false, label);
+    this.icon(name, x, y, size * 0.85);
+  }
+
+  private openTutorial(): void {
+    this.clear(); this.screen = 'tutorial';
+    this.tutorial = new TutorialScreen(this.root, this.height, this.top, this.bottom,
+      () => this.renderHome(), { onStart: () => {
+          if (this.save.game && this.save.game.attempt.status !== 'Won') this.renderGame();
+          else this.enterLevel(unlockedThrough(this.save, this.levels.map(l => l.id)));
+        },
+        registerControl: (label, invoke, bounds) => this.bridge.control(label, invoke, bounds),
+        clearControls: () => this.bridge.clear(), onText: value => this.bridge.text(value) });
   }
 
   private hero(centerY: number): void {
     if (this.brandFrame) {
       const icon = this.element('Brand', 195, centerY, 218, 218);
-      const sprite = icon.addComponent(Sprite); sprite.spriteFrame = this.brandFrame;
-      sprite.sizeMode = Sprite.SizeMode.CUSTOM;
+      const sprite = icon.addComponent(Sprite); sprite.sizeMode = Sprite.SizeMode.CUSTOM; sprite.spriteFrame = this.brandFrame;
+      icon.getComponent(UITransform)!.setContentSize(218, 218);
       return;
     }
     this.round(133, centerY - 50, 146, 146, 72, C.butter);
@@ -246,32 +320,39 @@ export class ShiseBoot extends Component {
       this.save.game = reduceGame(this.save.game, { type: 'endPeek' }).state; this.persist();
     }
     this.screen = 'home'; this.clear();
-    this.button('⚙', 339, this.top + 22, 48, 48, () => this.openSettings(), C.surface, C.text);
-    this.text('今天，也拾一点好颜色', 177, this.top + 28, 280, 32, 15, C.textSecondary);
-    this.hero(this.height * 0.31);
-    this.text('拾色之间', 195, this.height * 0.50, 320, 50, 32, C.text, true);
-    this.text('把散落的颜色，一点点放回美好', 195, this.height * 0.56, 340, 30, 15, C.textSecondary);
+    const mainY = Math.max(this.top + 364, this.height * 0.61);
+    if (this.homeFrame) this.artwork(this.homeFrame, 195, mainY - 170, 390, 585);
+    this.iconButton('settings', '设置', 344, this.top + 21, 44, () => this.openSettings());
+    this.text('拾色之间', 195, this.top + 69, 304, 62, 38, C.text, true);
+    this.text('100 道自然色彩 · 5 段拾色旅程', 195, this.top + 113, 304, 26, 12, C.textSecondary);
     const next = unlockedThrough(this.save, this.levels.map(l => l.id));
     const resume = this.save.game;
     const continuing = resume && resume.attempt.status !== 'Won';
     const levelNumber = continuing ? resume.level.number : next + 1;
-    this.button(continuing ? '继续拾色  ›' : '开始拾色  ›', 195, this.height * 0.66, 280, 56,
-      () => continuing ? this.renderGame() : this.enterLevel(next));
+    this.round(195, mainY + 5, 310, 62, 28, '#E7B5A2');
+    this.button(continuing ? '继续游戏' : '开始游戏', 195, mainY, 310, 62,
+      () => continuing ? this.renderGame() : this.enterLevel(next), C.primary, '#FFFFFF');
     this.text(`第 ${levelNumber} 关 · ${this.levels[levelNumber - 1]?.title || '自然的颜色'}`,
-      195, this.height * 0.66 + 45, 320, 28, 13, C.textSecondary);
-    this.button('色彩旅程', 112, this.height * 0.80, 144, 52, () => {
-      this.chapterPage = Math.floor(next / 20); this.renderLevels();
-    }, C.mint, C.text);
-    this.button('色谱收藏', 278, this.height * 0.80, 144, 52,
-      () => { this.collectionPage = 0; this.renderCollection(); }, C.lilac, C.text);
-    this.text(`已拾起 ${this.save.completed.length} / 100 道风景`, 195,
-      this.height - this.bottom - 50, 300, 24, 13, C.textSecondary);
-    if (runtimeConfig.testTools) this.button('体验版 · 测试工具', 195, this.height - this.bottom - 12,
-      216, 32, () => this.openTestTools(), C.surface, C.textSecondary);
+      195, mainY + 49, 320, 24, 12, C.textSecondary);
+    const cards = [
+      { icon: 'home', label: '关卡', fill: C.mint, action: () => { this.chapterPage = Math.floor(next / 20); this.renderLevels(); } },
+      { icon: 'tutorial', label: '教程', fill: C.butter, action: () => this.openTutorial() },
+      { icon: 'collection', label: '收藏', fill: C.lilac, action: () => { this.collectionPage = 0; this.renderCollection(); } },
+    ];
+    cards.forEach((card, index) => {
+      const x = 83 + index * 112, y = mainY + 129;
+      this.round(x, y + 3, 100, 96, 22, '#EDE5DA');
+      this.button('', x, y, 100, 96, card.action, card.fill, C.text, this.root, false, card.label);
+      this.icon(card.icon, x, y - 13, 66);
+      this.text(card.label, x, y + 28, 88, 24, 14, C.text, true);
+    });
+    this.text(`${this.save.completed.length} / 100`, 195, this.height - this.bottom - 31, 200, 24, 12, C.textSecondary);
+    if (runtimeConfig.testTools) this.button('体验版测试', 195, this.height - this.bottom,
+      120, 28, () => this.openTestTools(), C.background, C.textSecondary);
   }
 
   private openSettings(): void {
-    const { layer, top } = this.sheet('留一点安静给自己', '随时调整，不影响游戏进度', 414);
+    const { layer, top } = this.sheet('设置', '', 414);
     const labels = { sound: '轻音效', haptics: '轻触反馈', reducedMotion: '减少动效' };
     (['sound', 'haptics', 'reducedMotion'] as const).forEach((key, i) => {
       this.button(`${labels[key]}   ${this.save.settings[key] ? '已开启' : '已关闭'}`,
@@ -320,7 +401,11 @@ export class ShiseBoot extends Component {
     [1, 5, 12, 44, 72, 100].forEach((number, i) => this.button(`试第 ${number} 关`,
       118 + i % 2 * 154, top + 156 + Math.floor(i / 2) * 62, 142, 48,
       () => this.enterTestLevel(number - 1), i > 3 ? C.lilac : C.mint, C.text, layer, true));
-    this.text('每个测试局提供少量道具；限步与复活按原规则', 195, top + 347, 304, 50, 13, C.textSecondary, false, layer);
+    this.button('预览加载页', 195, top + 347, 230, 42, () => {
+      this.renderLoading(); this.screen = 'home';
+      this.loading?.setProgress(1, '准备好了');
+      this.iconButton('cancel', '返回首页', 345, this.top + 20, 42, () => this.renderHome());
+    }, C.butter, C.text, layer, true);
     this.button('返回游戏', 195, top + 416, 260, 48, () => this.renderHome(), C.primary, C.onPrimary, layer, true);
   }
 
@@ -409,22 +494,27 @@ export class ShiseBoot extends Component {
     const layout = boardLayout(this.height, this.top, this.bottom, level.grid.columns,
       level.grid.rows, attempt.pool.length);
     const { cellSize, pitch, boardStartX, boardStartY } = layout;
-    this.button('‹', 40, this.top + 24, 48, 48, () => {
+    this.iconButton('back', '返回首页', 40, this.top + 22, 44, () => {
       this.selectedCell = null; this.selectedPool = null; this.renderHome();
-    }, C.surface, C.text);
-    this.button('•••', 350, this.top + 24, 44, 44, () => this.openGameMenu(), C.surface, C.text);
-    this.text(`${this.testOriginal ? '测试 · ' : ''}${level.number}  ${level.title}`, 195, this.top + 16, 244, 32, 20, C.text, true);
-    this.text(`第 ${level.chapter} 章 · ${level.chapterName}`, 195, this.top + 46, 244, 24, 13, C.textSecondary);
-    this.round(195, this.top + 78, 154, 36, 18, C.mint);
-    this.text(attempt.remainingMoves === null ? '慢慢填，慢慢看' : `剩余 ${attempt.remainingMoves} 步`,
-      195, this.top + 78, 154, 36, 17,
-      attempt.remainingMoves !== null && attempt.remainingMoves <= 3 ? C.warning : C.text);
+    });
+    this.iconButton('settings', '关卡菜单', 350, this.top + 22, 44, () => this.openGameMenu());
+    this.text(`${level.title}`, 195, this.top + 14, 244, 30, 19, C.text, true);
+    this.text(`${this.testOriginal ? '体验 · ' : ''}第 ${level.number} 关`, attempt.remainingMoves === null ? 195 : 157,
+      this.top + 43, 136, 22, 12, C.textSecondary);
+    if (attempt.remainingMoves !== null) {
+      this.round(263, this.top + 45, 72, 26, 13, attempt.remainingMoves <= 3 ? '#FCE0D9' : '#FFFFFF');
+      this.text(`${attempt.remainingMoves} 步`, 263, this.top + 45, 72, 26, 14,
+        attempt.remainingMoves <= 3 ? C.warning : C.text, true);
+    }
     const xy = (cellId: string) => {
       const cell = level.cells.find(c => c.id === cellId)!;
       return { x: boardStartX + cell.x * pitch, y: boardStartY + cell.y * pitch };
     };
-    this.round(195, layout.boardTop + layout.boardHeight / 2, 356,
-      layout.boardHeight + 12, 16, C.boardBackground);
+    const boardWidth = level.grid.columns * cellSize + (level.grid.columns - 1) * 6;
+    this.round(195, layout.boardTop + layout.boardHeight / 2 + 5, Math.min(368, boardWidth + 36),
+      layout.boardHeight + 42, 24, '#EFE9DE');
+    this.round(195, layout.boardTop + layout.boardHeight / 2, Math.min(368, boardWidth + 36),
+      layout.boardHeight + 42, 24, '#FFFEFB');
     const tracks = this.element('Tracks', 195, 0, 390, this.height);
     tracks.setPosition(0, this.height / 2);
     const g = tracks.addComponent(Graphics);
@@ -445,14 +535,14 @@ export class ShiseBoot extends Component {
       const tile = attempt.board[cell.id];
       const locked = level.anchors.includes(cell.id) || attempt.auxiliaryLocks.includes(cell.id);
       const hex = previewCells.includes(cell.id) ? cell.targetHex : tileHex(tile);
-      if (this.selectedCell === cell.id) this.round(p.x, p.y, cellSize + 6, cellSize + 6, 11, C.selection);
+      if (this.selectedCell === cell.id) this.round(p.x, p.y, cellSize + 8, cellSize + 8, 12, '#A6CEC3');
       const node = this.round(p.x, p.y, cellSize, cellSize, theme.radii.tile, hex,
-        this.root, tile === null && !previewCells.includes(cell.id) ? C.border : undefined);
+        this.root, tile === null && !previewCells.includes(cell.id) ? '#DDD7CB' : undefined);
       node.on(Node.EventType.TOUCH_END, (event: EventTouch) => {
         event.propagationStopped = true;
         if (!this.modalOpen) this.tapCell(cell.id);
       });
-      if (!locked) this.bridge.control(`上方${tile ? '色块' : '空槽'} ${cell.id}`, () => { if (!this.modalOpen) this.tapCell(cell.id); });
+      if (!locked) this.bridge.control(`上方${tile ? '色块' : '空槽'} ${cell.id}`, () => { if (!this.modalOpen) this.tapCell(cell.id); }, { x: p.x, y: p.y, width: cellSize, height: cellSize });
       if (locked) {
         this.round(p.x + cellSize / 2 + 1, p.y - cellSize / 2 - 1, 7, 7, 4, C.surface);
         const marker = this.round(p.x + cellSize / 2 + 1, p.y - cellSize / 2 - 1,
@@ -460,13 +550,14 @@ export class ShiseBoot extends Component {
         if (!level.anchors.includes(cell.id)) marker.setRotationFromEuler(0, 0, 45);
       }
     }
-    this.text(attempt.preview ? '参考色路 · 3 秒后收起' :
-      this.notice || (attempt.status === 'Failed' ? '步数已用完，可查看颜色，或选择继续本关' : this.selectedCell
-        ? '点另一空槽改放，或放回待选区' : attempt.pool.every(id => id === null)
-          ? '再看看颜色的衔接；可选中色块放回待选区' : level.tutorialText || '先点下方颜色，再点上方空格'),
-      195, layout.trayLabelY, 352, 28, 13, attempt.preview ? C.selection : C.textSecondary);
-    this.round(195, layout.trayTop + layout.trayHeight / 2, 356,
-      layout.trayHeight + 10, 16, C.boardBackground);
+    // Instructions live in the interactive tutorial, not permanently on the play board.
+    if (attempt.preview || this.notice) this.text(attempt.preview ? '参考色路 · 3 秒' : this.notice,
+      195, layout.trayLabelY - 6, 352, 26, 12, C.textSecondary);
+    const trayWidth = layout.trayColumns * 50 + 18;
+    this.round(195, layout.trayTop + layout.trayHeight / 2 + 3, trayWidth,
+      layout.trayHeight + 22, 19, '#EEE8DD');
+    this.round(195, layout.trayTop + layout.trayHeight / 2, trayWidth,
+      layout.trayHeight + 22, 19, '#F2F1EA');
     const pages = Math.max(1, Math.ceil(attempt.pool.length / layout.slotsPerPage));
     this.trayPage = Math.min(pages - 1, this.trayPage);
     const firstSlot = this.trayPage * layout.slotsPerPage;
@@ -477,21 +568,23 @@ export class ShiseBoot extends Component {
       const x = 195 - (layout.trayColumns - 1) * layout.trayPitch / 2
         + local % layout.trayColumns * layout.trayPitch;
       const y = layout.trayTop + 22 + Math.floor(local / layout.trayColumns) * layout.trayPitch;
-      if (this.selectedPool === i) this.round(x, y, 50, 50, 11, C.selection);
+      if (this.selectedPool === i) this.round(x, y, 52, 52, 12, '#A6CEC3');
       const node = this.round(x, y, 44, 44, 8, tileHex(id), this.root, id ? undefined : C.border);
       node.on(Node.EventType.TOUCH_END, (event: EventTouch) => {
         event.propagationStopped = true;
         if (!this.modalOpen) this.tapPool(i);
       });
-      this.bridge.control(`候选槽 ${i + 1}${id ? ' ' + tileHex(id) : ' 空'}`, () => { if (!this.modalOpen) this.tapPool(i); });
+      this.bridge.control(`候选槽 ${i + 1}${id ? ' ' + tileHex(id) : ' 空'}`, () => { if (!this.modalOpen) this.tapPool(i); }, { x, y, width: 44, height: 44 });
     }
-    this.button('‹', 64, layout.pagerY, 48, 32, () => {
+    if (pages > 1) {
+    this.iconButton('back', '上一页候选', 130, layout.pagerY, 40, () => {
       if (this.trayPage > 0) { this.trayPage--; this.renderGame(); }
-    }, C.surface, C.text);
-    this.text(`待选区 ${this.trayPage + 1} / ${pages}`, 195, layout.pagerY, 170, 30, 13, C.textSecondary);
-    this.button('›', 326, layout.pagerY, 48, 32, () => {
+    });
+    this.text(`${this.trayPage + 1} / ${pages}`, 195, layout.pagerY, 70, 26, 12, C.textSecondary);
+    this.iconButton('next', '下一页候选', 260, layout.pagerY, 40, () => {
       if (this.trayPage + 1 < pages) { this.trayPage++; this.renderGame(); }
-    }, C.surface, C.text);
+    });
+    }
     if (attempt.status === 'Failed') {
       this.button('继续本关', 64, layout.actionsY, 96, 48, () => this.openFail(), C.mint, C.text);
       this.button('免费重开', 195, layout.actionsY, 144, 48,
@@ -500,22 +593,28 @@ export class ShiseBoot extends Component {
         () => { if (this.testOriginal) { this.renderHome(); this.openTestTools(); }
           else { this.chapterPage = level.chapter - 1; this.renderLevels(); } }, C.surface, C.text);
     } else {
-    this.button('取消选择', 64, layout.actionsY, 96, 48, () => {
+    this.iconButton('cancel', '取消选择', 133, layout.actionsY, 44, () => {
       this.selectedCell = null; this.selectedPool = null; this.notice = ''; this.renderGame();
-    }, C.surface, C.text);
-    this.button('放回待选区', 195, layout.actionsY, 144, 48, () => {
+    }, this.selectedCell || this.selectedPool !== null ? C.surface : C.background);
+    this.iconButton('return', '放回待选区', 195, layout.actionsY, 44, () => {
       if (this.selectedCell) this.dispatch({ type: 'returnToTray', fromCellId: this.selectedCell });
       else { this.notice = '先点选上方已填的颜色'; this.renderGame(); }
-    }, this.selectedCell ? C.mint : C.disabled, C.text);
-    this.button('↶ 撤销', 326, layout.actionsY, 92, 48,
-      () => this.dispatch({ type: 'undo' }), C.surface, C.text);
+    }, this.selectedCell ? C.mint : C.background);
+    this.iconButton('undo', '撤销', 257, layout.actionsY, 44,
+      () => this.dispatch({ type: 'undo' }), C.surface);
     }
     (['locate', 'peek', 'addMoves'] as Prop[]).forEach((prop, i) => {
       const names = { locate: '点睛', peek: '窥色', addMoves: '续步' };
-      this.button(`${names[prop]}  ${state.wallet.inventory[prop]}`, 75 + i * 120, layout.propsY, 104, 52,
-        () => this.openProp(prop), attempt.status === 'Playing' ? [C.mint, C.lilac, C.butter][i] : C.disabled, C.text);
+      const x = 79 + i * 116;
+      this.round(x, layout.propsY + 3, 100, 70, 20, '#EAE3D8');
+      this.button('', x, layout.propsY, 100, 70,
+        () => this.openProp(prop), attempt.status === 'Playing' ? [C.mint, C.lilac, C.butter][i] : C.disabled,
+        C.text, this.root, false, names[prop]);
+      this.icon(prop, x, layout.propsY - 10, 48);
+      this.text(names[prop], x, layout.propsY + 22, 80, 22, 12, C.text);
+      this.round(x + 33, layout.propsY - 23, 22, 22, 11, C.surface);
+      this.text(String(state.wallet.inventory[prop]), x + 33, layout.propsY - 23, 22, 22, 11, C.text);
     });
-    this.text('撤销不返还步数', 195, this.height - this.bottom + 3, 300, 20, 12, C.textSecondary);
     if (attempt.status === 'Won') this.openWin();
     else if (attempt.status === 'Failed' && this.dismissedFailure !== attempt.id) this.openFail();
   }

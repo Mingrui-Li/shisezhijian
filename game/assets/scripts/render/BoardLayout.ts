@@ -2,17 +2,17 @@
 export function boardLayout(height: number, safeTop: number, safeBottom: number,
     columns: number, rows: number, trayCount: number) {
     const gap = 6;
-    const reservedBoardTop = safeTop + 110;
-    const propsY = height - safeBottom - 32;
-    const actionsY = propsY - 58;
-    const pagerY = actionsY - 48;
-    const trayBottom = pagerY - 24;
+    const reservedBoardTop = safeTop + 82;
+    const propsY = height - safeBottom - 38;
+    const actionsY = propsY - 72;
+    const pagerY = actionsY - 44;
+    const trayBottom = pagerY - 20;
     const trayColumns = Math.min(6, Math.max(1, trayCount));
     let trayRows = Math.min(3, Math.max(1, Math.ceil(trayCount / trayColumns)));
     const boardSize = (visibleTrayRows: number) => {
         const trayHeight = visibleTrayRows * 44 + (visibleTrayRows - 1) * gap;
         const available = trayBottom - trayHeight - 40 - reservedBoardTop;
-        return Math.min(52, (342 - (columns - 1) * gap) / columns,
+        return Math.min(columns <= 4 && rows <= 2 ? 68 : 52, (342 - (columns - 1) * gap) / columns,
             (available - (rows - 1) * gap) / rows);
     };
     while (trayRows > 1 && boardSize(trayRows) < 44) trayRows--;

@@ -18,6 +18,14 @@ npm ci --prefix tools/douyin --ignore-scripts
 
 ## 导入构建产物
 
+请导入当前 UI 测试包 `0.2.0-ui.1`：`releases/douyin-test-33977f449933`。该目录包含完整的 44 个构建文件，约 9.76 MiB，AppID 为 `ttad3cdb8133424e0102`，不会被下一次 Cocos 构建清空。已接入 image 加载/首页插画与公共图标，首次进入首页。旧的 `game/build/bytedance-mini-game` 是临时构建输出；构建期间开发者工具可能报 `project.config.json` 的 ENOENT 错误。
+
+2026-10-27 白屏修复：旧包 `douyin-test-1a7d6e8ac4ff` 的 `BrowserTestBridge` 误把抖音适配器的 `document` 当作完整浏览器 DOM，调用 `replaceChildren()` 时阻断 Boot 初始化。修复为先检查 Cocos `sys.isBrowser`，小游戏环境完全跳过 DOM 辅助层。官方 Cocos 3.8.8 重建成功（退出码 36），平台测试 26 项通过，其中两项覆盖此环境隔离与浏览器原有行为；仍需开发者工具重新导入新包确认运行。
+
+在抖音开发者工具中关闭旧项目，重新导入上述独立目录，选择小游戏，再重新编译。文件结构检查已通过，模拟器运行仍需在开发者工具中确认；若仍然白屏，应查看调试器 Console 的第一条红色错误。
+
+后续构建完成后执行 `node tools/build/stage-douyin.mjs`，脚本先核验构建，再复制并逐文件校验 SHA-256，最后公布新的独立目录；已交付的目录不覆盖。
+
 构建成功后，从仓库根目录运行：
 
 ```bash
@@ -58,7 +66,7 @@ node tools/douyin/project.mjs preview
 
 ## 本次测试包体积
 
-2026-10-27 的 Cocos 调试构建 `game/build/bytedance-mini-game` 有 41 个文件，原始文件总大小 15,951,764 字节（15.2128 MiB）。其中 6 个 `.js.map` 文件共 9.7863 MiB，扣除这些文件后的原始体积约 5.4265 MiB。
+2026-10-27 当前 UI 构建 `game/build/bytedance-mini-game` 有 44 个文件，总体积约 9.76 MiB（精确字节见 `artifacts/build/douyin.manifest.json`）。新插画与图标已打入包内；此抖音包不再输出 source map，保留调试日志。Web 调试包仍保留 source map。
 
 [抖音普通代码包文档](https://developer.open-douyin.com/docs/resource/zh-CN/mini-game/develop/guide/basic-function/subpackages/introduction) 区分未分包整包 20 MB 与分包时的主包 4 MB。项目内官方 CLI 2.1.2 的代码核验按文件原始字节大小累加，并从体积统计中排除 `**/**.js.map`；其新链路也会向平台获取动态限额，不能用静态文档代替平台最终返回。`.map` 仍属于 CLI 打包白名单，因此“排除体积统计”不等于“不上传”。本次包低于 CLI 新链路 16 MB 的默认回退总包限额，无须仅为这个体积问题重构分包；是否可正常预览仍需实际登录、AppID 和云端编译结果确认。
 

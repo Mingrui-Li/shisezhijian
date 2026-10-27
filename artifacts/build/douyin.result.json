@@ -1,11 +1,11 @@
 {
   "target": "douyin",
-  "startedAt": "2026-10-27T06:19:18.058Z",
-  "finishedAt": "2026-10-27T06:20:25.725Z",
+  "startedAt": "2026-10-27T08:50:05.802Z",
+  "finishedAt": "2026-10-27T08:50:54.705Z",
   "editor": "/Applications/Cocos/Creator/3.8.8/CocosCreator.app/Contents/MacOS/CocosCreator",
   "project": "/Users/limingrui/IdeaProjects/shisezhijian/game",
   "configPath": "/Users/limingrui/IdeaProjects/shisezhijian/tools/build/douyin.json",
-  "configSha256": "9b98a0cfef0e89ec5e301b34710a70a47f3933b0e27754bab9e2f67060f25033",
+  "configSha256": "6deeb67508f4c1ab388f5290d78f4b923d8fb76af6a133473b032ee7a3592153",
   "configChangedDuringBuild": false,
   "output": "/Users/limingrui/IdeaProjects/shisezhijian/game/build/bytedance-mini-game",
   "logPath": "/Users/limingrui/IdeaProjects/shisezhijian/artifacts/build/douyin.log",
@@ -15,11 +15,23 @@
   "appid": "ttad3cdb8133424e0102",
   "localDevelopmentOnly": false,
   "sourceInputs": {
-    "digest": "4e80df1e92ef1fe3a23ad2a2af89ff54e8248746d416a2ae4d22e77bc11ed0f6",
+    "digest": "2d1fe2184b3fc3f2de94b9d74826cccfebcef269782d44d896370d97bb96dbf5",
     "files": [
       [
         "assets/resources/art/brand.png",
         "d2596c9194b48fb41e1b9173a9ac5948fd97d8841f372a228d52070d89f4e6f0"
+      ],
+      [
+        "assets/resources/art/home-v2.png",
+        "a51e4201e033c450aa3586b045205255214a6b15d61d8127f8be5e25f90bc805"
+      ],
+      [
+        "assets/resources/art/icons-v2.png",
+        "3fb7a5fc81a38b4a9541d5415ffcd6c1cdcd5b56d032fc8cce91e77362bdec05"
+      ],
+      [
+        "assets/resources/art/splash-v2.png",
+        "8c3f10e96dc9393e7ac90da6df5b99844fc4b162674ecb33e5558d5463b7a14b"
       ],
       [
         "assets/resources/audio/complete.wav",
@@ -51,11 +63,11 @@
       ],
       [
         "assets/scripts/application/RuntimeConfig.ts",
-        "7f5049a3f33e1dbb2d8fde61cfa56830422618d58d79b680bd1f45b1106c5fd3"
+        "6179f7d5515675fa5cca52d1e79bbab5048f8bc2ad028760ca0d14ded945ddd8"
       ],
       [
         "assets/scripts/Boot.ts",
-        "5cd3f24b9b365afa8b0ff19c9d7eeccb5b7e124e6a0c946313e16076e72bd7a3"
+        "2bc6c3b4479013d6c535109ee26dcbe0e0c9a5abb07dc4136fd7d484b5880e9c"
       ],
       [
         "assets/scripts/core/index.ts",
@@ -63,7 +75,7 @@
       ],
       [
         "assets/scripts/platform/BrowserTestBridge.ts",
-        "55072e69751388eab9b4e377e883a1a929f8c8559dda526625688361af313a65"
+        "78a02e1e8d251fec77ff7d151eb12ef62041f6110ebd8faa87a86b25e7dbe107"
       ],
       [
         "assets/scripts/platform/Feedback.ts",
@@ -83,7 +95,15 @@
       ],
       [
         "assets/scripts/render/BoardLayout.ts",
-        "afb57a7c03a0895a20dc0e41b88fc6c8333a4b76b494c0e54ec9be1e65de6129"
+        "122d0cc1a1bd4fcfdabfb5f917de68b354c50e48f59eb266f1aa29c9ae802826"
+      ],
+      [
+        "assets/scripts/render/LoadingScreen.ts",
+        "f1e19574d4a1b561bab1d081a851bed7d7db2d8cd48d4e2fabbafe5c01612661"
+      ],
+      [
+        "assets/scripts/render/TutorialScreen.ts",
+        "d8db6be952abfa98f8c006f8a163a4b7ffe0c1a28ab27d9f8b756685a164fac1"
       ],
       [
         "assets/scripts/theme/Theme.ts",

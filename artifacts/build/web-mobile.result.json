@@ -1,7 +1,7 @@
 {
   "target": "web-mobile",
-  "startedAt": "2026-10-27T06:24:26.259Z",
-  "finishedAt": "2026-10-27T06:26:45.544Z",
+  "startedAt": "2026-10-27T08:42:25.749Z",
+  "finishedAt": "2026-10-27T08:43:09.493Z",
   "editor": "/Applications/Cocos/Creator/3.8.8/CocosCreator.app/Contents/MacOS/CocosCreator",
   "project": "/Users/limingrui/IdeaProjects/shisezhijian/game",
   "configPath": "/Users/limingrui/IdeaProjects/shisezhijian/tools/build/web-mobile.json",
@@ -15,11 +15,23 @@
   "appid": null,
   "localDevelopmentOnly": false,
   "sourceInputs": {
-    "digest": "e3a28e8161e5b3b4877757672e197f734490230a62d0f231d65dd9d4d406de0f",
+    "digest": "2d1fe2184b3fc3f2de94b9d74826cccfebcef269782d44d896370d97bb96dbf5",
     "files": [
       [
         "assets/resources/art/brand.png",
         "d2596c9194b48fb41e1b9173a9ac5948fd97d8841f372a228d52070d89f4e6f0"
+      ],
+      [
+        "assets/resources/art/home-v2.png",
+        "a51e4201e033c450aa3586b045205255214a6b15d61d8127f8be5e25f90bc805"
+      ],
+      [
+        "assets/resources/art/icons-v2.png",
+        "3fb7a5fc81a38b4a9541d5415ffcd6c1cdcd5b56d032fc8cce91e77362bdec05"
+      ],
+      [
+        "assets/resources/art/splash-v2.png",
+        "8c3f10e96dc9393e7ac90da6df5b99844fc4b162674ecb33e5558d5463b7a14b"
       ],
       [
         "assets/resources/audio/complete.wav",
@@ -51,11 +63,11 @@
       ],
       [
         "assets/scripts/application/RuntimeConfig.ts",
-        "7f5049a3f33e1dbb2d8fde61cfa56830422618d58d79b680bd1f45b1106c5fd3"
+        "6179f7d5515675fa5cca52d1e79bbab5048f8bc2ad028760ca0d14ded945ddd8"
       ],
       [
         "assets/scripts/Boot.ts",
-        "5cd3f24b9b365afa8b0ff19c9d7eeccb5b7e124e6a0c946313e16076e72bd7a3"
+        "2bc6c3b4479013d6c535109ee26dcbe0e0c9a5abb07dc4136fd7d484b5880e9c"
       ],
       [
         "assets/scripts/core/index.ts",
@@ -63,7 +75,7 @@
       ],
       [
         "assets/scripts/platform/BrowserTestBridge.ts",
-        "abf3cf37286245b15403b78bb41227cdbd1fa3645756484a561890bc4365304a"
+        "78a02e1e8d251fec77ff7d151eb12ef62041f6110ebd8faa87a86b25e7dbe107"
       ],
       [
         "assets/scripts/platform/Feedback.ts",
@@ -83,7 +95,15 @@
       ],
       [
         "assets/scripts/render/BoardLayout.ts",
-        "afb57a7c03a0895a20dc0e41b88fc6c8333a4b76b494c0e54ec9be1e65de6129"
+        "122d0cc1a1bd4fcfdabfb5f917de68b354c50e48f59eb266f1aa29c9ae802826"
+      ],
+      [
+        "assets/scripts/render/LoadingScreen.ts",
+        "f1e19574d4a1b561bab1d081a851bed7d7db2d8cd48d4e2fabbafe5c01612661"
+      ],
+      [
+        "assets/scripts/render/TutorialScreen.ts",
+        "d8db6be952abfa98f8c006f8a163a4b7ffe0c1a28ab27d9f8b756685a164fac1"
       ],
       [
         "assets/scripts/theme/Theme.ts",

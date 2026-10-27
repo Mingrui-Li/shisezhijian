@@ -1,6 +1,6 @@
 {
   "target": "douyin",
-  "verifiedAt": "2026-10-27T06:25:39.268Z",
+  "verifiedAt": "2026-10-27T08:57:55.051Z",
   "output": "/Users/limingrui/IdeaProjects/shisezhijian/game/build/bytedance-mini-game",
   "success": true,
   "checks": [
@@ -65,8 +65,8 @@
       "detail": ""
     }
   ],
-  "fileCount": 41,
-  "totalBytes": 16003846,
+  "fileCount": 44,
+  "totalBytes": 10238962,
   "localAppId": "ttad3cdb8133424e0102",
   "localDevelopmentOnly": false,
   "note": "Package structure and official compiler verification only. This report does not assert browser, simulator, phone, or advertising runtime verification.",
@@ -88,13 +88,8 @@
     },
     {
       "path": "assets/internal/index.js",
-      "bytes": 103596,
-      "sha256": "f9243370c4b83dcd52c5275ad887bb3c780c78f3fba57552433eba9adb08cc5a"
-    },
-    {
-      "path": "assets/internal/index.js.map",
-      "bytes": 200014,
-      "sha256": "5bdb2ed5e43c6dee66d4b919ccd7a958f2d26c4924cb5fdadfc4e5580151a322"
+      "bytes": 103562,
+      "sha256": "d842bf596127320ad8cd42ce506a2817cd8a6402fbec6735e6b13af359a40757"
     },
     {
       "path": "assets/main/config.json",
@@ -118,28 +113,23 @@
     },
     {
       "path": "assets/main/index.js",
-      "bytes": 129369,
-      "sha256": "f8ca29b025234db6e7d9cebff8d8df485a5b92caa9e8be0a0cdbbefb165982c2"
-    },
-    {
-      "path": "assets/main/index.js.map",
-      "bytes": 229540,
-      "sha256": "4952f16a7d82fedfebba62bb2303e399611bbe424ccaf044c16dd20e0b4a8daf"
+      "bytes": 176205,
+      "sha256": "a1d5478186809fc52023c44ad01653dda6ac7bc509916400ae7ff86c55b99d9d"
     },
     {
       "path": "assets/resources/config.json",
-      "bytes": 1678,
-      "sha256": "6901495bf6b7e209c72af4052bdf00c7ff2ca6f2381618d1f2508af793f28216"
+      "bytes": 3720,
+      "sha256": "6812722f4ddd9eb72d6e42cc4c7005e26a7684bc549f79d32bf18327d421ad56"
+    },
+    {
+      "path": "assets/resources/import/07/074cd3a43.json",
+      "bytes": 261,
+      "sha256": "cdc7a3dc5e3d45bcb7b378281337bdc899943a986f4eabcd21c63c684f59ff5e"
     },
     {
       "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506.json",
       "bytes": 72,
       "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
-    },
-    {
-      "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506@6c48a.json",
-      "bytes": 177,
-      "sha256": "22013e0f22b671b892c7431553938a51d96aac318099193a72c321d581883cda"
     },
     {
       "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506@f9941.json",
@@ -152,9 +142,29 @@
       "sha256": "7642ad3f8cdd8a84fa03de7a187e18e30b21487cfc6735c55f1e5630129f7341"
     },
     {
+      "path": "assets/resources/import/5c/5c71a8f9-1482-4ebf-9309-5b20b95b6813.json",
+      "bytes": 72,
+      "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
+    },
+    {
+      "path": "assets/resources/import/5c/5c71a8f9-1482-4ebf-9309-5b20b95b6813@f9941.json",
+      "bytes": 581,
+      "sha256": "a748272462a1ce0830deeb4b1ff86377dcd92edae2e79125f72be5b263fd100c"
+    },
+    {
       "path": "assets/resources/import/a6/a62aa0e1-7433-40fd-a43f-e96d4241fab2.json",
       "bytes": 1135836,
       "sha256": "61884651d7f005f4eb89e161b03ca24ddbc848e32c4a6dfb8f7fcb81cbc7977d"
+    },
+    {
+      "path": "assets/resources/import/d0/d0ac27e3-29e8-4d37-9a96-84b31542cdc8.json",
+      "bytes": 72,
+      "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
+    },
+    {
+      "path": "assets/resources/import/d0/d0ac27e3-29e8-4d37-9a96-84b31542cdc8@f9941.json",
+      "bytes": 583,
+      "sha256": "fb39b75852e9d569f0567e76531e90c295f10d8e4d0dae9b0f61c76ae7ff1462"
     },
     {
       "path": "assets/resources/import/d5/d577e3e9-6d96-46cd-bfdf-21c1a75b556d.json",
@@ -167,19 +177,34 @@
       "sha256": "e117137508aa5fafedfb1a2a0eebc1eb0a91e8b1f80ead8f2069c6b760bdf514"
     },
     {
-      "path": "assets/resources/index.js",
-      "bytes": 658,
-      "sha256": "28d1f0ea5576ab6ed32c9f5502c46ed2e8c13c005e2c1f642803c760c65d0378"
+      "path": "assets/resources/import/f3/f34983c5-25bb-4c89-9587-c6b6ab7f2610.json",
+      "bytes": 72,
+      "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
     },
     {
-      "path": "assets/resources/index.js.map",
-      "bytes": 67,
-      "sha256": "880fa512f75246a8e906cf1d15a7af8e046cd0b670a68078a764ccd4359ab2d1"
+      "path": "assets/resources/import/f3/f34983c5-25bb-4c89-9587-c6b6ab7f2610@f9941.json",
+      "bytes": 667,
+      "sha256": "774538b0ec9bd94aec09747f64f4074768669a20d7ab6a762fda3bff1afd9b2f"
+    },
+    {
+      "path": "assets/resources/index.js",
+      "bytes": 624,
+      "sha256": "a8a8842dba5661964a271fa0d82e5d00ba102dcbfe02407a66ed1a15dd5335bf"
     },
     {
       "path": "assets/resources/native/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506.png",
       "bytes": 365212,
       "sha256": "d2596c9194b48fb41e1b9173a9ac5948fd97d8841f372a228d52070d89f4e6f0"
+    },
+    {
+      "path": "assets/resources/native/5c/5c71a8f9-1482-4ebf-9309-5b20b95b6813.png",
+      "bytes": 1749321,
+      "sha256": "a51e4201e033c450aa3586b045205255214a6b15d61d8127f8be5e25f90bc805"
+    },
+    {
+      "path": "assets/resources/native/d0/d0ac27e3-29e8-4d37-9a96-84b31542cdc8.png",
+      "bytes": 1619148,
+      "sha256": "8c3f10e96dc9393e7ac90da6df5b99844fc4b162674ecb33e5558d5463b7a14b"
     },
     {
       "path": "assets/resources/native/d5/d577e3e9-6d96-46cd-bfdf-21c1a75b556d.wav",
@@ -192,14 +217,14 @@
       "sha256": "b6fd7f8bb751f9372af86534a435598384a609c666a52ed5e297314ed5de6290"
     },
     {
-      "path": "cocos-js/cc.js",
-      "bytes": 3513838,
-      "sha256": "5c0534b697aec0a2544eb338e95ff81a39b643a958b11cae0ec8db22d3a9d94c"
+      "path": "assets/resources/native/f3/f34983c5-25bb-4c89-9587-c6b6ab7f2610.png",
+      "bytes": 1109834,
+      "sha256": "3fb7a5fc81a38b4a9541d5415ffcd6c1cdcd5b56d032fc8cce91e77362bdec05"
     },
     {
-      "path": "cocos-js/cc.js.map",
-      "bytes": 9695088,
-      "sha256": "3591f1947b9d61c0e14d7381fcb637fcb6752e8cdccdfaaa7aa4ab870427e337"
+      "path": "cocos-js/cc.js",
+      "bytes": 3513807,
+      "sha256": "f048cb1f02131b1541d52db9f236b9acf5ca29ee3d02f325632c12b9268dcada"
     },
     {
       "path": "engine-adapter.js",
@@ -228,13 +253,8 @@
     },
     {
       "path": "src/chunks/bundle.js",
-      "bytes": 7278,
-      "sha256": "a880c432834551031381f3155bee15c85a60744a7a908abeb431e17c0cb050f3"
-    },
-    {
-      "path": "src/chunks/bundle.js.map",
-      "bytes": 106054,
-      "sha256": "8efe2da3607eb806900dcbb253a138d6871bd6b5b5e9a8d58496f18b42d2f41f"
+      "bytes": 7243,
+      "sha256": "fc3f944ff5c56b34949cfdf621a290b224dd714c598fbbec27510aa76a44c6f5"
     },
     {
       "path": "src/effect.bin",
@@ -263,13 +283,8 @@
     },
     {
       "path": "src/system.bundle.js",
-      "bytes": 27345,
-      "sha256": "4c9f10e57a855bc6e7b803a1bd6a625f3ce3dba1001f015be83c7fcc30333df4"
-    },
-    {
-      "path": "src/system.bundle.js.map",
-      "bytes": 63257,
-      "sha256": "51f40f3ec0b33f6ae2608076b2f29bda6fbfeafb4945b2993e70b9eb34b04b39"
+      "bytes": 27303,
+      "sha256": "f1bf370e6df5bf58763175b5135fc999c0b09e9a1b75f42e19eb37678c84c157"
     },
     {
       "path": "web-adapter.js",

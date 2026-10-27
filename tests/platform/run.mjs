@@ -13,17 +13,18 @@ const build = mkdtempSync(join(tmpdir(), 'shise-platform-'));
 try {
   // LocalSave's only engine dependency is the injected synchronous storage default.
   const declaration = join(build, 'cc.d.ts');
-  writeFileSync(declaration, 'declare module "cc" { export const sys: { localStorage: { getItem(key:string):string|null; setItem(key:string,value:string):void } }; }\n');
+  writeFileSync(declaration, 'declare module "cc" { export const sys: { isBrowser:boolean; localStorage: { getItem(key:string):string|null; setItem(key:string,value:string):void } }; }\n');
   mkdirSync(join(build, 'node_modules/cc'), { recursive: true });
-  writeFileSync(join(build, 'node_modules/cc/index.js'), 'exports.sys = { localStorage: { getItem() { return null; }, setItem() {} } };\n');
+  writeFileSync(join(build, 'node_modules/cc/index.js'), 'exports.sys = { isBrowser:false, localStorage: { getItem() { return null; }, setItem() {} } };\n');
   const compile = spawnSync(process.execPath, [compiler, '--strict', '--target', 'ES2020', '--module', 'commonjs',
     '--rootDir', join(root, 'game/assets/scripts'), '--outDir', build,
     declaration, join(root, 'game/assets/scripts/platform/LocalSave.ts'),
-    join(root, 'game/assets/scripts/platform/RewardedVideo.ts')], { cwd: root, stdio: 'inherit' });
+    join(root, 'game/assets/scripts/platform/RewardedVideo.ts'),
+    join(root, 'game/assets/scripts/platform/BrowserTestBridge.ts')], { cwd: root, stdio: 'inherit' });
   if (compile.status !== 0) process.exitCode = compile.status ?? 1;
   else {
     const result = spawnSync(process.execPath, ['--test', join(root, 'tests/platform/storage.test.mjs'),
-      join(root, 'tests/platform/rewarded-video.test.mjs')], {
+      join(root, 'tests/platform/rewarded-video.test.mjs'), join(root, 'tests/platform/browser-bridge.test.mjs')], {
       cwd: root, stdio: 'inherit', env: { ...process.env, SHISE_PLATFORM_BUILD: build },
     });
     process.exitCode = result.status ?? 1;

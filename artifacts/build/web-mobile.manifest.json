@@ -1,6 +1,6 @@
 {
   "target": "web-mobile",
-  "verifiedAt": "2026-10-27T06:18:07.045Z",
+  "verifiedAt": "2026-10-27T08:57:54.741Z",
   "output": "/Users/limingrui/IdeaProjects/shisezhijian/game/build/web-mobile",
   "success": true,
   "checks": [
@@ -70,8 +70,8 @@
       "detail": ""
     }
   ],
-  "fileCount": 37,
-  "totalBytes": 17182239,
+  "fileCount": 46,
+  "totalBytes": 21801104,
   "localAppId": null,
   "localDevelopmentOnly": false,
   "note": "Package structure and official compiler verification only. This report does not assert browser, simulator, phone, or advertising runtime verification.",
@@ -123,28 +123,28 @@
     },
     {
       "path": "assets/main/index.js",
-      "bytes": 130625,
-      "sha256": "33d46b26fb28c5047e661f37b15b1823b223af6b86a2d2664656260b0d8014fd"
+      "bytes": 177152,
+      "sha256": "7cdfc9911f22a17e649c068ed17eede25e3799674f5155b9104d35a4f41d78e0"
     },
     {
       "path": "assets/main/index.js.map",
-      "bytes": 230199,
-      "sha256": "591072c01fcecd3419859f0900cb627c6893658e0c5718dcd396d2bf79d02243"
+      "bytes": 320061,
+      "sha256": "8ac695e760be36581cb480e9289c0ecbbe65145bedf16b84e1c526516030ccfd"
     },
     {
       "path": "assets/resources/config.json",
-      "bytes": 1678,
-      "sha256": "6901495bf6b7e209c72af4052bdf00c7ff2ca6f2381618d1f2508af793f28216"
+      "bytes": 3720,
+      "sha256": "6812722f4ddd9eb72d6e42cc4c7005e26a7684bc549f79d32bf18327d421ad56"
+    },
+    {
+      "path": "assets/resources/import/07/074cd3a43.json",
+      "bytes": 261,
+      "sha256": "cdc7a3dc5e3d45bcb7b378281337bdc899943a986f4eabcd21c63c684f59ff5e"
     },
     {
       "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506.json",
       "bytes": 72,
       "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
-    },
-    {
-      "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506@6c48a.json",
-      "bytes": 177,
-      "sha256": "22013e0f22b671b892c7431553938a51d96aac318099193a72c321d581883cda"
     },
     {
       "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506@f9941.json",
@@ -157,9 +157,29 @@
       "sha256": "7642ad3f8cdd8a84fa03de7a187e18e30b21487cfc6735c55f1e5630129f7341"
     },
     {
+      "path": "assets/resources/import/5c/5c71a8f9-1482-4ebf-9309-5b20b95b6813.json",
+      "bytes": 72,
+      "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
+    },
+    {
+      "path": "assets/resources/import/5c/5c71a8f9-1482-4ebf-9309-5b20b95b6813@f9941.json",
+      "bytes": 581,
+      "sha256": "a748272462a1ce0830deeb4b1ff86377dcd92edae2e79125f72be5b263fd100c"
+    },
+    {
       "path": "assets/resources/import/a6/a62aa0e1-7433-40fd-a43f-e96d4241fab2.json",
       "bytes": 1135836,
       "sha256": "61884651d7f005f4eb89e161b03ca24ddbc848e32c4a6dfb8f7fcb81cbc7977d"
+    },
+    {
+      "path": "assets/resources/import/d0/d0ac27e3-29e8-4d37-9a96-84b31542cdc8.json",
+      "bytes": 72,
+      "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
+    },
+    {
+      "path": "assets/resources/import/d0/d0ac27e3-29e8-4d37-9a96-84b31542cdc8@f9941.json",
+      "bytes": 583,
+      "sha256": "fb39b75852e9d569f0567e76531e90c295f10d8e4d0dae9b0f61c76ae7ff1462"
     },
     {
       "path": "assets/resources/import/d5/d577e3e9-6d96-46cd-bfdf-21c1a75b556d.json",
@@ -170,6 +190,16 @@
       "path": "assets/resources/import/df/dfe9bde5-0015-4805-b9ff-280e8dd9ca9a.json",
       "bytes": 117,
       "sha256": "e117137508aa5fafedfb1a2a0eebc1eb0a91e8b1f80ead8f2069c6b760bdf514"
+    },
+    {
+      "path": "assets/resources/import/f3/f34983c5-25bb-4c89-9587-c6b6ab7f2610.json",
+      "bytes": 72,
+      "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
+    },
+    {
+      "path": "assets/resources/import/f3/f34983c5-25bb-4c89-9587-c6b6ab7f2610@f9941.json",
+      "bytes": 667,
+      "sha256": "774538b0ec9bd94aec09747f64f4074768669a20d7ab6a762fda3bff1afd9b2f"
     },
     {
       "path": "assets/resources/index.js",
@@ -187,6 +217,16 @@
       "sha256": "d2596c9194b48fb41e1b9173a9ac5948fd97d8841f372a228d52070d89f4e6f0"
     },
     {
+      "path": "assets/resources/native/5c/5c71a8f9-1482-4ebf-9309-5b20b95b6813.png",
+      "bytes": 1749321,
+      "sha256": "a51e4201e033c450aa3586b045205255214a6b15d61d8127f8be5e25f90bc805"
+    },
+    {
+      "path": "assets/resources/native/d0/d0ac27e3-29e8-4d37-9a96-84b31542cdc8.png",
+      "bytes": 1619148,
+      "sha256": "8c3f10e96dc9393e7ac90da6df5b99844fc4b162674ecb33e5558d5463b7a14b"
+    },
+    {
       "path": "assets/resources/native/d5/d577e3e9-6d96-46cd-bfdf-21c1a75b556d.wav",
       "bytes": 28708,
       "sha256": "2bc7ae50bc62465f5dcbf2c2af9583a2eb4b0a8689d7a16393bdea350113c8ef"
@@ -195,6 +235,11 @@
       "path": "assets/resources/native/df/dfe9bde5-0015-4805-b9ff-280e8dd9ca9a.wav",
       "bytes": 5336,
       "sha256": "b6fd7f8bb751f9372af86534a435598384a609c666a52ed5e297314ed5de6290"
+    },
+    {
+      "path": "assets/resources/native/f3/f34983c5-25bb-4c89-9587-c6b6ab7f2610.png",
+      "bytes": 1109834,
+      "sha256": "3fb7a5fc81a38b4a9541d5415ffcd6c1cdcd5b56d032fc8cce91e77362bdec05"
     },
     {
       "path": "cocos-js/cc.js",

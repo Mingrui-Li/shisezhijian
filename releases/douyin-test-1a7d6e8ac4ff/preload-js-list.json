@@ -1,0 +1,9 @@
+[
+  "web-adapter.js",
+  "src/polyfills.bundle.js",
+  "src/system.bundle.js",
+  "cocos-js/cc.js",
+  "assets/internal/index.js",
+  "assets/resources/index.js",
+  "assets/main/index.js"
+]
