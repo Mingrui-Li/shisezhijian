@@ -1,0 +1,112 @@
+{
+  "target": "douyin",
+  "startedAt": "2026-10-27T06:19:18.058Z",
+  "finishedAt": "2026-10-27T06:20:25.725Z",
+  "editor": "/Applications/Cocos/Creator/3.8.8/CocosCreator.app/Contents/MacOS/CocosCreator",
+  "project": "/Users/limingrui/IdeaProjects/shisezhijian/game",
+  "configPath": "/Users/limingrui/IdeaProjects/shisezhijian/tools/build/douyin.json",
+  "configSha256": "9b98a0cfef0e89ec5e301b34710a70a47f3933b0e27754bab9e2f67060f25033",
+  "configChangedDuringBuild": false,
+  "output": "/Users/limingrui/IdeaProjects/shisezhijian/game/build/bytedance-mini-game",
+  "logPath": "/Users/limingrui/IdeaProjects/shisezhijian/artifacts/build/douyin.log",
+  "exitCode": 36,
+  "signal": null,
+  "success": true,
+  "appid": "ttad3cdb8133424e0102",
+  "localDevelopmentOnly": false,
+  "sourceInputs": {
+    "digest": "4e80df1e92ef1fe3a23ad2a2af89ff54e8248746d416a2ae4d22e77bc11ed0f6",
+    "files": [
+      [
+        "assets/resources/art/brand.png",
+        "d2596c9194b48fb41e1b9173a9ac5948fd97d8841f372a228d52070d89f4e6f0"
+      ],
+      [
+        "assets/resources/audio/complete.wav",
+        "2bc7ae50bc62465f5dcbf2c2af9583a2eb4b0a8689d7a16393bdea350113c8ef"
+      ],
+      [
+        "assets/resources/audio/place.wav",
+        "b6fd7f8bb751f9372af86534a435598384a609c666a52ed5e297314ed5de6290"
+      ],
+      [
+        "assets/resources/generated/content-lock.json",
+        "42692c81f81617e237c87d69a011c83b16d521d19edd24fcf7771947d228b8f8"
+      ],
+      [
+        "assets/resources/generated/levels.json",
+        "3f082b131a0b12fc4359bc7b232064a8ec6aa4642a2c9c20f2c9b62696a4f551"
+      ],
+      [
+        "assets/scenes/Boot.scene",
+        "9639b50926961de1bd884ab328b2b09beb43a6ab454d01edec32f2206e9d8842"
+      ],
+      [
+        "assets/scripts/application/Progress.ts",
+        "67178f02f1d318a7083a7062d417c628f919b788459a35675993db1eac36f7ee"
+      ],
+      [
+        "assets/scripts/application/RestoreProgress.ts",
+        "9778c934e34fbecd5141da215d4de2d9e0afedc5dd916c6d9261cbe69c1dcb9a"
+      ],
+      [
+        "assets/scripts/application/RuntimeConfig.ts",
+        "7f5049a3f33e1dbb2d8fde61cfa56830422618d58d79b680bd1f45b1106c5fd3"
+      ],
+      [
+        "assets/scripts/Boot.ts",
+        "5cd3f24b9b365afa8b0ff19c9d7eeccb5b7e124e6a0c946313e16076e72bd7a3"
+      ],
+      [
+        "assets/scripts/core/index.ts",
+        "2b484a40e650e96cd8b67c92eff36b848afa8efe148be2c781e1f268f87f6ddf"
+      ],
+      [
+        "assets/scripts/platform/BrowserTestBridge.ts",
+        "55072e69751388eab9b4e377e883a1a929f8c8559dda526625688361af313a65"
+      ],
+      [
+        "assets/scripts/platform/Feedback.ts",
+        "a35a99fddb8bbe76b953817963d9ce07ecdcabe7e9f6f081e43dbd8675187b2c"
+      ],
+      [
+        "assets/scripts/platform/LocalSave.ts",
+        "e31a9445e986e03e3551ae2e35da03e60d0572d6ee5a94cfd9f1019b2e383edf"
+      ],
+      [
+        "assets/scripts/platform/RewardedVideo.ts",
+        "ed2dfc29db46157804bfe49c3486ddd469302e86e0b25507f3df906ee43107b9"
+      ],
+      [
+        "assets/scripts/platform/SnapshotStore.ts",
+        "d090b726ef28dd399efd8151285c65a109597c4830dfbfff64d2961dfeb148ee"
+      ],
+      [
+        "assets/scripts/render/BoardLayout.ts",
+        "afb57a7c03a0895a20dc0e41b88fc6c8333a4b76b494c0e54ec9be1e65de6129"
+      ],
+      [
+        "assets/scripts/theme/Theme.ts",
+        "c7ff52c9a658d115d0a17dc3c3e587c2693ea6f5249cd16fb852cc87b334e7ae"
+      ],
+      [
+        "build-templates/web-mobile/index.ejs",
+        "8135168affc210bca8681d68ee966734e7235130e4308683fc15f1f69da28d42"
+      ],
+      [
+        "package.json",
+        "346a80e3fff4088b339938189d66c2167c0cb226f4e4fa97d57218fe6fdb703d"
+      ],
+      [
+        "settings/v2/packages/engine.json",
+        "8326575e01c7e41c284948571ebe58b619a8844456dba13587b146f2f3c6eeca"
+      ],
+      [
+        "settings/v2/packages/project.json",
+        "1581c5440d67c11488e329da7fa8b673543dae612ee3f7aeeff6cb483ffd3df7"
+      ]
+    ]
+  },
+  "sourceChangedDuringBuild": false,
+  "note": ""
+}

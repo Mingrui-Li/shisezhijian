@@ -1,0 +1,15 @@
+{
+  "name": "shisezhijian",
+  "version": "0.1.0",
+  "uuid": "bdd8ce80-743f-469e-b97f-02c354c9b158",
+  "private": true,
+  "scripts": {
+    "build:web": "node ../tools/build/build-cocos.mjs web-mobile",
+    "build:douyin": "node ../tools/build/build-cocos.mjs douyin",
+    "open:douyin": "node ../tools/douyin/project.mjs open",
+    "check:client": "node ../tools/build/check-client.mjs"
+  },
+  "creator": {
+    "version": "3.8.8"
+  }
+}

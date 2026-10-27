@@ -1,0 +1,8 @@
+/game/library/
+/game/temp/
+/game/local/
+/game/build/
+/node_modules/
+/artifacts/*.zip
+*.log
+.DS_Store

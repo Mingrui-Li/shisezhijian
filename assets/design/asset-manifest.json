@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "gameplayMode": "click-fill",
+  "inputMode": "tap",
+  "updatedAt": "2026-10-27",
+  "assets": [
+    {
+      "id": "brand.icon",
+      "path": "assets/branding/shisezhijian-icon-600-v1.png",
+      "usage": "application-icon",
+      "productionReady": true
+    },
+    {
+      "id": "design.tokens",
+      "path": "assets/design/design-tokens.json",
+      "usage": "component-parameters",
+      "productionReady": true
+    },
+    {
+      "id": "design.click-fill-reference",
+      "path": "assets/design/shisezhijian-tap-fill-ui-v1.png",
+      "usage": "reference-only",
+      "productionReady": false,
+      "generator": "built-in-image_gen",
+      "generationPrompt": "assets/design/prompts/tap-fill-ui-v1.txt",
+      "sha256": "35bf16cdc173e866f7d16e5de0b95719fb045ebc8ad9eb1ca5ae5b215bb54008",
+      "bytes": 1226419,
+      "reviewNote": "Upper board 4 anchors + 12 empty slots; lower tray 12 colors. Illustrative UX, not any actual level. Generated shading and colors are not runtime HEX; puzzle faces are flat code-drawn colors."
+    },
+    {
+      "id": "home.loading.decoration",
+      "path": null,
+      "usage": "shared-decoration",
+      "productionReady": false,
+      "status": "planned"
+    },
+    {
+      "id": "runtime.controls",
+      "path": "game/assets/scripts/Boot.ts",
+      "usage": "live-code-components",
+      "productionReady": false,
+      "status": "source-checked-not-engine-verified"
+    }
+  ],
+  "policy": {
+    "runtimeModelCalls": false,
+    "referenceSheetIsRuntimePage": false,
+    "puzzleColorsFromLevelJSON": true,
+    "oneCurrentRuleset": true
+  }
+}

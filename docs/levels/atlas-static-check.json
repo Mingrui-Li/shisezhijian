@@ -1,0 +1,26 @@
+{
+  "contentVersion": "0.4.0-candidate",
+  "status": "pass",
+  "checks": [
+    "embedded-script-syntax",
+    "bank-placeholder-replaced",
+    "100-initial-empty-rail-candidate-cards-and-staircase",
+    "100-natural-themes-actual-corner-strips-and-metrics",
+    "chapter-filter-20-cards",
+    "initial-anchors-empty-slots-and-hex",
+    "candidate-pool-all-levels",
+    "L072-L078-L100-focus-and-full-detail",
+    "shared-branch-four-way-labels",
+    "detail-close",
+    "candidate-page-two-keeps-fixed-home-indices",
+    "author-answer-toggle-hides-tray",
+    "direct-hash-link",
+    "100-level-5-chapter-standalone-colour-overview",
+    "overview-exact-exported-hex-and-atlas-links",
+    "overview-no-external-media-or-code",
+    "schema-three-click-fill-tap-all-levels"
+  ],
+  "browserLaunched": false,
+  "visualInspection": "not-run",
+  "scope": "JavaScript syntax and simulated DOM smoke only; no CSS layout, rendering, touch or real browser certification"
+}

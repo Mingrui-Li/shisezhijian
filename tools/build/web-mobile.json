@@ -1,0 +1,15 @@
+{
+  "name": "拾色之间",
+  "platform": "web-mobile",
+  "buildPath": "project://build",
+  "outputName": "web-mobile",
+  "startScene": "c9a7eca9-0b99-43f9-a12f-783b070b91bc",
+  "scenes": [{ "url": "db://assets/scenes/Boot.scene", "uuid": "c9a7eca9-0b99-43f9-a12f-783b070b91bc" }],
+  "debug": true,
+  "sourceMaps": true,
+  "md5Cache": false,
+  "mainBundleCompressionType": "merge_dep",
+  "packages": {
+    "web-mobile": { "orientation": "portrait", "embedWebDebugger": false }
+  }
+}

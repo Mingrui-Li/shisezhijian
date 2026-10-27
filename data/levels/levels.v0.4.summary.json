@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "3.0.0",
+  "contentVersion": "0.4.0-candidate",
+  "gameplayMode": "click-fill",
+  "levelCount": 100,
+  "dataSha256": "3f082b131a0b12fc4359bc7b232064a8ec6aa4642a2c9c20f2c9b62696a4f551",
+  "acceptedTargetFieldsSha256": "04037c28c139fee60bbea95b43735ba324e596dd8e9bd5785b2ae2ac933a3be3",
+  "namedTemplateCount": 66,
+  "perChapter": [
+    {
+      "chapter": 1,
+      "name": "初见",
+      "cellRange": [
+        3,
+        16
+      ],
+      "candidateRange": [
+        1,
+        11
+      ],
+      "moveBudgetRange": [
+        7,
+        19
+      ],
+      "moveAllowanceRange": [
+        3,
+        9
+      ]
+    },
+    {
+      "chapter": 2,
+      "name": "流转",
+      "cellRange": [
+        16,
+        20
+      ],
+      "candidateRange": [
+        11,
+        15
+      ],
+      "moveBudgetRange": [
+        17,
+        23
+      ],
+      "moveAllowanceRange": [
+        6,
+        9
+      ]
+    },
+    {
+      "chapter": 3,
+      "name": "交汇",
+      "cellRange": [
+        20,
+        25
+      ],
+      "candidateRange": [
+        15,
+        20
+      ],
+      "moveBudgetRange": [
+        21,
+        28
+      ],
+      "moveAllowanceRange": [
+        6,
+        9
+      ]
+    },
+    {
+      "chapter": 4,
+      "name": "微澜",
+      "cellRange": [
+        25,
+        30
+      ],
+      "candidateRange": [
+        20,
+        25
+      ],
+      "moveBudgetRange": [
+        25,
+        32
+      ],
+      "moveAllowanceRange": [
+        5,
+        8
+      ]
+    },
+    {
+      "chapter": 5,
+      "name": "合鸣",
+      "cellRange": [
+        30,
+        36
+      ],
+      "candidateRange": [
+        25,
+        32
+      ],
+      "moveBudgetRange": [
+        30,
+        38
+      ],
+      "moveAllowanceRange": [
+        5,
+        8
+      ]
+    }
+  ],
+  "colourDiversity": {
+    "globalMetrics": {
+      "meanChroma": 0.107885,
+      "minChroma": 0.006712,
+      "maxChroma": 0.209495,
+      "lowChromaThreshold": 0.035,
+      "lowChromaRatio": 0.012494,
+      "belowChroma007Ratio": 0.127175,
+      "vividChroma012Ratio": 0.348505,
+      "meanLightness": 0.64415,
+      "lightnessRange": [
+        0.244722,
+        0.940562
+      ],
+      "hueBins30Degrees": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "chromaWeightedHueHistogram": [
+        0.165219,
+        0.112245,
+        0.066957,
+        0.050517,
+        0.081734,
+        0.067706,
+        0.048845,
+        0.05351,
+        0.100808,
+        0.091547,
+        0.064916,
+        0.095996
+      ],
+      "hueCoverageDegrees": 358.11,
+      "dominantHueBins": [
+        0,
+        1
+      ],
+      "mainColourSignature": "0-1:mid:colourful",
+      "lightnessClass": "mid",
+      "chromaClass": "colourful",
+      "scope": "descriptive actual 8-bit HEX metrics; not a human vision or display guarantee"
+    },
+    "familyCount": 12
+  }
+}

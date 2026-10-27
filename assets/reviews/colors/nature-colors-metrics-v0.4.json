@@ -1,0 +1,61 @@
+{
+  "contentVersion": "0.4.0-candidate",
+  "chapters": [
+    {
+      "chapter": 1,
+      "levelCount": 20,
+      "meanChromaOKLCH": 0.113598,
+      "fractionChromaBelow0_07": 0.070485,
+      "fractionChromaAtLeast0_12": 0.462555,
+      "lightnessRange": [
+        0.273944,
+        0.939674
+      ]
+    },
+    {
+      "chapter": 2,
+      "levelCount": 20,
+      "meanChromaOKLCH": 0.113574,
+      "fractionChromaBelow0_07": 0.088889,
+      "fractionChromaAtLeast0_12": 0.388889,
+      "lightnessRange": [
+        0.244722,
+        0.926348
+      ]
+    },
+    {
+      "chapter": 3,
+      "levelCount": 20,
+      "meanChromaOKLCH": 0.109533,
+      "fractionChromaBelow0_07": 0.107383,
+      "fractionChromaAtLeast0_12": 0.375839,
+      "lightnessRange": [
+        0.314335,
+        0.940562
+      ]
+    },
+    {
+      "chapter": 4,
+      "levelCount": 20,
+      "meanChromaOKLCH": 0.101136,
+      "fractionChromaBelow0_07": 0.170909,
+      "fractionChromaAtLeast0_12": 0.258182,
+      "lightnessRange": [
+        0.311357,
+        0.94053
+      ]
+    },
+    {
+      "chapter": 5,
+      "levelCount": 20,
+      "meanChromaOKLCH": 0.107324,
+      "fractionChromaBelow0_07": 0.144597,
+      "fractionChromaAtLeast0_12": 0.343988,
+      "lightnessRange": [
+        0.315663,
+        0.925327
+      ]
+    }
+  ],
+  "note": "Chroma thresholds describe these exports; they are not universal aesthetic or human-vision thresholds."
+}

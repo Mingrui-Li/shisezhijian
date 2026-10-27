@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0-click-fill",
+  "status": "implementation-candidate",
+  "updatedAt": "2026-10-27",
+  "direction": "轻暖休闲：圆润无衬线、奶油留白、珊瑚胶囊、轻快反馈",
+  "referenceCanvas": {
+    "width": 390,
+    "height": 844,
+    "unit": "logical-pixel",
+    "safeArea": "device-insets"
+  },
+  "colors": {
+    "background": "#FFF9F0",
+    "boardBackground": "#F7F7F2",
+    "surface": "#FFFFFF",
+    "text": "#54483F",
+    "textSecondary": "#75695E",
+    "primary": "#E97860",
+    "primaryPressed": "#E16E57",
+    "onPrimary": "#30221C",
+    "mint": "#D9EEE4",
+    "lilac": "#E9E2F5",
+    "butter": "#FFF0C4",
+    "border": "#E9E1D6",
+    "track": "#C6D0C9",
+    "warning": "#A74630",
+    "selection": "#554D72",
+    "disabled": "#ECE7DF",
+    "scrim": "#54483F"
+  },
+  "spacing": {
+    "unit": 4,
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "xxl": 32
+  },
+  "radii": {
+    "tile": 8,
+    "button": 26,
+    "card": 20,
+    "modal": 28,
+    "pill": 99
+  },
+  "typography": {
+    "family": "sans-serif",
+    "direction": "rounded-sans-chinese",
+    "productionText": "runtime-labels-not-rasterized-text",
+    "fontAsset": null,
+    "fontNote": "首切片使用系统无衬线；正式圆体须取得许可并核验中文覆盖和包体后锁定，不以生成图的字形冒充已接入字体。",
+    "title": {
+      "size": 30,
+      "weight": 600,
+      "lineHeight": 40
+    },
+    "chapter": {
+      "size": 18,
+      "weight": 500,
+      "lineHeight": 26
+    },
+    "body": {
+      "size": 16,
+      "weight": 400,
+      "lineHeight": 24
+    },
+    "button": {
+      "size": 18,
+      "weight": 600,
+      "lineHeight": 26
+    },
+    "caption": {
+      "size": 13,
+      "weight": 400,
+      "lineHeight": 20
+    },
+    "moves": {
+      "size": 20,
+      "weight": 600,
+      "lineHeight": 28
+    }
+  },
+  "controls": {
+    "minimumTouchSize": 48,
+    "primaryHeight": 56,
+    "secondaryHeight": 48,
+    "iconSize": 24,
+    "scrimOpacity": 0.16
+  },
+  "board": {
+    "preferredCellSize": 52,
+    "minimumVisibleCellSize": 44,
+    "preferredGap": 8,
+    "minimumGap": 6,
+    "maximumColumns": 6,
+    "maximumRows": 6,
+    "tileFace": "exact-level-hex",
+    "allowInternalLighting": false,
+    "allowTileOpacityChangeWhileSolving": false,
+    "anchorMarker": "outside-face",
+    "gameplayMode": "click-fill",
+    "trayPosition": "below-board",
+    "trayAlwaysAvailable": true,
+    "showPerTileCorrectness": false,
+    "input": "tap",
+    "trayColumns": 6,
+    "trayRowsPerPage": 3,
+    "trayPageSize": 18,
+    "occupiedTarget": "reject",
+    "returnToHomeTray": "free"
+  },
+  "motion": {
+    "pressMs": 90,
+    "modalMs": 220,
+    "completeMs": 650,
+    "reducedMotionSupported": true,
+    "noIdleBoardAnimation": true,
+    "placementMs": 160
+  },
+  "copy": {
+    "continue": "继续拾色",
+    "failureTitle": "就差一点点",
+    "failureBody": "步数用完了，颜色还为你留着",
+    "revive": "看视频 +{moves} 步",
+    "restart": "免费重开",
+    "back": "返回选关",
+    "undoNote": "撤销不返还步数",
+    "propLabels": [
+      "点睛",
+      "窥色",
+      "续步"
+    ],
+    "instruction": "先点下方颜色，再点上方空格",
+    "returnToTray": "放回待选区",
+    "cancelSelection": "取消选择"
+  },
+  "rulesSource": "docs/GAME_DESIGN.md",
+  "challengeUi": {
+    "movesCounter": true,
+    "lowMovesWarningAt": 3,
+    "propOrder": [
+      "locate",
+      "peek",
+      "addMoves"
+    ],
+    "failureActions": [
+      "revive-video",
+      "restart-free",
+      "back-to-levels"
+    ],
+    "rewardNumbersSource": "level.challenge and current attempt state",
+    "allowFreeSkipUnlock": false,
+    "allowTileFaceWarningTint": false
+  }
+}

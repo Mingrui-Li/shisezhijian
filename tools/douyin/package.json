@@ -1,0 +1,15 @@
+{
+  "name": "shisezhijian-douyin-tools",
+  "private": true,
+  "type": "module",
+  "description": "抖音官方小游戏 CLI 的项目内封装，不含发布命令。",
+  "scripts": {
+    "check": "node project.mjs check",
+    "open": "node project.mjs open",
+    "preview": "node project.mjs preview",
+    "session": "node project.mjs session"
+  },
+  "dependencies": {
+    "tt-minigame-ide-cli": "2.1.2"
+  }
+}

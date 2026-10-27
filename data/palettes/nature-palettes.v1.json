@@ -1,0 +1,1515 @@
+{
+  "schemaVersion": "1.0.0",
+  "version": "nature-palettes.v1",
+  "status": "authored-artistic-seeds",
+  "encoding": "sRGB 8-bit HEX",
+  "cornersOrder": [
+    "topLeft",
+    "topRight",
+    "bottomLeft",
+    "bottomRight"
+  ],
+  "note": "100组原创自然主题调色种子；最终关卡颜色由色域、可辨识性及二维推理校验后确定。本文件不代表自然物的标准色或最终色差承诺。",
+  "palettes": [
+    {
+      "number": 1,
+      "id": "L001",
+      "themeId": "nature-001",
+      "themeName": "晨光杏云",
+      "family": "日出晚霞",
+      "mood": "明亮",
+      "cornersHex": [
+        "#D64D51",
+        "#FF9D68",
+        "#F18279",
+        "#FFE7A1"
+      ],
+      "brief": "杏橘晨光照亮玫瑰色云边，横向由玫瑰转金，纵向由浓转浅。"
+    },
+    {
+      "number": 2,
+      "id": "L002",
+      "themeId": "nature-002",
+      "themeName": "晴海初蓝",
+      "family": "海洋珊瑚",
+      "mood": "清透",
+      "cornersHex": [
+        "#155EAD",
+        "#21AED0",
+        "#6F9EE8",
+        "#B7EDEB"
+      ],
+      "brief": "宝蓝浅海与青蓝浪尖交会，清亮而有足够色深。"
+    },
+    {
+      "number": 3,
+      "id": "L003",
+      "themeId": "nature-003",
+      "themeName": "杏熟枝头",
+      "family": "果实",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#A83D25",
+        "#EE771D",
+        "#D46B59",
+        "#FFD077"
+      ],
+      "brief": "成熟杏果由红褐果皮过渡到橙金果肉，保留暖色层次。"
+    },
+    {
+      "number": 4,
+      "id": "L004",
+      "themeId": "nature-004",
+      "themeName": "溪边新叶",
+      "family": "森林苔藓",
+      "mood": "清新",
+      "cornersHex": [
+        "#147961",
+        "#5CBD72",
+        "#3D9AA2",
+        "#B7E5AB"
+      ],
+      "brief": "溪水的青绿与新叶的嫩绿交织，避免统一灰绿。"
+    },
+    {
+      "number": 5,
+      "id": "L005",
+      "themeId": "nature-005",
+      "themeName": "荷塘花影",
+      "family": "花卉",
+      "mood": "柔和",
+      "cornersHex": [
+        "#AF3F87",
+        "#EE72A8",
+        "#9B79CC",
+        "#F8C6DC"
+      ],
+      "brief": "荷瓣的玫红、淡粉与水中紫影交汇，柔和仍有鲜明色相。"
+    },
+    {
+      "number": 6,
+      "id": "L006",
+      "themeId": "nature-006",
+      "themeName": "翡翠初见",
+      "family": "矿石宝石",
+      "mood": "深邃",
+      "cornersHex": [
+        "#064D50",
+        "#119C76",
+        "#1B717F",
+        "#7DDBB2"
+      ],
+      "brief": "深翠玉石由蓝绿内影转向透光的苹果绿边缘。"
+    },
+    {
+      "number": 7,
+      "id": "L007",
+      "themeId": "nature-007",
+      "themeName": "枫叶晚风",
+      "family": "秋叶",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#8F2539",
+        "#D54527",
+        "#C87345",
+        "#F2BA45"
+      ],
+      "brief": "枫叶的酒红、朱红、铜橙与金黄构成温热小景。"
+    },
+    {
+      "number": 8,
+      "id": "L008",
+      "themeId": "nature-008",
+      "themeName": "雪上桃光",
+      "family": "冰雪极光",
+      "mood": "柔和",
+      "cornersHex": [
+        "#849CD5",
+        "#CAB7E6",
+        "#B4DDEB",
+        "#FFE0E7"
+      ],
+      "brief": "雪面冷蓝映出淡桃天光，亮色里保留冷暖辨识。"
+    },
+    {
+      "number": 9,
+      "id": "L009",
+      "themeId": "nature-009",
+      "themeName": "竹梢春雨",
+      "family": "森林苔藓",
+      "mood": "明亮",
+      "cornersHex": [
+        "#286B39",
+        "#7DB536",
+        "#54A583",
+        "#DBE99D"
+      ],
+      "brief": "竹林墨绿向黄绿嫩梢展开，雨后青翠贯穿全盘。"
+    },
+    {
+      "number": 10,
+      "id": "L010",
+      "themeId": "nature-010",
+      "themeName": "蓝调晴窗",
+      "family": "夜空荧光",
+      "mood": "深邃",
+      "cornersHex": [
+        "#142157",
+        "#5C41A1",
+        "#346AB4",
+        "#B6A5E9"
+      ],
+      "brief": "暮蓝窗景从深靛转紫罗兰，以偏亮蓝光拉开纵向。"
+    },
+    {
+      "number": 11,
+      "id": "L011",
+      "themeId": "nature-011",
+      "themeName": "翠鸟掠水",
+      "family": "鸟羽昆虫",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#007B8B",
+        "#2164C2",
+        "#39C9AB",
+        "#8CB9F2"
+      ],
+      "brief": "翠鸟的蓝羽与湖面青光相接，展现鲜亮冷色。"
+    },
+    {
+      "number": 12,
+      "id": "L012",
+      "themeId": "nature-012",
+      "themeName": "贝湾微蓝",
+      "family": "海洋珊瑚",
+      "mood": "清透",
+      "cornersHex": [
+        "#3565B7",
+        "#37B4C9",
+        "#9EAEEA",
+        "#D1F3EB"
+      ],
+      "brief": "贝湾从矢车菊蓝流向薄荷浪沫，浅色不挤成一片白。"
+    },
+    {
+      "number": 13,
+      "id": "L013",
+      "themeId": "nature-013",
+      "themeName": "桂香秋阳",
+      "family": "秋叶",
+      "mood": "明亮",
+      "cornersHex": [
+        "#986024",
+        "#DFA727",
+        "#D99F60",
+        "#FFF0AB"
+      ],
+      "brief": "桂花时节的蜂蜜金、暖赭与奶黄阳光。"
+    },
+    {
+      "number": 14,
+      "id": "L014",
+      "themeId": "nature-014",
+      "themeName": "紫藤垂影",
+      "family": "花卉",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#593384",
+        "#9F48B6",
+        "#6F6BC7",
+        "#E2A3DF"
+      ],
+      "brief": "紫藤由蓝紫阴影转向红紫花穗，双向保持紫色家族。"
+    },
+    {
+      "number": 15,
+      "id": "L015",
+      "themeId": "nature-015",
+      "themeName": "蜂鸟入春",
+      "family": "鸟羽昆虫",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#137D45",
+        "#9CB82A",
+        "#21B3A2",
+        "#D9E87C"
+      ],
+      "brief": "蜂鸟羽毛的翠绿与柠檬金带出轻快春意。"
+    },
+    {
+      "number": 16,
+      "id": "L016",
+      "themeId": "nature-016",
+      "themeName": "沙丘柔光",
+      "family": "沙漠岩石",
+      "mood": "柔和",
+      "cornersHex": [
+        "#B16B63",
+        "#D7A06A",
+        "#D8A5A7",
+        "#F8DDA6"
+      ],
+      "brief": "粉砂岩与柔金沙丘交织，温柔而不灰浊。"
+    },
+    {
+      "number": 17,
+      "id": "L017",
+      "themeId": "nature-017",
+      "themeName": "蓝莓覆盆",
+      "family": "果实",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#38358A",
+        "#9F2F76",
+        "#7259B6",
+        "#EA79AE"
+      ],
+      "brief": "蓝莓蓝紫和覆盆子红紫相邻，浓色盘也能清楚分向。"
+    },
+    {
+      "number": 18,
+      "id": "L018",
+      "themeId": "nature-018",
+      "themeName": "孔雀石泉",
+      "family": "矿石宝石",
+      "mood": "清透",
+      "cornersHex": [
+        "#126F73",
+        "#3EB99E",
+        "#3D94B3",
+        "#B8E7BD"
+      ],
+      "brief": "矿石蓝绿纹理过渡到透亮薄荷玉色。"
+    },
+    {
+      "number": 19,
+      "id": "L019",
+      "themeId": "nature-019",
+      "themeName": "熔金石阶",
+      "family": "火山熔岩",
+      "mood": "炽烈",
+      "cornersHex": [
+        "#6E1D30",
+        "#B7351F",
+        "#B65A27",
+        "#FFB33F"
+      ],
+      "brief": "暗红岩缝涌出橘红与金色热光，明确深浅和温度层级。"
+    },
+    {
+      "number": 20,
+      "id": "L020",
+      "themeId": "nature-020",
+      "themeName": "极光初幕",
+      "family": "冰雪极光",
+      "mood": "深邃",
+      "cornersHex": [
+        "#183769",
+        "#3B3B91",
+        "#168C8E",
+        "#87C8D5"
+      ],
+      "brief": "靛蓝极夜中升起青绿色光幕，淡紫只停留在天空边缘。"
+    },
+    {
+      "number": 21,
+      "id": "L021",
+      "themeId": "nature-021",
+      "themeName": "丹霞风径",
+      "family": "沙漠岩石",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#8B324B",
+        "#D76539",
+        "#BD6F7E",
+        "#F4BE7C"
+      ],
+      "brief": "丹霞紫红岩壁受橘光照亮，暖岩色具有明显粉紫支线。"
+    },
+    {
+      "number": 22,
+      "id": "L022",
+      "themeId": "nature-022",
+      "themeName": "朱槿回廊",
+      "family": "花卉",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#A61550",
+        "#E33443",
+        "#D24F8A",
+        "#FF9A7D"
+      ],
+      "brief": "朱槿的红心与粉红花缘，以珊瑚橙打开亮部。"
+    },
+    {
+      "number": 23,
+      "id": "L023",
+      "themeId": "nature-023",
+      "themeName": "薄荷茶园",
+      "family": "森林苔藓",
+      "mood": "清新",
+      "cornersHex": [
+        "#176E59",
+        "#6EAF3F",
+        "#4EB59D",
+        "#C5E49B"
+      ],
+      "brief": "茶叶深绿与薄荷嫩绿交错，清爽但不依靠去饱和。"
+    },
+    {
+      "number": 24,
+      "id": "L024",
+      "themeId": "nature-024",
+      "themeName": "晴日金笺",
+      "family": "日出晚霞",
+      "mood": "明亮",
+      "cornersHex": [
+        "#9B421F",
+        "#E9B52D",
+        "#D8709D",
+        "#FFE3A1"
+      ],
+      "brief": "晴日橙金云边与玫粉晨雾交织，深橘到浅金的光线贯穿全盘。"
+    },
+    {
+      "number": 25,
+      "id": "L025",
+      "themeId": "nature-025",
+      "themeName": "蓝铜山路",
+      "family": "矿石宝石",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#133C92",
+        "#276AD1",
+        "#0F8697",
+        "#72D5D4"
+      ],
+      "brief": "蓝铜矿的深宝蓝、亮蓝、孔雀青与水青纹路。"
+    },
+    {
+      "number": 26,
+      "id": "L026",
+      "themeId": "nature-026",
+      "themeName": "潟湖两岸",
+      "family": "海洋珊瑚",
+      "mood": "清透",
+      "cornersHex": [
+        "#006A8E",
+        "#1AB0AD",
+        "#368DC8",
+        "#ABEBDA"
+      ],
+      "brief": "潟湖由深青蓝向绿松石浅滩展开，波光清楚。"
+    },
+    {
+      "number": 27,
+      "id": "L027",
+      "themeId": "nature-027",
+      "themeName": "帝蝶光标",
+      "family": "鸟羽昆虫",
+      "mood": "明亮",
+      "cornersHex": [
+        "#9E3B20",
+        "#DD8A20",
+        "#DB7350",
+        "#FFE091"
+      ],
+      "brief": "帝王蝶橙翼从焦红边缘过渡到金色阳光。"
+    },
+    {
+      "number": 28,
+      "id": "L028",
+      "themeId": "nature-028",
+      "themeName": "红柚停靠",
+      "family": "果实",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#A91E52",
+        "#E83F47",
+        "#C860A1",
+        "#FFA681"
+      ],
+      "brief": "红柚果瓤由莓红果心走向珊瑚红和蜜桃汁光，玫粉反射与前关帝蝶的橙金明显区分。"
+    },
+    {
+      "number": 29,
+      "id": "L029",
+      "themeId": "nature-029",
+      "themeName": "蓝萤回响",
+      "family": "夜空荧光",
+      "mood": "深邃",
+      "cornersHex": [
+        "#151B57",
+        "#54309C",
+        "#1D6E9B",
+        "#A17DD9"
+      ],
+      "brief": "蓝萤划过靛蓝夜幕，青蓝光与紫色夜云相互牵引。"
+    },
+    {
+      "number": 30,
+      "id": "L030",
+      "themeId": "nature-030",
+      "themeName": "冰川雨巷",
+      "family": "冰雪极光",
+      "mood": "清透",
+      "cornersHex": [
+        "#366C9F",
+        "#529EB6",
+        "#9EABE0",
+        "#C9EAF0"
+      ],
+      "brief": "冰川的湖蓝、冷紫与浅冰青构成通透雨后冷调。"
+    },
+    {
+      "number": 31,
+      "id": "L031",
+      "themeId": "nature-031",
+      "themeName": "乌桕双叶",
+      "family": "秋叶",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#7B2347",
+        "#C6413F",
+        "#B96845",
+        "#EBC460"
+      ],
+      "brief": "乌桕的紫红叶背和朱红叶面，映出温暖秋金。"
+    },
+    {
+      "number": 32,
+      "id": "L032",
+      "themeId": "nature-032",
+      "themeName": "苜蓿浅草",
+      "family": "森林苔藓",
+      "mood": "明亮",
+      "cornersHex": [
+        "#3A7B38",
+        "#87B83C",
+        "#68AC79",
+        "#D5E9A0"
+      ],
+      "brief": "苜蓿绿到嫩草黄绿，底部带一束透光青绿。"
+    },
+    {
+      "number": 33,
+      "id": "L033",
+      "themeId": "nature-033",
+      "themeName": "火山长风",
+      "family": "火山熔岩",
+      "mood": "炽烈",
+      "cornersHex": [
+        "#4E1835",
+        "#9F2033",
+        "#963B48",
+        "#F17632"
+      ],
+      "brief": "紫黑火山岩与红橙熔流并存，保留岩影的冷紫。"
+    },
+    {
+      "number": 34,
+      "id": "L034",
+      "themeId": "nature-034",
+      "themeName": "海胆潮色",
+      "family": "海洋珊瑚",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#39328F",
+        "#6B4BC1",
+        "#315BAE",
+        "#AE9DE2"
+      ],
+      "brief": "海胆蓝紫与深潮蓝相接，用紫丁香反光展开亮部。"
+    },
+    {
+      "number": 35,
+      "id": "L035",
+      "themeId": "nature-035",
+      "themeName": "月下靛河",
+      "family": "夜空荧光",
+      "mood": "深邃",
+      "cornersHex": [
+        "#111D43",
+        "#343F83",
+        "#34667B",
+        "#A3BCD7"
+      ],
+      "brief": "月夜靛河由近黑蓝过渡到银蓝水光，安静却不失色。"
+    },
+    {
+      "number": 36,
+      "id": "L036",
+      "themeId": "nature-036",
+      "themeName": "睡莲花舟",
+      "family": "花卉",
+      "mood": "柔和",
+      "cornersHex": [
+        "#C85C91",
+        "#E9949C",
+        "#C59DCB",
+        "#FFE0C9"
+      ],
+      "brief": "睡莲的藕粉、暖粉与淡紫花影，亮面呈蜜桃色。"
+    },
+    {
+      "number": 37,
+      "id": "L037",
+      "themeId": "nature-037",
+      "themeName": "海蓝宝径",
+      "family": "矿石宝石",
+      "mood": "清透",
+      "cornersHex": [
+        "#0A5C86",
+        "#31BCD1",
+        "#189B7A",
+        "#C4EBA2"
+      ],
+      "brief": "海蓝宝的湖蓝内影、鲜青与嫩绿透光边，像晶体里的两道折光。"
+    },
+    {
+      "number": 38,
+      "id": "L038",
+      "themeId": "nature-038",
+      "themeName": "极光弯月",
+      "family": "冰雪极光",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#12365E",
+        "#3D3D85",
+        "#119A7D",
+        "#A4D9C8"
+      ],
+      "brief": "青碧极光从蓝夜中升起，薄荷亮部留出呼吸。"
+    },
+    {
+      "number": 39,
+      "id": "L039",
+      "themeId": "nature-039",
+      "themeName": "金甲交辉",
+      "family": "鸟羽昆虫",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#2C5E37",
+        "#8B9220",
+        "#1D9C78",
+        "#D0D874"
+      ],
+      "brief": "金龟甲壳的墨绿、古金与翠青反光，避免一律灰绿。"
+    },
+    {
+      "number": 40,
+      "id": "L040",
+      "themeId": "nature-040",
+      "themeName": "朝霞成诗",
+      "family": "日出晚霞",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#843A94",
+        "#D44977",
+        "#E47C63",
+        "#FFD28A"
+      ],
+      "brief": "紫霞经玫红转向橙金，像日出时层叠的云幕。"
+    },
+    {
+      "number": 41,
+      "id": "L041",
+      "themeId": "nature-041",
+      "themeName": "葡萄柚晨露",
+      "family": "果实",
+      "mood": "明亮",
+      "cornersHex": [
+        "#D94F59",
+        "#EF9346",
+        "#EB8EA0",
+        "#FFE69B"
+      ],
+      "brief": "西柚玫红果瓤和金黄果皮，带透亮粉色汁光。"
+    },
+    {
+      "number": 42,
+      "id": "L042",
+      "themeId": "nature-042",
+      "themeName": "雨林晴岚",
+      "family": "森林苔藓",
+      "mood": "深邃",
+      "cornersHex": [
+        "#084E55",
+        "#176F42",
+        "#248D9B",
+        "#9BC686"
+      ],
+      "brief": "热带雨林的蓝绿深影与鲜绿受光叶片交错。"
+    },
+    {
+      "number": 43,
+      "id": "L043",
+      "themeId": "nature-043",
+      "themeName": "紫晶微光",
+      "family": "矿石宝石",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#512C88",
+        "#9A46A5",
+        "#7A69CD",
+        "#E7A2D0"
+      ],
+      "brief": "紫晶由皇家紫向莓紫和长春花蓝两侧折射。"
+    },
+    {
+      "number": 44,
+      "id": "L044",
+      "themeId": "nature-044",
+      "themeName": "薄荷浪线",
+      "family": "海洋珊瑚",
+      "mood": "清新",
+      "cornersHex": [
+        "#087A75",
+        "#56BB9C",
+        "#279FAC",
+        "#BAE9CE"
+      ],
+      "brief": "海水中的薄荷浪纹，青绿与蓝绿有独立方向。"
+    },
+    {
+      "number": 45,
+      "id": "L045",
+      "themeId": "nature-045",
+      "themeName": "赤焰转角",
+      "family": "火山熔岩",
+      "mood": "炽烈",
+      "cornersHex": [
+        "#671D29",
+        "#B72C21",
+        "#AF5359",
+        "#FFAA4B"
+      ],
+      "brief": "深榴红火口向鲜朱红、岩红和橙金热光展开。"
+    },
+    {
+      "number": 46,
+      "id": "L046",
+      "themeId": "nature-046",
+      "themeName": "鸢尾右岸",
+      "family": "花卉",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#304FB2",
+        "#7346BE",
+        "#5899D7",
+        "#C09EE4"
+      ],
+      "brief": "鸢尾的钴蓝、蓝紫和淡紫花缘，在冷色中表现层次。"
+    },
+    {
+      "number": 47,
+      "id": "L047",
+      "themeId": "nature-047",
+      "themeName": "萤谷横竖",
+      "family": "夜空荧光",
+      "mood": "深邃",
+      "cornersHex": [
+        "#153D44",
+        "#205C31",
+        "#14797F",
+        "#8EBF71"
+      ],
+      "brief": "森林夜色里的蓝绿暗部与黄绿萤光，绿色也有夜景。"
+    },
+    {
+      "number": 48,
+      "id": "L048",
+      "themeId": "nature-048",
+      "themeName": "杏花朝云",
+      "family": "日出晚霞",
+      "mood": "柔和",
+      "cornersHex": [
+        "#D16883",
+        "#ECA77F",
+        "#DDA7CD",
+        "#FFE4B6"
+      ],
+      "brief": "杏粉晨云带淡紫背光和暖杏亮边，软而不脏。"
+    },
+    {
+      "number": 49,
+      "id": "L049",
+      "themeId": "nature-049",
+      "themeName": "凤蝶合心",
+      "family": "鸟羽昆虫",
+      "mood": "明亮",
+      "cornersHex": [
+        "#496C2B",
+        "#B6B52E",
+        "#39A38B",
+        "#DFE58B"
+      ],
+      "brief": "凤蝶翅面把黄绿金与翠绿排列为两条连续脉络。"
+    },
+    {
+      "number": 50,
+      "id": "L050",
+      "themeId": "nature-050",
+      "themeName": "虞美人岔光",
+      "family": "花卉",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#9C163E",
+        "#E34D30",
+        "#CC5E80",
+        "#FFA775"
+      ],
+      "brief": "虞美人深红花心、朱橙花瓣与玫粉透光边缘。"
+    },
+    {
+      "number": 51,
+      "id": "L051",
+      "themeId": "nature-051",
+      "themeName": "赭砂长短",
+      "family": "沙漠岩石",
+      "mood": "温暖",
+      "cornersHex": [
+        "#853D30",
+        "#BD7835",
+        "#B9767E",
+        "#EFC58D"
+      ],
+      "brief": "赭红砂岩、暖金沙砾与粉岩反光构成干燥暖调。"
+    },
+    {
+      "number": 52,
+      "id": "L052",
+      "themeId": "nature-052",
+      "themeName": "冻雨初停",
+      "family": "冰雪极光",
+      "mood": "清透",
+      "cornersHex": [
+        "#4387A9",
+        "#59B5B4",
+        "#A2AEDC",
+        "#D8EDE1"
+      ],
+      "brief": "冻雨留下水青冰面和浅紫天光，轻快而不泛灰。"
+    },
+    {
+      "number": 53,
+      "id": "L053",
+      "themeId": "nature-053",
+      "themeName": "蓝洞回声",
+      "family": "海洋珊瑚",
+      "mood": "深邃",
+      "cornersHex": [
+        "#082B6F",
+        "#713BB2",
+        "#1B9CA2",
+        "#A9DEF0"
+      ],
+      "brief": "蓝洞深海蓝向紫色岩影和水青反光展开，蓝色水光将二者连接。"
+    },
+    {
+      "number": 54,
+      "id": "L054",
+      "themeId": "nature-054",
+      "themeName": "柠叶相知",
+      "family": "森林苔藓",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#27793A",
+        "#A2BB29",
+        "#32AC8B",
+        "#DFE779"
+      ],
+      "brief": "柠檬叶深绿、黄绿新芽与青翠叶背，形成鲜明绿盘。"
+    },
+    {
+      "number": 55,
+      "id": "L055",
+      "themeId": "nature-055",
+      "themeName": "火烧霞心",
+      "family": "日出晚霞",
+      "mood": "炽烈",
+      "cornersHex": [
+        "#A62C74",
+        "#E84D50",
+        "#EA7F8D",
+        "#FFD566"
+      ],
+      "brief": "霞光由覆盆玫红涌向朱橙金，保留亮粉云影。"
+    },
+    {
+      "number": 56,
+      "id": "L056",
+      "themeId": "nature-056",
+      "themeName": "月长石歌",
+      "family": "矿石宝石",
+      "mood": "柔和",
+      "cornersHex": [
+        "#758CC9",
+        "#B5ACDC",
+        "#8ECAD3",
+        "#E6E6EB"
+      ],
+      "brief": "月长石蓝晕与紫晕交织，浅冷白仍含微妙色偏。"
+    },
+    {
+      "number": 57,
+      "id": "L057",
+      "themeId": "nature-057",
+      "themeName": "蓝翎湖影",
+      "family": "鸟羽昆虫",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#0B6E95",
+        "#315EC1",
+        "#22BDAC",
+        "#8EBCED"
+      ],
+      "brief": "蓝翎鸟的深湖蓝与群青翅羽，映入明亮浅青水面。"
+    },
+    {
+      "number": 58,
+      "id": "L058",
+      "themeId": "nature-058",
+      "themeName": "银杏山环",
+      "family": "秋叶",
+      "mood": "明亮",
+      "cornersHex": [
+        "#85702B",
+        "#DCA82B",
+        "#A7AA52",
+        "#F8E6A0"
+      ],
+      "brief": "银杏由橄榄金转向明亮金黄，叶背带黄绿暖影。"
+    },
+    {
+      "number": 59,
+      "id": "L059",
+      "themeId": "nature-059",
+      "themeName": "山竹暮紫",
+      "family": "果实",
+      "mood": "深邃",
+      "cornersHex": [
+        "#50234D",
+        "#913052",
+        "#754C91",
+        "#CE7EA6"
+      ],
+      "brief": "山竹外壳的紫黑、葡萄紫与红莓反光，不以灰色充当深色。"
+    },
+    {
+      "number": 60,
+      "id": "L060",
+      "themeId": "nature-060",
+      "themeName": "熔光成景",
+      "family": "火山熔岩",
+      "mood": "炽烈",
+      "cornersHex": [
+        "#7B2730",
+        "#CC5920",
+        "#C8715B",
+        "#FFE078"
+      ],
+      "brief": "火山红褐岩面被橙黄热光照亮，暖粉反射拉开第二轴。"
+    },
+    {
+      "number": 61,
+      "id": "L061",
+      "themeId": "nature-061",
+      "themeName": "雪松晴白",
+      "family": "冰雪极光",
+      "mood": "清透",
+      "cornersHex": [
+        "#4552AA",
+        "#9BC6E3",
+        "#72C4B3",
+        "#E4D4EA"
+      ],
+      "brief": "晴雪映出靛紫山影、明亮冰青和淡紫天光，雪白仍留有两种色向。"
+    },
+    {
+      "number": 62,
+      "id": "L062",
+      "themeId": "nature-062",
+      "themeName": "苔谷露珠",
+      "family": "森林苔藓",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#215F35",
+        "#91A632",
+        "#2C9E72",
+        "#CEE193"
+      ],
+      "brief": "苔谷深绿与明亮草金相连，露珠处浮出青翠光。"
+    },
+    {
+      "number": 63,
+      "id": "L063",
+      "themeId": "nature-063",
+      "themeName": "暮云紫廊",
+      "family": "夜空荧光",
+      "mood": "深邃",
+      "cornersHex": [
+        "#342559",
+        "#863D80",
+        "#4056A3",
+        "#BE82BE"
+      ],
+      "brief": "暮云从靛紫过渡到玫紫，蓝色天光撑起下侧。"
+    },
+    {
+      "number": 64,
+      "id": "L064",
+      "themeId": "nature-064",
+      "themeName": "晴蓝远湾",
+      "family": "海洋珊瑚",
+      "mood": "明亮",
+      "cornersHex": [
+        "#175BAF",
+        "#129FC6",
+        "#658DDF",
+        "#A9E7E9"
+      ],
+      "brief": "蓝湾铺开宝蓝、湖青、矢车菊蓝和浅冰青。"
+    },
+    {
+      "number": 65,
+      "id": "L065",
+      "themeId": "nature-065",
+      "themeName": "琥珀紫影",
+      "family": "矿石宝石",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#51469E",
+        "#DDA824",
+        "#C66D3B",
+        "#F3E0A5"
+      ],
+      "brief": "琥珀金与蓝紫岩影相遇，赭橙晶心和透亮浅金形成独立色向。"
+    },
+    {
+      "number": 66,
+      "id": "L066",
+      "themeId": "nature-066",
+      "themeName": "藕荷轻弯",
+      "family": "花卉",
+      "mood": "柔和",
+      "cornersHex": [
+        "#AA5A9D",
+        "#D586B0",
+        "#9F8FD3",
+        "#F2CFDC"
+      ],
+      "brief": "藕荷花瓣的玫紫与浅藕粉，花影偏蓝紫。"
+    },
+    {
+      "number": 67,
+      "id": "L067",
+      "themeId": "nature-067",
+      "themeName": "丹枫路标",
+      "family": "秋叶",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#962647",
+        "#D75127",
+        "#C56275",
+        "#F5BE5B"
+      ],
+      "brief": "丹枫红叶向橙金叶尖过渡，粉红背光独立于黄轴。"
+    },
+    {
+      "number": 68,
+      "id": "L068",
+      "themeId": "nature-068",
+      "themeName": "蜜杏片刻",
+      "family": "果实",
+      "mood": "明亮",
+      "cornersHex": [
+        "#BD4E28",
+        "#EFAD2C",
+        "#D678A5",
+        "#FFE59E"
+      ],
+      "brief": "蜜杏的橙红果皮与金黄果肉，玫粉背光带来独立冷暖线索。"
+    },
+    {
+      "number": 69,
+      "id": "L069",
+      "themeId": "nature-069",
+      "themeName": "雨后玉枝",
+      "family": "森林苔藓",
+      "mood": "清新",
+      "cornersHex": [
+        "#0E7355",
+        "#6EAE43",
+        "#23B1A0",
+        "#C1E3A1"
+      ],
+      "brief": "雨洗玉绿、鲜青枝梢与黄绿嫩叶连成生动绿场。"
+    },
+    {
+      "number": 70,
+      "id": "L070",
+      "themeId": "nature-070",
+      "themeName": "松鸦蓝羽",
+      "family": "鸟羽昆虫",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#264B82",
+        "#4579BF",
+        "#397D95",
+        "#9BC8DE"
+      ],
+      "brief": "松鸦羽色从藏蓝与明蓝交错转向清亮青灰蓝。"
+    },
+    {
+      "number": 71,
+      "id": "L071",
+      "themeId": "nature-071",
+      "themeName": "玫瑰沙光",
+      "family": "沙漠岩石",
+      "mood": "柔和",
+      "cornersHex": [
+        "#B77678",
+        "#D7A16C",
+        "#D7A1BA",
+        "#F4DAB0"
+      ],
+      "brief": "玫瑰沙丘在低角度光中呈粉赭、杏金和淡粉紫。"
+    },
+    {
+      "number": 72,
+      "id": "L072",
+      "themeId": "nature-072",
+      "themeName": "草莓甜停",
+      "family": "果实",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#A9204D",
+        "#EC4F59",
+        "#D774AC",
+        "#FFBDA0"
+      ],
+      "brief": "草莓籽旁的红莓深色过渡到鲜红、玫粉和蜜桃光。"
+    },
+    {
+      "number": 73,
+      "id": "L073",
+      "themeId": "nature-073",
+      "themeName": "萤石蓝阶",
+      "family": "矿石宝石",
+      "mood": "清透",
+      "cornersHex": [
+        "#3E53AC",
+        "#8358B7",
+        "#56A2BB",
+        "#C0B2E4"
+      ],
+      "brief": "蓝紫萤石的紫色与水青折光，双色透明晶体的感觉。"
+    },
+    {
+      "number": 74,
+      "id": "L074",
+      "themeId": "nature-074",
+      "themeName": "火山碧湖",
+      "family": "火山熔岩",
+      "mood": "深邃",
+      "cornersHex": [
+        "#123E56",
+        "#0D956A",
+        "#696EBC",
+        "#A5E0C5"
+      ],
+      "brief": "火山口碧湖映出靛蓝岩壁、翠绿水色和蓝紫暮光，玉绿湖光汇合于远处。"
+    },
+    {
+      "number": 75,
+      "id": "L075",
+      "themeId": "nature-075",
+      "themeName": "冰原远山",
+      "family": "冰雪极光",
+      "mood": "清透",
+      "cornersHex": [
+        "#4975BA",
+        "#81AFC6",
+        "#97A0D6",
+        "#D2E9DE"
+      ],
+      "brief": "冰原山影偏蓝紫，冰湖亮部偏青绿，避免单色浅蓝。"
+    },
+    {
+      "number": 76,
+      "id": "L076",
+      "themeId": "nature-076",
+      "themeName": "贝壳轻转",
+      "family": "海洋珊瑚",
+      "mood": "清新",
+      "cornersHex": [
+        "#B26972",
+        "#E2B446",
+        "#E2A1AF",
+        "#F8E7AE"
+      ],
+      "brief": "日光下的贝壳呈暖玫瑰、珍珠粉与浅金奶黄，接在冰原冷蓝之后带来温暖的海岸换景。"
+    },
+    {
+      "number": 77,
+      "id": "L077",
+      "themeId": "nature-077",
+      "themeName": "暮云珊霞",
+      "family": "日出晚霞",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#78396F",
+        "#C75D5C",
+        "#A66FBE",
+        "#F4B887"
+      ],
+      "brief": "暮云深紫经莓红转向暖珊瑚光，紫影和金光双轴推进。"
+    },
+    {
+      "number": 78,
+      "id": "L078",
+      "themeId": "nature-078",
+      "themeName": "孔雀微澜",
+      "family": "鸟羽昆虫",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#0F638F",
+        "#116B64",
+        "#328DCC",
+        "#8ED6AE"
+      ],
+      "brief": "孔雀蓝与孔雀绿在涟漪中相遇，亮蓝羽端对照柔绿光。"
+    },
+    {
+      "number": 79,
+      "id": "L079",
+      "themeId": "nature-079",
+      "themeName": "蕨谷金照",
+      "family": "森林苔藓",
+      "mood": "深邃",
+      "cornersHex": [
+        "#164B3C",
+        "#667B2D",
+        "#227E77",
+        "#B5BD6C"
+      ],
+      "brief": "蕨谷的冷绿深影与林间金照，黄绿仅集中在受光端。"
+    },
+    {
+      "number": 80,
+      "id": "L080",
+      "themeId": "nature-080",
+      "themeName": "鲁冰花韵",
+      "family": "花卉",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#4F3A99",
+        "#A9469E",
+        "#507AC4",
+        "#DA95C3"
+      ],
+      "brief": "鲁冰花由蓝紫到红紫，亮部是长春花蓝与玫粉。"
+    },
+    {
+      "number": 81,
+      "id": "L081",
+      "themeId": "nature-081",
+      "themeName": "暖礁前奏",
+      "family": "海洋珊瑚",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#B42C55",
+        "#E65D30",
+        "#DB7AA2",
+        "#F8C974"
+      ],
+      "brief": "珊瑚礁以红、橙、玫粉和浅金呈现热带暖色。"
+    },
+    {
+      "number": 82,
+      "id": "L082",
+      "themeId": "nature-082",
+      "themeName": "青凤蝶廊",
+      "family": "鸟羽昆虫",
+      "mood": "清新",
+      "cornersHex": [
+        "#347345",
+        "#AAC43E",
+        "#29AF9B",
+        "#E0E98A"
+      ],
+      "brief": "青凤蝶翅脉的翡翠绿和柠檬黄，明亮却保持绿意。"
+    },
+    {
+      "number": 83,
+      "id": "L083",
+      "themeId": "nature-083",
+      "themeName": "霞岭和光",
+      "family": "日出晚霞",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#743A9C",
+        "#D64277",
+        "#D782A6",
+        "#FFD08B"
+      ],
+      "brief": "霞岭蓝紫山影向玫红天边与橙金云层展开。"
+    },
+    {
+      "number": 84,
+      "id": "L084",
+      "themeId": "nature-084",
+      "themeName": "青柠晴音",
+      "family": "果实",
+      "mood": "明亮",
+      "cornersHex": [
+        "#567A17",
+        "#E6AE28",
+        "#2CA37D",
+        "#F6EA83"
+      ],
+      "brief": "青柠果皮的翠绿与黄绿阴影相接，金黄果肉和浅黄汁光照亮另一方向。"
+    },
+    {
+      "number": 85,
+      "id": "L085",
+      "themeId": "nature-085",
+      "themeName": "三角梅信",
+      "family": "花卉",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#9E1C72",
+        "#E53E73",
+        "#BF5EB5",
+        "#FFACA7"
+      ],
+      "brief": "三角梅的洋红、红粉与紫粉，花瓣透光时呈珊瑚粉。"
+    },
+    {
+      "number": 86,
+      "id": "L086",
+      "themeId": "nature-086",
+      "themeName": "冷杉林阶",
+      "family": "森林苔藓",
+      "mood": "深邃",
+      "cornersHex": [
+        "#103F4C",
+        "#21603F",
+        "#267F91",
+        "#84BF95"
+      ],
+      "brief": "冷杉蓝绿暗影与翠绿叶尖，深色也有青蓝呼吸。"
+    },
+    {
+      "number": 87,
+      "id": "L087",
+      "themeId": "nature-087",
+      "themeName": "钴海潮声",
+      "family": "海洋珊瑚",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#193079",
+        "#207DC1",
+        "#6952C4",
+        "#79D6C6"
+      ],
+      "brief": "钴蓝海面、蓝紫深潮与明亮湖青相接，浓蓝中保留两种独立色向。"
+    },
+    {
+      "number": 88,
+      "id": "L088",
+      "themeId": "nature-088",
+      "themeName": "橘焰短曲",
+      "family": "火山熔岩",
+      "mood": "炽烈",
+      "cornersHex": [
+        "#6D2039",
+        "#B7441E",
+        "#AD647A",
+        "#F6AC4F"
+      ],
+      "brief": "橘焰受紫红岩石包围，亮橙和岩粉构成温热对话。"
+    },
+    {
+      "number": 89,
+      "id": "L089",
+      "themeId": "nature-089",
+      "themeName": "月晕蓝廊",
+      "family": "夜空荧光",
+      "mood": "柔和",
+      "cornersHex": [
+        "#3E518B",
+        "#8674B3",
+        "#7AA8C2",
+        "#D4D8E6"
+      ],
+      "brief": "月晕的银蓝、柔紫和浅水青，夜色温柔而不一片灰。"
+    },
+    {
+      "number": 90,
+      "id": "L090",
+      "themeId": "nature-090",
+      "themeName": "岩海暮歌",
+      "family": "沙漠岩石",
+      "mood": "沉静",
+      "cornersHex": [
+        "#704263",
+        "#B95D44",
+        "#7F7FA8",
+        "#E2B67C"
+      ],
+      "brief": "海边砂岩在暮色里呈紫赭与铜橙，蓝紫阴影对照暖沙光。"
+    },
+    {
+      "number": 91,
+      "id": "L091",
+      "themeId": "nature-091",
+      "themeName": "橡叶两岸",
+      "family": "秋叶",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#8B2D3D",
+        "#D59C23",
+        "#618B39",
+        "#F1DF90"
+      ],
+      "brief": "橡叶的酒红、金黄与尚未褪去的橄榄绿相映，秋金亮部连接三种叶色。"
+    },
+    {
+      "number": 92,
+      "id": "L092",
+      "themeId": "nature-092",
+      "themeName": "桃花停拍",
+      "family": "花卉",
+      "mood": "柔和",
+      "cornersHex": [
+        "#C46791",
+        "#E89A91",
+        "#C49CC9",
+        "#F9DBBA"
+      ],
+      "brief": "桃花粉红花心、暖桃瓣尖与淡紫阴影，柔和盘面的换气。"
+    },
+    {
+      "number": 93,
+      "id": "L093",
+      "themeId": "nature-093",
+      "themeName": "极夜长空",
+      "family": "冰雪极光",
+      "mood": "深邃",
+      "cornersHex": [
+        "#10315D",
+        "#345A8B",
+        "#0D9D85",
+        "#9FD9C7"
+      ],
+      "brief": "极夜宝蓝天空中展开青翠极光，淡绿光幕映出冰原。"
+    },
+    {
+      "number": 94,
+      "id": "L094",
+      "themeId": "nature-094",
+      "themeName": "星云合流",
+      "family": "夜空荧光",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#33276F",
+        "#8A359A",
+        "#6053B9",
+        "#E98AB9"
+      ],
+      "brief": "星云由深蓝紫流向洋红亮区，紫罗兰与玫粉星尘并存。"
+    },
+    {
+      "number": 95,
+      "id": "L095",
+      "themeId": "nature-095",
+      "themeName": "桂叶双声",
+      "family": "森林苔藓",
+      "mood": "明亮",
+      "cornersHex": [
+        "#42783A",
+        "#B5B541",
+        "#61AD8B",
+        "#E4E6A0"
+      ],
+      "brief": "桂叶暖绿与金黄花光，叶影保留鲜明青翠支线。"
+    },
+    {
+      "number": 96,
+      "id": "L096",
+      "themeId": "nature-096",
+      "themeName": "欧泊雨霁",
+      "family": "矿石宝石",
+      "mood": "清透",
+      "cornersHex": [
+        "#4E83C4",
+        "#6DC3CE",
+        "#A69BD6",
+        "#E4D5EB"
+      ],
+      "brief": "欧泊的蓝青闪光与淡紫乳光，通透又带少量冷暖游移。"
+    },
+    {
+      "number": 97,
+      "id": "L097",
+      "themeId": "nature-097",
+      "themeName": "群青与霞",
+      "family": "日出晚霞",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#4D3C9A",
+        "#CC4F83",
+        "#CB829F",
+        "#FFD28D"
+      ],
+      "brief": "群青山影与玫红霞云，暖杏金亮部连成开阔天际。"
+    },
+    {
+      "number": 98,
+      "id": "L098",
+      "themeId": "nature-098",
+      "themeName": "彩羽和弦",
+      "family": "鸟羽昆虫",
+      "mood": "明亮",
+      "cornersHex": [
+        "#1F74A2",
+        "#119C69",
+        "#81A0E5",
+        "#C5DB71"
+      ],
+      "brief": "彩羽鸟的蓝、翠与黄绿，收束在相邻冷暖弧而非全色相混合。"
+    },
+    {
+      "number": 99,
+      "id": "L099",
+      "themeId": "nature-099",
+      "themeName": "石榴归途",
+      "family": "果实",
+      "mood": "浓郁",
+      "cornersHex": [
+        "#821C55",
+        "#D73D45",
+        "#B55F9B",
+        "#F7A47E"
+      ],
+      "brief": "石榴籽的深宝石红与橘红汁光，紫莓反射令归途丰盛。"
+    },
+    {
+      "number": 100,
+      "id": "L100",
+      "themeId": "nature-100",
+      "themeName": "欧泊共鸣",
+      "family": "矿石宝石",
+      "mood": "鲜活",
+      "cornersHex": [
+        "#5237B0",
+        "#D13B9C",
+        "#138EAD",
+        "#AAD862"
+      ],
+      "brief": "欧泊般的紫罗兰、玫红与青碧闪光在柠绿光端汇合，作为终章的多彩收束。"
+    }
+  ]
+}

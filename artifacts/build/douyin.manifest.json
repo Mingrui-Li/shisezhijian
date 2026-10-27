@@ -1,0 +1,280 @@
+{
+  "target": "douyin",
+  "verifiedAt": "2026-10-27T06:25:39.268Z",
+  "output": "/Users/limingrui/IdeaProjects/shisezhijian/game/build/bytedance-mini-game",
+  "success": true,
+  "checks": [
+    {
+      "name": "Official Cocos CLI returned success code 36",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "No gameplay source changed during build",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Build configuration did not change during compilation",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Engine application entry emitted",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Main asset bundle emitted",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Generated content bundle emitted",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "All 100 click-fill levels are present",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Compiled level data equals current fixed content exactly",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "AppID matches official build input",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Portrait Douyin mini game package",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Douyin entry emitted",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Cocos Douyin runtime adapters emitted",
+      "success": true,
+      "detail": ""
+    }
+  ],
+  "fileCount": 41,
+  "totalBytes": 16003846,
+  "localAppId": "ttad3cdb8133424e0102",
+  "localDevelopmentOnly": false,
+  "note": "Package structure and official compiler verification only. This report does not assert browser, simulator, phone, or advertising runtime verification.",
+  "files": [
+    {
+      "path": "application.js",
+      "bytes": 3300,
+      "sha256": "3876486e03ffd49f5cb8bce6d5a23b7ec392a533487229483a3b2429530093f2"
+    },
+    {
+      "path": "assets/internal/config.json",
+      "bytes": 4991,
+      "sha256": "a91281913c9fbcf2942946e1c46f48ad759c5975bf02ebfc78059b62748708ff"
+    },
+    {
+      "path": "assets/internal/import/0e/0e107f583.json",
+      "bytes": 111733,
+      "sha256": "a940f862284a781614bf6afef158480b925bf279be109c963e6d7ddeddc0c54b"
+    },
+    {
+      "path": "assets/internal/index.js",
+      "bytes": 103596,
+      "sha256": "f9243370c4b83dcd52c5275ad887bb3c780c78f3fba57552433eba9adb08cc5a"
+    },
+    {
+      "path": "assets/internal/index.js.map",
+      "bytes": 200014,
+      "sha256": "5bdb2ed5e43c6dee66d4b919ccd7a958f2d26c4924cb5fdadfc4e5580151a322"
+    },
+    {
+      "path": "assets/main/config.json",
+      "bytes": 1083,
+      "sha256": "bc57cb48104f6d4677585fad8aeca8f3e45104b29fa57648b2ff6b4868fff053"
+    },
+    {
+      "path": "assets/main/import/ba/ba21476f-2866-4f81-9c4d-6e359316e448.json",
+      "bytes": 192,
+      "sha256": "0a34e9263b215bb661d6334db6a255497c6cdac1f1c40b130f50bf9d91f4dd39"
+    },
+    {
+      "path": "assets/main/import/c9/c9a7eca9-0b99-43f9-a12f-783b070b91bc.json",
+      "bytes": 1562,
+      "sha256": "26e61942d359bc84d69145df482ffc438b11cf258991879bb0e0db9289466db7"
+    },
+    {
+      "path": "assets/main/import/fd/fd8ec536-a354-4a17-9c74-4f3883c378c8.json",
+      "bytes": 480,
+      "sha256": "c2eee4552a460ed97591f527e127b95c811d5f796b9448f3f705974af9beba9d"
+    },
+    {
+      "path": "assets/main/index.js",
+      "bytes": 129369,
+      "sha256": "f8ca29b025234db6e7d9cebff8d8df485a5b92caa9e8be0a0cdbbefb165982c2"
+    },
+    {
+      "path": "assets/main/index.js.map",
+      "bytes": 229540,
+      "sha256": "4952f16a7d82fedfebba62bb2303e399611bbe424ccaf044c16dd20e0b4a8daf"
+    },
+    {
+      "path": "assets/resources/config.json",
+      "bytes": 1678,
+      "sha256": "6901495bf6b7e209c72af4052bdf00c7ff2ca6f2381618d1f2508af793f28216"
+    },
+    {
+      "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506.json",
+      "bytes": 72,
+      "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
+    },
+    {
+      "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506@6c48a.json",
+      "bytes": 177,
+      "sha256": "22013e0f22b671b892c7431553938a51d96aac318099193a72c321d581883cda"
+    },
+    {
+      "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506@f9941.json",
+      "bytes": 571,
+      "sha256": "2df7e7e62460cf334ab5ed352638a30af8d2e59897cc2522b0f54c9047704710"
+    },
+    {
+      "path": "assets/resources/import/44/44fc4258-994c-4972-b659-18530b47ec03.json",
+      "bytes": 304,
+      "sha256": "7642ad3f8cdd8a84fa03de7a187e18e30b21487cfc6735c55f1e5630129f7341"
+    },
+    {
+      "path": "assets/resources/import/a6/a62aa0e1-7433-40fd-a43f-e96d4241fab2.json",
+      "bytes": 1135836,
+      "sha256": "61884651d7f005f4eb89e161b03ca24ddbc848e32c4a6dfb8f7fcb81cbc7977d"
+    },
+    {
+      "path": "assets/resources/import/d5/d577e3e9-6d96-46cd-bfdf-21c1a75b556d.json",
+      "bytes": 124,
+      "sha256": "a90970ff29b749698960bb0bc0be494b8fec03f90d14fd8f5f7eb6b3109d84e0"
+    },
+    {
+      "path": "assets/resources/import/df/dfe9bde5-0015-4805-b9ff-280e8dd9ca9a.json",
+      "bytes": 117,
+      "sha256": "e117137508aa5fafedfb1a2a0eebc1eb0a91e8b1f80ead8f2069c6b760bdf514"
+    },
+    {
+      "path": "assets/resources/index.js",
+      "bytes": 658,
+      "sha256": "28d1f0ea5576ab6ed32c9f5502c46ed2e8c13c005e2c1f642803c760c65d0378"
+    },
+    {
+      "path": "assets/resources/index.js.map",
+      "bytes": 67,
+      "sha256": "880fa512f75246a8e906cf1d15a7af8e046cd0b670a68078a764ccd4359ab2d1"
+    },
+    {
+      "path": "assets/resources/native/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506.png",
+      "bytes": 365212,
+      "sha256": "d2596c9194b48fb41e1b9173a9ac5948fd97d8841f372a228d52070d89f4e6f0"
+    },
+    {
+      "path": "assets/resources/native/d5/d577e3e9-6d96-46cd-bfdf-21c1a75b556d.wav",
+      "bytes": 28708,
+      "sha256": "2bc7ae50bc62465f5dcbf2c2af9583a2eb4b0a8689d7a16393bdea350113c8ef"
+    },
+    {
+      "path": "assets/resources/native/df/dfe9bde5-0015-4805-b9ff-280e8dd9ca9a.wav",
+      "bytes": 5336,
+      "sha256": "b6fd7f8bb751f9372af86534a435598384a609c666a52ed5e297314ed5de6290"
+    },
+    {
+      "path": "cocos-js/cc.js",
+      "bytes": 3513838,
+      "sha256": "5c0534b697aec0a2544eb338e95ff81a39b643a958b11cae0ec8db22d3a9d94c"
+    },
+    {
+      "path": "cocos-js/cc.js.map",
+      "bytes": 9695088,
+      "sha256": "3591f1947b9d61c0e14d7381fcb637fcb6752e8cdccdfaaa7aa4ab870427e337"
+    },
+    {
+      "path": "engine-adapter.js",
+      "bytes": 55431,
+      "sha256": "d0e7c68186f0639aa03b0d14985788791dcab4957b9c2cdf9bef787fc8f5d06f"
+    },
+    {
+      "path": "game.js",
+      "bytes": 1861,
+      "sha256": "e6d44d0f0d996f567a1b2b0df63e8b349ea141c543a72bc41453bd732b81806f"
+    },
+    {
+      "path": "game.json",
+      "bytes": 214,
+      "sha256": "1c41528f4574f42a9433151ad40b4ffc92b88df19b7493026f91f11be7f52670"
+    },
+    {
+      "path": "preload-js-list.json",
+      "bytes": 184,
+      "sha256": "975f3414d3ecf2dc53ec79b26bd6f909d704dec01ebbd45dd69a57c9e2799935"
+    },
+    {
+      "path": "project.config.json",
+      "bytes": 151,
+      "sha256": "86c1dd7c8b4f8e2836eb815a1ea1f1cdc21cde4bc94622f8ae71aeac127839cb"
+    },
+    {
+      "path": "src/chunks/bundle.js",
+      "bytes": 7278,
+      "sha256": "a880c432834551031381f3155bee15c85a60744a7a908abeb431e17c0cb050f3"
+    },
+    {
+      "path": "src/chunks/bundle.js.map",
+      "bytes": 106054,
+      "sha256": "8efe2da3607eb806900dcbb253a138d6871bd6b5b5e9a8d58496f18b42d2f41f"
+    },
+    {
+      "path": "src/effect.bin",
+      "bytes": 5755,
+      "sha256": "b0d92f8307e3109abe8af8a863d68feb58cf4f49cf000b1d48fbb3dc3ad45556"
+    },
+    {
+      "path": "src/import-map.js",
+      "bytes": 210,
+      "sha256": "f3cf39bc861d3a2ffd0bfc7d2e7df4397e54d13f71d3f74fbe213219e728bbdc"
+    },
+    {
+      "path": "src/polyfills.bundle.js",
+      "bytes": 8394,
+      "sha256": "cb588d11797e0ca56123d979812db39c8b38dd01c5a6761b2aa5f79cb1d4c701"
+    },
+    {
+      "path": "src/project",
+      "bytes": 45,
+      "sha256": "6db215031c83b10a9946ea72272ee4f38465027e079df109de6fa2d3943bd75f"
+    },
+    {
+      "path": "src/settings.json",
+      "bytes": 22406,
+      "sha256": "97dfc3c07704562b567e9e8a50916b5c71fc49433990adfc2d33766ceac12531"
+    },
+    {
+      "path": "src/system.bundle.js",
+      "bytes": 27345,
+      "sha256": "4c9f10e57a855bc6e7b803a1bd6a625f3ce3dba1001f015be83c7fcc30333df4"
+    },
+    {
+      "path": "src/system.bundle.js.map",
+      "bytes": 63257,
+      "sha256": "51f40f3ec0b33f6ae2608076b2f29bda6fbfeafb4945b2993e70b9eb34b04b39"
+    },
+    {
+      "path": "web-adapter.js",
+      "bytes": 171615,
+      "sha256": "bb2ea46f8f2af1b7c21a2b25be4fd0b356575aed7e261712cd8770c2d7c9a751"
+    }
+  ]
+}

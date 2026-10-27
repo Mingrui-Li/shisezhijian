@@ -1,0 +1,24 @@
+{
+  "name": "拾色之间",
+  "platform": "bytedance-mini-game",
+  "buildPath": "project://build",
+  "outputName": "bytedance-mini-game",
+  "startScene": "c9a7eca9-0b99-43f9-a12f-783b070b91bc",
+  "scenes": [{ "url": "db://assets/scenes/Boot.scene", "uuid": "c9a7eca9-0b99-43f9-a12f-783b070b91bc" }],
+  "debug": true,
+  "sourceMaps": true,
+  "md5Cache": false,
+  "mainBundleCompressionType": "merge_dep",
+  "packages": {
+    "bytedance-mini-game": {
+      "appid": "ttad3cdb8133424e0102",
+      "orientation": "portrait",
+      "buildOpenDataContextTemplate": false,
+      "remoteServerAddress": "",
+      "wasmSubpackage": false,
+      "separateEngine": false,
+      "generatePreloadJsFileList": true,
+      "devToolsLaunchMethod": "lite"
+    }
+  }
+}

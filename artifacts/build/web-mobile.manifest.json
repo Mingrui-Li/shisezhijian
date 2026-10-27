@@ -1,0 +1,265 @@
+{
+  "target": "web-mobile",
+  "verifiedAt": "2026-10-27T06:18:07.045Z",
+  "output": "/Users/limingrui/IdeaProjects/shisezhijian/game/build/web-mobile",
+  "success": true,
+  "checks": [
+    {
+      "name": "Official Cocos CLI returned success code 36",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "No gameplay source changed during build",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Build configuration did not change during compilation",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Engine application entry emitted",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Main asset bundle emitted",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Generated content bundle emitted",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "All 100 click-fill levels are present",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Compiled level data equals current fixed content exactly",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "Cocos canvas is present",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "HTML dependency style.css",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "HTML dependency src/polyfills.bundle.js",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "HTML dependency src/system.bundle.js",
+      "success": true,
+      "detail": ""
+    },
+    {
+      "name": "HTML dependency src/import-map.json",
+      "success": true,
+      "detail": ""
+    }
+  ],
+  "fileCount": 37,
+  "totalBytes": 17182239,
+  "localAppId": null,
+  "localDevelopmentOnly": false,
+  "note": "Package structure and official compiler verification only. This report does not assert browser, simulator, phone, or advertising runtime verification.",
+  "files": [
+    {
+      "path": "application.js",
+      "bytes": 3300,
+      "sha256": "3876486e03ffd49f5cb8bce6d5a23b7ec392a533487229483a3b2429530093f2"
+    },
+    {
+      "path": "assets/internal/config.json",
+      "bytes": 4991,
+      "sha256": "a91281913c9fbcf2942946e1c46f48ad759c5975bf02ebfc78059b62748708ff"
+    },
+    {
+      "path": "assets/internal/import/0e/0e107f583.json",
+      "bytes": 175595,
+      "sha256": "197dd63697ed9735f85e991d2be3f014adaf244bf4be5ae866ef684c9ab8e8aa"
+    },
+    {
+      "path": "assets/internal/index.js",
+      "bytes": 103596,
+      "sha256": "f9243370c4b83dcd52c5275ad887bb3c780c78f3fba57552433eba9adb08cc5a"
+    },
+    {
+      "path": "assets/internal/index.js.map",
+      "bytes": 200014,
+      "sha256": "5bdb2ed5e43c6dee66d4b919ccd7a958f2d26c4924cb5fdadfc4e5580151a322"
+    },
+    {
+      "path": "assets/main/config.json",
+      "bytes": 1083,
+      "sha256": "bc57cb48104f6d4677585fad8aeca8f3e45104b29fa57648b2ff6b4868fff053"
+    },
+    {
+      "path": "assets/main/import/ba/ba21476f-2866-4f81-9c4d-6e359316e448.json",
+      "bytes": 192,
+      "sha256": "0a34e9263b215bb661d6334db6a255497c6cdac1f1c40b130f50bf9d91f4dd39"
+    },
+    {
+      "path": "assets/main/import/c9/c9a7eca9-0b99-43f9-a12f-783b070b91bc.json",
+      "bytes": 1562,
+      "sha256": "26e61942d359bc84d69145df482ffc438b11cf258991879bb0e0db9289466db7"
+    },
+    {
+      "path": "assets/main/import/fd/fd8ec536-a354-4a17-9c74-4f3883c378c8.json",
+      "bytes": 480,
+      "sha256": "c2eee4552a460ed97591f527e127b95c811d5f796b9448f3f705974af9beba9d"
+    },
+    {
+      "path": "assets/main/index.js",
+      "bytes": 130625,
+      "sha256": "33d46b26fb28c5047e661f37b15b1823b223af6b86a2d2664656260b0d8014fd"
+    },
+    {
+      "path": "assets/main/index.js.map",
+      "bytes": 230199,
+      "sha256": "591072c01fcecd3419859f0900cb627c6893658e0c5718dcd396d2bf79d02243"
+    },
+    {
+      "path": "assets/resources/config.json",
+      "bytes": 1678,
+      "sha256": "6901495bf6b7e209c72af4052bdf00c7ff2ca6f2381618d1f2508af793f28216"
+    },
+    {
+      "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506.json",
+      "bytes": 72,
+      "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
+    },
+    {
+      "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506@6c48a.json",
+      "bytes": 177,
+      "sha256": "22013e0f22b671b892c7431553938a51d96aac318099193a72c321d581883cda"
+    },
+    {
+      "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506@f9941.json",
+      "bytes": 571,
+      "sha256": "2df7e7e62460cf334ab5ed352638a30af8d2e59897cc2522b0f54c9047704710"
+    },
+    {
+      "path": "assets/resources/import/44/44fc4258-994c-4972-b659-18530b47ec03.json",
+      "bytes": 304,
+      "sha256": "7642ad3f8cdd8a84fa03de7a187e18e30b21487cfc6735c55f1e5630129f7341"
+    },
+    {
+      "path": "assets/resources/import/a6/a62aa0e1-7433-40fd-a43f-e96d4241fab2.json",
+      "bytes": 1135836,
+      "sha256": "61884651d7f005f4eb89e161b03ca24ddbc848e32c4a6dfb8f7fcb81cbc7977d"
+    },
+    {
+      "path": "assets/resources/import/d5/d577e3e9-6d96-46cd-bfdf-21c1a75b556d.json",
+      "bytes": 124,
+      "sha256": "a90970ff29b749698960bb0bc0be494b8fec03f90d14fd8f5f7eb6b3109d84e0"
+    },
+    {
+      "path": "assets/resources/import/df/dfe9bde5-0015-4805-b9ff-280e8dd9ca9a.json",
+      "bytes": 117,
+      "sha256": "e117137508aa5fafedfb1a2a0eebc1eb0a91e8b1f80ead8f2069c6b760bdf514"
+    },
+    {
+      "path": "assets/resources/index.js",
+      "bytes": 658,
+      "sha256": "28d1f0ea5576ab6ed32c9f5502c46ed2e8c13c005e2c1f642803c760c65d0378"
+    },
+    {
+      "path": "assets/resources/index.js.map",
+      "bytes": 67,
+      "sha256": "880fa512f75246a8e906cf1d15a7af8e046cd0b670a68078a764ccd4359ab2d1"
+    },
+    {
+      "path": "assets/resources/native/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506.png",
+      "bytes": 365212,
+      "sha256": "d2596c9194b48fb41e1b9173a9ac5948fd97d8841f372a228d52070d89f4e6f0"
+    },
+    {
+      "path": "assets/resources/native/d5/d577e3e9-6d96-46cd-bfdf-21c1a75b556d.wav",
+      "bytes": 28708,
+      "sha256": "2bc7ae50bc62465f5dcbf2c2af9583a2eb4b0a8689d7a16393bdea350113c8ef"
+    },
+    {
+      "path": "assets/resources/native/df/dfe9bde5-0015-4805-b9ff-280e8dd9ca9a.wav",
+      "bytes": 5336,
+      "sha256": "b6fd7f8bb751f9372af86534a435598384a609c666a52ed5e297314ed5de6290"
+    },
+    {
+      "path": "cocos-js/cc.js",
+      "bytes": 3859172,
+      "sha256": "b0298f5e4f76433333f46f76eea8f4900dc808656384176f8acfbf84486d37a3"
+    },
+    {
+      "path": "cocos-js/cc.js.map",
+      "bytes": 10625508,
+      "sha256": "4b79311cfb1a3e70f91fd6119ff88419ec2f26e25ae94a181a0bca6733d4896b"
+    },
+    {
+      "path": "index.html",
+      "bytes": 1581,
+      "sha256": "b563358a37b80a774bddd35e0ee27a374c630dd44303e3f6466933c8b6fb3f9f"
+    },
+    {
+      "path": "index.js",
+      "bytes": 818,
+      "sha256": "4317cb547b4d105f69346b925d961df7f951002fd5a4aaae807a361aa1ad49cd"
+    },
+    {
+      "path": "src/chunks/bundle.js",
+      "bytes": 19834,
+      "sha256": "574f84d79912f869d47f9c4699247a34e046fdb46aaa4f5760e8cd73a2dbf647"
+    },
+    {
+      "path": "src/chunks/bundle.js.map",
+      "bytes": 122236,
+      "sha256": "82908696a051c98147a6238d38c1afb1c3709b5e98d95c8e0661deadd9fa4a14"
+    },
+    {
+      "path": "src/effect.bin",
+      "bytes": 5755,
+      "sha256": "b0d92f8307e3109abe8af8a863d68feb58cf4f49cf000b1d48fbb3dc3ad45556"
+    },
+    {
+      "path": "src/import-map.json",
+      "bytes": 54,
+      "sha256": "ae84a42bfd0fe767a4141f7cd4e120b85ced56a55baf02bd48835d20bc6996f4"
+    },
+    {
+      "path": "src/polyfills.bundle.js",
+      "bytes": 14750,
+      "sha256": "f1e4ced3322168d6b9915e782e4c1cf1055d75f66f2b38e7fcd60f48cf89082b"
+    },
+    {
+      "path": "src/settings.json",
+      "bytes": 22425,
+      "sha256": "02a6b0d9ead9b810333a1e6743bb615dea512024ca2fdbfbd1775bc35824375c"
+    },
+    {
+      "path": "src/system.bundle.js",
+      "bytes": 37199,
+      "sha256": "2a681582d05e5c8371745f5a3b966a95fbeade22c200b6590b43e6e7c95bdc43"
+    },
+    {
+      "path": "src/system.bundle.js.map",
+      "bytes": 81188,
+      "sha256": "0e3e553d6bf2fcfb13890f7737eb2217e13f857781e1c251f9c16e9260ccbd0d"
+    },
+    {
+      "path": "style.css",
+      "bytes": 1222,
+      "sha256": "338fc9d734af60103e6d303333e28b413f477b295fd7dd233dc7022320c56e48"
+    }
+  ]
+}
