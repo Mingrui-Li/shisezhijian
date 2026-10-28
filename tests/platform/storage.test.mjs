@@ -11,7 +11,7 @@ const { LocalSave } = require(join(build, 'platform/LocalSave.js'));
 const { emptyProgress, SAVE_KEY } = require(join(build, 'application/Progress.js'));
 const { adaptLevel, createGame, reduceGame } = require(join(build, 'core/index.js'));
 const { restoreProgress } = require(join(build, 'application/RestoreProgress.js'));
-const pack = JSON.parse(readFileSync(new URL('../../data/levels/levels.v0.4.json', import.meta.url), 'utf8'));
+const pack = JSON.parse(readFileSync(new URL('../../game/assets/resources/generated/levels.json', import.meta.url), 'utf8'));
 const levels = pack.levels.map(adaptLevel);
 const version = pack.contentVersion;
 const clone = input => JSON.parse(JSON.stringify(input));
@@ -37,7 +37,7 @@ function earned() {
   const save = emptyProgress(version);
   save.completed = levels.slice(0, 4).map(level => level.id);
   save.starterGranted = true;
-  save.game = createGame(levels[4], 'played', { locate: 7, peek: 4, addMoves: 2 });
+  save.game = createGame(levels[4], 'played', { locate: 7, peek: 4, addTime: 2 });
   return save;
 }
 function store(memory) {
@@ -205,8 +205,8 @@ test('cold startup releases abandoned unconfirmed video requests without consumi
   const save = earned();
   save.game.wallet.inventory.peek = 0;
   save.game.wallet.rewardLedger.confirmedRevive = { id: 'confirmedRevive', attemptId: 'old-attempt', levelId: 'L005',
-    levelContentVersion: version, rewardType: 'revive', amount: 5, prop: null, status: 'granted' };
-  save.game.wallet.pendingRevives = [{ requestId: 'confirmedRevive', originAttemptId: 'old-attempt', amount: 5 }];
+    levelContentVersion: version, rewardType: 'revive', amount: 30, prop: null, status: 'granted' };
+  save.game.wallet.pendingRevives = [{ requestId: 'confirmedRevive', originAttemptId: 'old-attempt', amount: 30 }];
   save.game = reduceGame(save.game, { type: 'beginReward', requestId: 'interrupted', rewardType: 'restock', prop: 'peek' }).state;
   assert.equal(save.game.attempt.status, 'AdPending');
   memory.values.set(SAVE_KEY, envelope(save, 8));
@@ -233,4 +233,77 @@ test('both unavailable storage and writing before loading are explicit failures'
   memory.failWrites.add(SAVE_KEY); memory.failWrites.add(backup);
   assert.equal(local.write(earned()), false);
   assert.match(local.error, /尚未保存/);
+});
+
+test('point purchases persist balance and stock in one snapshot; failed saving preserves the preceding earned balance', () => {
+  const memory = new MemoryStorage();
+  const disk = store(memory);
+  const save = earned();
+  for (const step of pack.levels[4].challenge.witnessSolution) save.game = reduceGame(save.game,
+    {type:'place',poolIndex:step.fromPoolIndex,toCellId:step.toCellId}).state;
+  assert.equal(save.game.wallet.points, 200);
+  assert.equal(disk.write(save), true);
+  const before = clone(save.game.wallet);
+  const purchase = reduceGame(save.game, {type:'purchaseProp',prop:'peek'});
+  assert.equal(purchase.changed, true);
+  const bought = {...save, game:purchase.state};
+  assert.equal(bought.game.wallet.points, 120);
+  assert.equal(bought.game.wallet.inventory.peek, before.inventory.peek+1);
+  memory.failWrites.add(SAVE_KEY);memory.failWrites.add(backup);
+  assert.equal(disk.write(bought), false);
+  assert.deepEqual(store(memory).load().value.game.wallet, before);
+  memory.failWrites.clear();
+  assert.equal(disk.write(bought), true);
+  const after = store(memory).load().value.game.wallet;
+  assert.equal(after.points, 120);
+  assert.equal(after.inventory.peek, before.inventory.peek+1);
+  assert.equal(after.levelScores.L005.bestScore, 200);
+});
+
+test('cold-started unverified double-score video is not granted and never discards the existing completion points', () => {
+  const memory = new MemoryStorage();
+  const save = earned();
+  for (const step of pack.levels[4].challenge.witnessSolution) save.game = reduceGame(save.game,
+    {type:'place',poolIndex:step.fromPoolIndex,toCellId:step.toCellId}).state;
+  save.game = reduceGame(save.game,{type:'beginReward',requestId:'double-cold',rewardType:'doubleScore'}).state;
+  assert.equal(save.game.attempt.status,'AdPending');
+  memory.values.set(SAVE_KEY,envelope(save,1));
+  const restored = new LocalSave(memory).load(version,levels);
+  assert.equal(restored.game.attempt.status,'Won');
+  assert.equal(restored.game.wallet.points,200);
+  assert.equal(restored.game.wallet.levelScores.L005.doubleScoreClaimed,false);
+  assert.equal(restored.game.wallet.rewardLedger['double-cold'].status,'failed');
+  assert.equal(restored.game.attempt.score,200);
+  assert.equal(reduceGame(restored.game,{type:'beginReward',requestId:'double-retry',rewardType:'doubleScore'}).changed,true);
+});
+
+test('storage persists arbitrary tray positions, undo history and elapsed time with the same earned wallet', () => {
+  const memory = new MemoryStorage();
+  const disk = store(memory);
+  const save = earned();
+  const targets = save.game.level.cells.filter(cell => !save.game.level.anchors.includes(cell.id));
+  const first = save.game.attempt.pool[0],second = save.game.attempt.pool[1];
+  save.game.wallet.points=175;
+  for (const action of [
+    {type:'place',poolIndex:0,toCellId:targets[0].id},
+    {type:'place',poolIndex:1,toCellId:targets[1].id},
+    {type:'elapse',deltaMs:3456},
+    {type:'returnToTray',fromCellId:targets[0].id,toPoolIndex:1},
+    {type:'returnToTray',fromCellId:targets[1].id,toPoolIndex:0},
+  ]) {
+    const result=reduceGame(save.game,action);assert.equal(result.changed,true,result.reason);save.game=result.state;
+  }
+  assert.equal(disk.write(save),true);
+  const restored=store(memory).load().value;
+  assert.equal(restored.game.attempt.id,'played');
+  assert.equal(restored.game.attempt.pool[0],second);
+  assert.equal(restored.game.attempt.pool[1],first);
+  assert.equal(restored.game.attempt.elapsedMs,3456);
+  assert.equal(restored.game.attempt.movesSpent,2);
+  assert.equal(restored.game.wallet.points,175);
+  assert.deepEqual(restored.game.wallet.inventory,{locate:7,peek:4,addTime:2});
+  const undo=reduceGame(restored.game,{type:'undo'});
+  assert.equal(undo.changed,true);
+  assert.equal(undo.state.attempt.board[targets[1].id],second);
+  assert.equal(undo.state.attempt.remainingTimeMs,restored.game.attempt.remainingTimeMs);
 });

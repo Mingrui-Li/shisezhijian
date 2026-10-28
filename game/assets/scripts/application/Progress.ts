@@ -11,7 +11,7 @@ export function defaultSettings(): PlayerSettings {
 }
 
 export interface ProgressSave {
-  version: 2;
+  version: 3;
   gameplayMode: 'click-fill';
   inputMode: 'tap';
   contentVersion: string;
@@ -22,10 +22,11 @@ export interface ProgressSave {
   game: GameState | null;
 }
 
+/** Keep the existing storage address so both old atomic copies can be migrated to version 3. */
 export const SAVE_KEY = 'shisezhijian.click-fill.progress.v2';
 
 export function emptyProgress(contentVersion: string): ProgressSave {
-  return { version: 2, gameplayMode: 'click-fill', inputMode: 'tap', contentVersion,
+  return { version: 3, gameplayMode: 'click-fill', inputMode: 'tap', contentVersion,
     completed: [], starterGranted: false, chapterGifts: [], settings: defaultSettings(), game: null };
 }
 
@@ -37,7 +38,7 @@ export function completeLevel(save: ProgressSave, allIds: string[]): void {
   if (id === 'L004' && !save.starterGranted) {
     save.game.wallet.inventory.locate += 3;
     save.game.wallet.inventory.peek += 2;
-    save.game.wallet.inventory.addMoves += 1;
+    save.game.wallet.inventory.addTime += 1;
     save.starterGranted = true;
   }
   for (let chapter = 1; chapter <= 5; chapter++) {
@@ -46,7 +47,7 @@ export function completeLevel(save: ProgressSave, allIds: string[]): void {
       && !save.chapterGifts.includes(chapter)) {
       save.game.wallet.inventory.locate++;
       save.game.wallet.inventory.peek++;
-      save.game.wallet.inventory.addMoves++;
+      save.game.wallet.inventory.addTime++;
       save.chapterGifts.push(chapter);
     }
   }

@@ -1,0 +1,57 @@
+{
+  "version": "1.1.0",
+  "contentVersion": "0.6.0",
+  "contentSha256": "2ff7a3e95f038db4da5a0e2c415f61ad46f69f3a99e6362ed94c4b9db74dab4c",
+  "verifiedAt": "2026-10-28T01:32:33.299Z",
+  "engine": "Cocos Creator 3.8.8",
+  "build": {
+    "web": true,
+    "douyin": true,
+    "exitCode": 36,
+    "sourceStable": true,
+    "packageFiles": 47,
+    "packageBytes": 9468532,
+    "sourceInputsSha256": "7d267fc2be114e5c3eb792a56ef8f1cd4d18b36b07ab70e80d0d0d74a3eb3a6f"
+  },
+  "webChecks": [
+    {
+      "viewport": "390x844",
+      "case": "Two placed tiles return to each other’s empty candidate slots, then complete puzzle",
+      "result": "Won;7 placements;20s;164 points;wallet104→268",
+      "screenshots": [
+        "level-001.jpg",
+        "cross-slot-return.jpg",
+        "win-panel.jpg"
+      ]
+    },
+    {
+      "viewport": "390x694",
+      "case": "WinPanel remains fully visible; replay rewards only score improvement",
+      "result": "182 score;18 new points",
+      "screenshots": [
+        "win-panel-short.jpg",
+        "level-002-short.jpg"
+      ]
+    },
+    {
+      "case": "Double score without configured ad unit",
+      "result": "Explicit unavailable;Won and268 points unchanged"
+    }
+  ],
+  "scope": "Cocos-built web UI actions and public WebMCP state; no hidden answer/state mutation. Native home visual checked separately; full native input and real advertising remain pending.",
+  "reloadCheck": {
+    "screen": "home",
+    "version": "1.1.0",
+    "level": 2,
+    "status": "Playing",
+    "remainingTimeMs": 85621,
+    "points": 286,
+    "inventory": {
+      "locate": 0,
+      "peek": 1,
+      "addTime": 0
+    },
+    "completed": 3,
+    "result": "wallet and partial attempt persisted after viewport reset and reload"
+  }
+}

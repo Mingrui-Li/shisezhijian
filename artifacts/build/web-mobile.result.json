@@ -1,7 +1,7 @@
 {
   "target": "web-mobile",
-  "startedAt": "2026-10-27T08:42:25.749Z",
-  "finishedAt": "2026-10-27T08:43:09.493Z",
+  "startedAt": "2026-10-28T01:21:27.819Z",
+  "finishedAt": "2026-10-28T01:22:13.587Z",
   "editor": "/Applications/Cocos/Creator/3.8.8/CocosCreator.app/Contents/MacOS/CocosCreator",
   "project": "/Users/limingrui/IdeaProjects/shisezhijian/game",
   "configPath": "/Users/limingrui/IdeaProjects/shisezhijian/tools/build/web-mobile.json",
@@ -15,7 +15,7 @@
   "appid": null,
   "localDevelopmentOnly": false,
   "sourceInputs": {
-    "digest": "2d1fe2184b3fc3f2de94b9d74826cccfebcef269782d44d896370d97bb96dbf5",
+    "digest": "7d267fc2be114e5c3eb792a56ef8f1cd4d18b36b07ab70e80d0d0d74a3eb3a6f",
     "files": [
       [
         "assets/resources/art/brand.png",
@@ -34,6 +34,10 @@
         "8c3f10e96dc9393e7ac90da6df5b99844fc4b162674ecb33e5558d5463b7a14b"
       ],
       [
+        "assets/resources/art/win-rosette-v1.png",
+        "1b3e7e6e71c4b1794ffc982737fd03871ba5747d9d4e76b7903f0b8b4448fed1"
+      ],
+      [
         "assets/resources/audio/complete.wav",
         "2bc7ae50bc62465f5dcbf2c2af9583a2eb4b0a8689d7a16393bdea350113c8ef"
       ],
@@ -43,11 +47,11 @@
       ],
       [
         "assets/resources/generated/content-lock.json",
-        "42692c81f81617e237c87d69a011c83b16d521d19edd24fcf7771947d228b8f8"
+        "a9e3696079189a78b2d1143533ec24a59248cd2c7638cc152b19e4c5e1217a97"
       ],
       [
         "assets/resources/generated/levels.json",
-        "3f082b131a0b12fc4359bc7b232064a8ec6aa4642a2c9c20f2c9b62696a4f551"
+        "2ff7a3e95f038db4da5a0e2c415f61ad46f69f3a99e6362ed94c4b9db74dab4c"
       ],
       [
         "assets/scenes/Boot.scene",
@@ -55,27 +59,27 @@
       ],
       [
         "assets/scripts/application/Progress.ts",
-        "67178f02f1d318a7083a7062d417c628f919b788459a35675993db1eac36f7ee"
+        "2af02dfea366b7dedf52e9e0156a5d511755e782a3b4a068b9a9cd62420bee57"
       ],
       [
         "assets/scripts/application/RestoreProgress.ts",
-        "9778c934e34fbecd5141da215d4de2d9e0afedc5dd916c6d9261cbe69c1dcb9a"
+        "65fcb2869df88dafbbe9ae6449835102e97d16433d15e6a6fa950a8427bc06ef"
       ],
       [
         "assets/scripts/application/RuntimeConfig.ts",
-        "6179f7d5515675fa5cca52d1e79bbab5048f8bc2ad028760ca0d14ded945ddd8"
+        "9b03dd56f07ff4454adb03072bc4551a6bd055f79a67ea6822614a8354b09c29"
       ],
       [
         "assets/scripts/Boot.ts",
-        "2bc6c3b4479013d6c535109ee26dcbe0e0c9a5abb07dc4136fd7d484b5880e9c"
+        "14c9602fa9ed96db3e3f3f3d2b6881c42310a5b46c3cc722b653cfa0eb24a590"
       ],
       [
         "assets/scripts/core/index.ts",
-        "2b484a40e650e96cd8b67c92eff36b848afa8efe148be2c781e1f268f87f6ddf"
+        "6c6fed0562b3c36d470e45fe0031a48ffc246d54c729dc972fdd019812b86f9b"
       ],
       [
         "assets/scripts/platform/BrowserTestBridge.ts",
-        "78a02e1e8d251fec77ff7d151eb12ef62041f6110ebd8faa87a86b25e7dbe107"
+        "cc4b0b47d6089629c255584b37fd95d43951407633e627bc4852674bcdaeb375"
       ],
       [
         "assets/scripts/platform/Feedback.ts",
@@ -95,15 +99,19 @@
       ],
       [
         "assets/scripts/render/BoardLayout.ts",
-        "122d0cc1a1bd4fcfdabfb5f917de68b354c50e48f59eb266f1aa29c9ae802826"
+        "eaddcad85409b972cac5282f6958ef87d324df8136f0afa7d26b7da66851a5ba"
       ],
       [
         "assets/scripts/render/LoadingScreen.ts",
-        "f1e19574d4a1b561bab1d081a851bed7d7db2d8cd48d4e2fabbafe5c01612661"
+        "ade0964acff3544e7c7e89ebbf1b34663c94c49d6ffeeeebcf82fe7e277630d8"
       ],
       [
         "assets/scripts/render/TutorialScreen.ts",
-        "d8db6be952abfa98f8c006f8a163a4b7ffe0c1a28ab27d9f8b756685a164fac1"
+        "c79e11205b28580da06a1c645e3a35a159d619c4d2b06587e49a804965a6f9f7"
+      ],
+      [
+        "assets/scripts/render/WinPanel.ts",
+        "cbf6d5bb1add3a29f5394e3c06623e9d4be30eb31972e43afd754cb0d1dbb4a4"
       ],
       [
         "assets/scripts/theme/Theme.ts",
@@ -111,11 +119,11 @@
       ],
       [
         "build-templates/web-mobile/index.ejs",
-        "8135168affc210bca8681d68ee966734e7235130e4308683fc15f1f69da28d42"
+        "4ba489bcfd4c143ead599ad21ad3e31d93c2796bf7845a597933e58e0207d2c0"
       ],
       [
         "package.json",
-        "346a80e3fff4088b339938189d66c2167c0cb226f4e4fa97d57218fe6fdb703d"
+        "20256e97c298dc57827c295a66a456a0ecc26966147ce05424c89fc3637441bc"
       ],
       [
         "settings/v2/packages/engine.json",

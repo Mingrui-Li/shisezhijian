@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "gameplayMode": "click-fill",
   "inputMode": "tap",
-  "updatedAt": "2026-10-27",
+  "updatedAt": "2026-10-28",
   "assets": [
     {
       "id": "brand.icon",
@@ -39,7 +39,7 @@
       "bytes": 1619148,
       "width": 1024,
       "height": 1536,
-      "reviewNote": "Adopted production raster, loaded by the native Cocos LoadingScreen. Title, actual loading progress, healthy-play text and development age disclosure remain live UI. Development disclosure is not an approved age rating; Douyin device review remains pending."
+      "reviewNote": "Production illustration loaded by native Cocos LoadingScreen. Live title, actual progress, healthy-play notice and top-left 8+ rating approved by user after Douyin confirmation; device acceptance remains pending."
     },
     {
       "id": "runtime.home.v2",
@@ -53,7 +53,7 @@
       "bytes": 1749321,
       "width": 1024,
       "height": 1536,
-      "reviewNote": "Adopted production raster displayed by the actual Cocos home screen. Start/continue, levels, tutorial, collection and settings are native interactive controls; first launch enters home rather than automatically starting L001."
+      "reviewNote": "Production illustration in Cocos home. Native start/continue, numbered levels, animated tutorial, points shop and settings. First launch enters home; no collection or test-version label."
     },
     {
       "id": "runtime.icons.v2",
@@ -69,8 +69,21 @@
       "height": 1086,
       "columns": 4,
       "rows": 3,
-      "icons": ["home", "tutorial", "settings", "collection", "locate", "peek", "addMoves", "undo", "back", "next", "return", "cancel"],
-      "reviewNote": "Twelve transparent icons in twelve equal 362-by-362 cells. Cocos creates a SpriteFrame for each cell; button hit areas, labels, quantities and game behavior remain native UI. Decorative rendering never supplies or modifies puzzle HEX."
+      "icons": [
+        "home",
+        "tutorial",
+        "settings",
+        "collection",
+        "locate",
+        "peek",
+        "addTime",
+        "undo",
+        "back",
+        "next",
+        "return",
+        "cancel"
+      ],
+      "reviewNote": "Twelve transparent icons in twelve equal 362-by-362 cells. Cocos creates a SpriteFrame for each cell; button hit areas, labels, quantities and game behavior remain native UI. Decorative rendering never supplies or modifies puzzle HEX. The original collection illustration cell is reused for the points shop; no collection feature is exposed."
     },
     {
       "id": "runtime.controls",
@@ -79,6 +92,21 @@
       "productionReady": false,
       "status": "enginebuilt-web-reviewed-devicepending",
       "reviewNote": "Actual Cocos-built web UI reviewed. Home, independent tutorial, click-fill board and controls are native engine components; this status does not imply completed Douyin device acceptance."
+    },
+    {
+      "id": "runtime.win.rosette.v1",
+      "path": "game/assets/resources/art/win-rosette-v1.png",
+      "usage": "native-win-panel-header",
+      "productionReady": true,
+      "status": "enginebuilt-web-reviewed-devicepending",
+      "generator": "built-in-image_gen",
+      "generationPrompt": "assets/design/prompts/win-rosette-v1.txt",
+      "sha256": "1b3e7e6e71c4b1794ffc982737fd03871ba5747d9d4e76b7903f0b8b4448fed1",
+      "bytes": 1560288,
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "reviewNote": "Transparent color rosette header for dedicated WinPanel. Scores, rewards, statistics and buttons remain native interactive UI. Actual Cocos web screenshots reviewed at 390x844 and 390x694; all buttons and type fit."
     }
   ],
   "policy": {

@@ -27,6 +27,8 @@ async function exists(path) {
 
 async function findProject() {
   if (projectArgument) return resolve(projectArgument);
+  const delivered = join(repoDir, 'releases/douyin');
+  if (await exists(join(delivered, 'project.config.json'))) return delivered;
   const root = join(repoDir, 'game/build');
   const directories = await readdir(root, { withFileTypes: true }).catch(() => []);
   const candidates = [];

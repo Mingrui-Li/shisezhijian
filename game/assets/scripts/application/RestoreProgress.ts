@@ -1,4 +1,4 @@
-import { createGame, GameState, LevelDefinition, restoreGame } from '../core';
+import { createGame, GameState, LevelDefinition, restoreGame, restoreWallet } from '../core';
 import { defaultSettings, PlayerSettings, ProgressSave, unlockedThrough } from './Progress';
 
 function record(value: unknown, name: string): Record<string, unknown> {
@@ -27,7 +27,7 @@ export function restoreProgress(input: unknown, contentVersion: string,
     levels: LevelDefinition[], attemptId: string): ProgressSave {
   if (!levels.length || !contentVersion) throw new Error('Current content is required');
   const raw = record(input, 'progress');
-  if (raw.version !== 1 && raw.version !== 2) throw new Error('Unsupported progress version');
+  if (raw.version !== 1 && raw.version !== 2 && raw.version !== 3) throw new Error('Unsupported progress version');
   if (typeof raw.contentVersion !== 'string' || !raw.contentVersion) throw new Error('Invalid saved content version');
   if (typeof raw.starterGranted !== 'boolean' || !Array.isArray(raw.completed) || !Array.isArray(raw.chapterGifts)) throw new Error('Invalid global progress');
   const allIds = levels.map(level => level.id);
@@ -38,7 +38,7 @@ export function restoreProgress(input: unknown, contentVersion: string,
   if (chapterGifts.some(chapter => typeof chapter !== 'number' || !Number.isInteger(chapter) || chapter < 1 || chapter > 5)
       || new Set(chapterGifts).size !== chapterGifts.length) throw new Error('Invalid chapter gift markers');
   const save: ProgressSave = {
-    version: 2, gameplayMode: 'click-fill', inputMode: 'tap', contentVersion,
+    version: 3, gameplayMode: 'click-fill', inputMode: 'tap', contentVersion,
     completed: [...completed] as string[], starterGranted: raw.starterGranted,
     chapterGifts: [...chapterGifts] as number[], settings: restoreSettings(raw.settings), game: null,
   };
@@ -55,10 +55,11 @@ export function restoreProgress(input: unknown, contentVersion: string,
   const level = levels[savedIndex >= 0 && savedIndex <= unlocked ? savedIndex : unlocked];
   const fresh = createGame(level, attemptId);
   // Validate the wallet independently of any damaged/obsolete board or attempt metadata.
-  const walletOnly = restoreGame(level, { ...fresh, wallet: rawGame.wallet });
+  const wallet = restoreWallet(rawGame.wallet, raw.version !== 3);
+  const walletOnly = restoreGame(level, { ...fresh, wallet });
   let restored: GameState | null = null;
   if (savedLevelId === level.id) {
-    try { restored = restoreGame(level, rawGame); } catch { /* Only the attempt is replaced below. */ }
+    try { restored = restoreGame(level, { ...rawGame, wallet }); } catch { /* Only the attempt is replaced below. */ }
   }
   if (restored) save.game = restored;
   else {

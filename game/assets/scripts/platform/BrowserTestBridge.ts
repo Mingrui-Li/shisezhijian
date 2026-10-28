@@ -1,12 +1,17 @@
 import { sys } from 'cc';
 
-/** Optional tester-build accessibility for the Cocos canvas. Never runs in a tt host. */
+/** Browser accessibility for the Cocos canvas; the DOM layer never runs in a tt host. */
 export class BrowserTestBridge {
-    private controls = new Map<string, { label: string; invoke: () => void }>();
+    private controls: Record<string, { label: string; invoke: () => void }> = {};
     private texts: string[] = [];
     private sequence = 0;
     private layer: HTMLDivElement | null = null;
     constructor(enabled: boolean, private snapshot: () => object, private height = 844) {
+        // Read-only diagnostic snapshot for the official IDE. It exposes no solution or commands.
+        // A deep copy prevents external inspection from modifying the live wallet or attempt.
+        try { Object.defineProperty(globalThis, '__SHISE_STATE__', {
+            configurable: true, get: () => JSON.parse(JSON.stringify(this.snapshot())),
+        }); } catch { /* Diagnostics never block a host without configurable global properties. */ }
         // Mini-game adapters also expose document, but it is not a browser DOM.
         if (!enabled || !sys.isBrowser || typeof document === 'undefined') return;
         this.layer = document.createElement('div');
@@ -21,7 +26,7 @@ export class BrowserTestBridge {
         if (!context) return;
         const result = () => {
             try { return { content: [{ type: 'text', text: JSON.stringify({ ...this.snapshot(), texts: [...this.texts],
-                controls: [...this.controls].map(([id, item]) => ({ id, label: item.label })) }) }] }; }
+                controls: Object.keys(this.controls).map(id => ({ id, label: this.controls[id].label })) }) }] }; }
             catch (error) { return { content: [{ type: 'text', text: String(error) }] }; }
         };
         const register = (tool: object) => {
@@ -31,18 +36,18 @@ export class BrowserTestBridge {
             inputSchema: { type: 'object', properties: {} }, annotations: { readOnlyHint: true }, execute: result });
         register({ name: 'shise_tap', description: 'Tap a currently visible Cocos control by id from shise_state. Same callback as screen controls; no arbitrary state edits.',
             inputSchema: { type: 'object', properties: { id: { type: 'string' } }, required: ['id'] },
-            execute: (input: { id: string }) => { this.controls.get(input.id)?.invoke(); return result(); } });
+            execute: (input: { id: string }) => { this.controls[input.id]?.invoke(); return result(); } });
     }
-    clear(): void { this.controls.clear(); this.texts = []; this.layer?.replaceChildren(); }
+    clear(): void { this.controls = {}; this.texts = []; this.layer?.replaceChildren(); }
     removeControls(labels: readonly string[]): void {
-        for (const [id, control] of this.controls) if (labels.includes(control.label)) this.controls.delete(id);
+        for (const id of Object.keys(this.controls)) if (labels.includes(this.controls[id].label)) delete this.controls[id];
         if (this.layer) for (const button of Array.from(this.layer.querySelectorAll('button')))
             if (labels.includes(button.getAttribute('aria-label') || '')) button.remove();
     }
-    modal(): void { this.controls.clear(); this.layer?.replaceChildren(); }
+    modal(): void { this.controls = {}; this.layer?.replaceChildren(); }
     text(value: string): void { this.texts.push(value); }
     control(label: string, invoke: () => void, bounds?: { x: number; y: number; width: number; height: number }): void {
-        this.controls.set(`control-${++this.sequence}`, { label, invoke });
+        this.controls[`control-${++this.sequence}`] = { label, invoke };
         if (!this.layer || !bounds) return;
         const canvas = document.getElementById('GameCanvas');
         if (!canvas) return;

@@ -1,0 +1,221 @@
+{
+  "schemaVersion": "4.1.0",
+  "contentVersion": "0.6.0",
+  "gameplayMode": "click-fill",
+  "levelCount": 100,
+  "dataSha256": "2ff7a3e95f038db4da5a0e2c415f61ad46f69f3a99e6362ed94c4b9db74dab4c",
+  "acceptedTargetFieldsSha256": "04037c28c139fee60bbea95b43735ba324e596dd8e9bd5785b2ae2ac933a3be3",
+  "namedTemplateCount": 66,
+  "introOverridesSha256": "3d6311ddaa13949511133188e91ca3ea76cfde7449ef25b969c500bb118956e2",
+  "generatorRevision": "intro-structure-v1+constrained-shuffle-v2",
+  "introTargets": [
+    {
+      "id": "L001",
+      "cells": 7,
+      "candidates": 5,
+      "seconds": 45
+    },
+    {
+      "id": "L002",
+      "cells": 9,
+      "candidates": 7,
+      "seconds": 87
+    },
+    {
+      "id": "L003",
+      "cells": 9,
+      "candidates": 7,
+      "seconds": 87
+    },
+    {
+      "id": "L004",
+      "cells": 9,
+      "candidates": 5,
+      "seconds": 75
+    },
+    {
+      "id": "L005",
+      "cells": 9,
+      "candidates": 5,
+      "seconds": 75
+    },
+    {
+      "id": "L006",
+      "cells": 12,
+      "candidates": 8,
+      "seconds": 93
+    },
+    {
+      "id": "L007",
+      "cells": 12,
+      "candidates": 8,
+      "seconds": 93
+    },
+    {
+      "id": "L008",
+      "cells": 12,
+      "candidates": 8,
+      "seconds": 93
+    },
+    {
+      "id": "L009",
+      "cells": 13,
+      "candidates": 9,
+      "seconds": 99
+    },
+    {
+      "id": "L010",
+      "cells": 14,
+      "candidates": 10,
+      "seconds": 105
+    },
+    {
+      "id": "L011",
+      "cells": 15,
+      "candidates": 11,
+      "seconds": 111
+    },
+    {
+      "id": "L012",
+      "cells": 16,
+      "candidates": 12,
+      "seconds": 117
+    }
+  ],
+  "perChapter": [
+    {
+      "chapter": 1,
+      "name": "初见",
+      "cellRange": [
+        7,
+        16
+      ],
+      "candidateRange": [
+        5,
+        12
+      ],
+      "timeLimitSecondsRange": [
+        45,
+        117
+      ]
+    },
+    {
+      "chapter": 2,
+      "name": "流转",
+      "cellRange": [
+        16,
+        20
+      ],
+      "candidateRange": [
+        11,
+        15
+      ],
+      "timeLimitSecondsRange": [
+        111,
+        135
+      ]
+    },
+    {
+      "chapter": 3,
+      "name": "交汇",
+      "cellRange": [
+        20,
+        25
+      ],
+      "candidateRange": [
+        15,
+        20
+      ],
+      "timeLimitSecondsRange": [
+        120,
+        145
+      ]
+    },
+    {
+      "chapter": 4,
+      "name": "微澜",
+      "cellRange": [
+        25,
+        30
+      ],
+      "candidateRange": [
+        20,
+        25
+      ],
+      "timeLimitSecondsRange": [
+        145,
+        170
+      ]
+    },
+    {
+      "chapter": 5,
+      "name": "合鸣",
+      "cellRange": [
+        30,
+        36
+      ],
+      "candidateRange": [
+        25,
+        32
+      ],
+      "timeLimitSecondsRange": [
+        145,
+        173
+      ]
+    }
+  ],
+  "colourDiversity": {
+    "globalMetrics": {
+      "meanChroma": 0.107979,
+      "minChroma": 0.006712,
+      "maxChroma": 0.209495,
+      "lowChromaThreshold": 0.035,
+      "lowChromaRatio": 0.012319,
+      "belowChroma007Ratio": 0.127145,
+      "vividChroma012Ratio": 0.351518,
+      "meanLightness": 0.644457,
+      "lightnessRange": [
+        0.244722,
+        0.940562
+      ],
+      "hueBins30Degrees": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "chromaWeightedHueHistogram": [
+        0.164055,
+        0.115505,
+        0.065954,
+        0.049761,
+        0.08199,
+        0.066737,
+        0.049526,
+        0.054313,
+        0.102353,
+        0.090631,
+        0.064335,
+        0.094841
+      ],
+      "hueCoverageDegrees": 358.11,
+      "dominantHueBins": [
+        0,
+        1
+      ],
+      "mainColourSignature": "0-1:mid:colourful",
+      "lightnessClass": "mid",
+      "chromaClass": "colourful",
+      "scope": "descriptive actual 8-bit HEX metrics; not a human vision or display guarantee"
+    },
+    "familyCount": 12
+  }
+}

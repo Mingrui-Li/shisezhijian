@@ -1,0 +1,393 @@
+{
+  "sourceFiles": 15,
+  "sourceNonblankLines": 2787,
+  "sourceWordExact": true,
+  "sourceSnapshotsExact": true,
+  "documents": {
+    "拾色之间游戏软件_V1.1.0_软件说明书.pdf": {
+      "pages": 14,
+      "pageStats": [
+        {
+          "page": 1,
+          "bodyLines": 33,
+          "images": 0
+        },
+        {
+          "page": 2,
+          "bodyLines": 34,
+          "images": 0
+        },
+        {
+          "page": 3,
+          "bodyLines": 7,
+          "images": 1
+        },
+        {
+          "page": 4,
+          "bodyLines": 7,
+          "images": 1
+        },
+        {
+          "page": 5,
+          "bodyLines": 7,
+          "images": 1
+        },
+        {
+          "page": 6,
+          "bodyLines": 7,
+          "images": 1
+        },
+        {
+          "page": 7,
+          "bodyLines": 33,
+          "images": 0
+        },
+        {
+          "page": 8,
+          "bodyLines": 33,
+          "images": 0
+        },
+        {
+          "page": 9,
+          "bodyLines": 33,
+          "images": 0
+        },
+        {
+          "page": 10,
+          "bodyLines": 33,
+          "images": 0
+        },
+        {
+          "page": 11,
+          "bodyLines": 34,
+          "images": 0
+        },
+        {
+          "page": 12,
+          "bodyLines": 33,
+          "images": 0
+        },
+        {
+          "page": 13,
+          "bodyLines": 33,
+          "images": 0
+        },
+        {
+          "page": 14,
+          "bodyLines": 33,
+          "images": 0
+        }
+      ]
+    },
+    "拾色之间游戏软件_V1.1.0_申请信息草稿.pdf": {
+      "pages": 4,
+      "pageStats": [
+        {
+          "page": 1,
+          "bodyLines": 21,
+          "images": 0
+        },
+        {
+          "page": 2,
+          "bodyLines": 20,
+          "images": 0
+        },
+        {
+          "page": 3,
+          "bodyLines": 23,
+          "images": 0
+        },
+        {
+          "page": 4,
+          "bodyLines": 30,
+          "images": 0
+        }
+      ]
+    },
+    "拾色之间游戏软件_V1.1.0_源程序鉴别材料.pdf": {
+      "pages": 56,
+      "pageStats": [
+        {
+          "page": 1,
+          "bodyLines": 52,
+          "images": 0
+        },
+        {
+          "page": 2,
+          "bodyLines": 52,
+          "images": 0
+        },
+        {
+          "page": 3,
+          "bodyLines": 53,
+          "images": 0
+        },
+        {
+          "page": 4,
+          "bodyLines": 53,
+          "images": 0
+        },
+        {
+          "page": 5,
+          "bodyLines": 50,
+          "images": 0
+        },
+        {
+          "page": 6,
+          "bodyLines": 53,
+          "images": 0
+        },
+        {
+          "page": 7,
+          "bodyLines": 56,
+          "images": 0
+        },
+        {
+          "page": 8,
+          "bodyLines": 55,
+          "images": 0
+        },
+        {
+          "page": 9,
+          "bodyLines": 55,
+          "images": 0
+        },
+        {
+          "page": 10,
+          "bodyLines": 51,
+          "images": 0
+        },
+        {
+          "page": 11,
+          "bodyLines": 54,
+          "images": 0
+        },
+        {
+          "page": 12,
+          "bodyLines": 52,
+          "images": 0
+        },
+        {
+          "page": 13,
+          "bodyLines": 53,
+          "images": 0
+        },
+        {
+          "page": 14,
+          "bodyLines": 55,
+          "images": 0
+        },
+        {
+          "page": 15,
+          "bodyLines": 59,
+          "images": 0
+        },
+        {
+          "page": 16,
+          "bodyLines": 55,
+          "images": 0
+        },
+        {
+          "page": 17,
+          "bodyLines": 51,
+          "images": 0
+        },
+        {
+          "page": 18,
+          "bodyLines": 50,
+          "images": 0
+        },
+        {
+          "page": 19,
+          "bodyLines": 58,
+          "images": 0
+        },
+        {
+          "page": 20,
+          "bodyLines": 59,
+          "images": 0
+        },
+        {
+          "page": 21,
+          "bodyLines": 68,
+          "images": 0
+        },
+        {
+          "page": 22,
+          "bodyLines": 70,
+          "images": 0
+        },
+        {
+          "page": 23,
+          "bodyLines": 71,
+          "images": 0
+        },
+        {
+          "page": 24,
+          "bodyLines": 65,
+          "images": 0
+        },
+        {
+          "page": 25,
+          "bodyLines": 62,
+          "images": 0
+        },
+        {
+          "page": 26,
+          "bodyLines": 57,
+          "images": 0
+        },
+        {
+          "page": 27,
+          "bodyLines": 57,
+          "images": 0
+        },
+        {
+          "page": 28,
+          "bodyLines": 54,
+          "images": 0
+        },
+        {
+          "page": 29,
+          "bodyLines": 63,
+          "images": 0
+        },
+        {
+          "page": 30,
+          "bodyLines": 56,
+          "images": 0
+        },
+        {
+          "page": 31,
+          "bodyLines": 52,
+          "images": 0
+        },
+        {
+          "page": 32,
+          "bodyLines": 59,
+          "images": 0
+        },
+        {
+          "page": 33,
+          "bodyLines": 53,
+          "images": 0
+        },
+        {
+          "page": 34,
+          "bodyLines": 53,
+          "images": 0
+        },
+        {
+          "page": 35,
+          "bodyLines": 53,
+          "images": 0
+        },
+        {
+          "page": 36,
+          "bodyLines": 51,
+          "images": 0
+        },
+        {
+          "page": 37,
+          "bodyLines": 54,
+          "images": 0
+        },
+        {
+          "page": 38,
+          "bodyLines": 53,
+          "images": 0
+        },
+        {
+          "page": 39,
+          "bodyLines": 66,
+          "images": 0
+        },
+        {
+          "page": 40,
+          "bodyLines": 55,
+          "images": 0
+        },
+        {
+          "page": 41,
+          "bodyLines": 51,
+          "images": 0
+        },
+        {
+          "page": 42,
+          "bodyLines": 50,
+          "images": 0
+        },
+        {
+          "page": 43,
+          "bodyLines": 56,
+          "images": 0
+        },
+        {
+          "page": 44,
+          "bodyLines": 52,
+          "images": 0
+        },
+        {
+          "page": 45,
+          "bodyLines": 52,
+          "images": 0
+        },
+        {
+          "page": 46,
+          "bodyLines": 51,
+          "images": 0
+        },
+        {
+          "page": 47,
+          "bodyLines": 55,
+          "images": 0
+        },
+        {
+          "page": 48,
+          "bodyLines": 54,
+          "images": 0
+        },
+        {
+          "page": 49,
+          "bodyLines": 56,
+          "images": 0
+        },
+        {
+          "page": 50,
+          "bodyLines": 54,
+          "images": 0
+        },
+        {
+          "page": 51,
+          "bodyLines": 52,
+          "images": 0
+        },
+        {
+          "page": 52,
+          "bodyLines": 53,
+          "images": 0
+        },
+        {
+          "page": 53,
+          "bodyLines": 53,
+          "images": 0
+        },
+        {
+          "page": 54,
+          "bodyLines": 54,
+          "images": 0
+        },
+        {
+          "page": 55,
+          "bodyLines": 53,
+          "images": 0
+        },
+        {
+          "page": 56,
+          "bodyLines": 37,
+          "images": 0
+        }
+      ]
+    }
+  }
+}

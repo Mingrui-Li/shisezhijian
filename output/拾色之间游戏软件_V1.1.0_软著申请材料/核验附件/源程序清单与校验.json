@@ -1,0 +1,105 @@
+{
+  "softwareName": "拾色之间游戏软件",
+  "version": "V1.1.0",
+  "owner": "济南青骓互动信息科技有限公司",
+  "completionDate": "2026-10-28",
+  "publication": "未发表",
+  "files": [
+    {
+      "file": "game/assets/scripts/Boot.ts",
+      "physicalLines": 838,
+      "nonblankLines": 798,
+      "sha256": "14c9602fa9ed96db3e3f3f3d2b6881c42310a5b46c3cc722b653cfa0eb24a590"
+    },
+    {
+      "file": "game/assets/scripts/core/index.ts",
+      "physicalLines": 703,
+      "nonblankLines": 693,
+      "sha256": "6c6fed0562b3c36d470e45fe0031a48ffc246d54c729dc972fdd019812b86f9b"
+    },
+    {
+      "file": "game/assets/scripts/application/Progress.ts",
+      "physicalLines": 59,
+      "nonblankLines": 52,
+      "sha256": "2af02dfea366b7dedf52e9e0156a5d511755e782a3b4a068b9a9cd62420bee57"
+    },
+    {
+      "file": "game/assets/scripts/application/RestoreProgress.ts",
+      "physicalLines": 73,
+      "nonblankLines": 70,
+      "sha256": "65fcb2869df88dafbbe9ae6449835102e97d16433d15e6a6fa950a8427bc06ef"
+    },
+    {
+      "file": "game/assets/scripts/application/RuntimeConfig.ts",
+      "physicalLines": 6,
+      "nonblankLines": 6,
+      "sha256": "9b03dd56f07ff4454adb03072bc4551a6bd055f79a67ea6822614a8354b09c29"
+    },
+    {
+      "file": "game/assets/scripts/platform/LocalSave.ts",
+      "physicalLines": 57,
+      "nonblankLines": 51,
+      "sha256": "e31a9445e986e03e3551ae2e35da03e60d0572d6ee5a94cfd9f1019b2e383edf"
+    },
+    {
+      "file": "game/assets/scripts/platform/SnapshotStore.ts",
+      "physicalLines": 98,
+      "nonblankLines": 91,
+      "sha256": "d090b726ef28dd399efd8151285c65a109597c4830dfbfff64d2961dfeb148ee"
+    },
+    {
+      "file": "game/assets/scripts/platform/RewardedVideo.ts",
+      "physicalLines": 115,
+      "nonblankLines": 107,
+      "sha256": "ed2dfc29db46157804bfe49c3486ddd469302e86e0b25507f3df906ee43107b9"
+    },
+    {
+      "file": "game/assets/scripts/platform/Feedback.ts",
+      "physicalLines": 25,
+      "nonblankLines": 24,
+      "sha256": "a35a99fddb8bbe76b953817963d9ce07ecdcabe7e9f6f081e43dbd8675187b2c"
+    },
+    {
+      "file": "game/assets/scripts/platform/BrowserTestBridge.ts",
+      "physicalLines": 64,
+      "nonblankLines": 63,
+      "sha256": "cc4b0b47d6089629c255584b37fd95d43951407633e627bc4852674bcdaeb375"
+    },
+    {
+      "file": "game/assets/scripts/render/BoardLayout.ts",
+      "physicalLines": 44,
+      "nonblankLines": 44,
+      "sha256": "eaddcad85409b972cac5282f6958ef87d324df8136f0afa7d26b7da66851a5ba"
+    },
+    {
+      "file": "game/assets/scripts/render/LoadingScreen.ts",
+      "physicalLines": 260,
+      "nonblankLines": 239,
+      "sha256": "ade0964acff3544e7c7e89ebbf1b34663c94c49d6ffeeeebcf82fe7e277630d8"
+    },
+    {
+      "file": "game/assets/scripts/render/TutorialScreen.ts",
+      "physicalLines": 293,
+      "nonblankLines": 279,
+      "sha256": "c79e11205b28580da06a1c645e3a35a159d619c4d2b06587e49a804965a6f9f7"
+    },
+    {
+      "file": "game/assets/scripts/render/WinPanel.ts",
+      "physicalLines": 212,
+      "nonblankLines": 198,
+      "sha256": "cbf6d5bb1add3a29f5394e3c06623e9d4be30eb31972e43afd754cb0d1dbb4a4"
+    },
+    {
+      "file": "game/assets/scripts/theme/Theme.ts",
+      "physicalLines": 72,
+      "nonblankLines": 72,
+      "sha256": "c7ff52c9a658d115d0a17dc3c3e587c2693ea6f5249cd16fb852cc87b334e7ae"
+    }
+  ],
+  "physicalLines": 2919,
+  "nonblankLines": 2787,
+  "submissionPages": 56,
+  "sourceLinesPerFullPage": 50,
+  "lastPageSourceLines": 37,
+  "policy": "交存客户端全部TypeScript源程序，按所列模块顺序连接。仅省略空白行；非空白源码完整保留。长行自动折行，不改变源文件快照。未包含引擎或第三方实现、测试、工具及生成后的构建代码。"
+}

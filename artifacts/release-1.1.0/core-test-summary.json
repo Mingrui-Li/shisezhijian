@@ -1,0 +1,134 @@
+{
+  "release": "1.1.0",
+  "recordedAt": "2026-10-28T01:22:27.939Z",
+  "status": "passed",
+  "content": {
+    "version": "0.6.0",
+    "schemaVersion": "4.1.0",
+    "sha256": "2ff7a3e95f038db4da5a0e2c415f61ad46f69f3a99e6362ed94c4b9db74dab4c",
+    "levelCount": 100
+  },
+  "rulesVersion": "click-fill-timed-flex-v3",
+  "suites": [
+    {
+      "name": "core",
+      "command": "node tests/core/run.mjs",
+      "tests": 48,
+      "passed": 48,
+      "failed": 0,
+      "strictTypeScriptCompilation": true
+    },
+    {
+      "name": "application",
+      "command": "node tests/application/run.mjs",
+      "tests": 20,
+      "passed": 20,
+      "failed": 0,
+      "strictTypeScriptCompilation": true
+    },
+    {
+      "name": "platform",
+      "command": "node tests/platform/run.mjs",
+      "tests": 32,
+      "passed": 32,
+      "failed": 0,
+      "strictTypeScriptCompilation": true
+    }
+  ],
+  "totalTests": 100,
+  "failedTests": 0,
+  "witnesses": {
+    "levels": 100,
+    "totalPlacements": 1795,
+    "elapsePerPlacementMs": 1000,
+    "jsonRoundTripAfterEveryPlacement": true
+  },
+  "layout": {
+    "command": "node tools/build/check-layout.mjs",
+    "caseCount": 42,
+    "status": "passed",
+    "openingLevelCount": 12,
+    "openingViewports": [
+      "390x844 with top24/bottom20",
+      "390x844 with top71/bottom46",
+      "390x694 with top24/bottom20"
+    ],
+    "genericCases": 6,
+    "minimumBoardCellSize": 44.33,
+    "openingLevels": [
+      {
+        "id": "L001",
+        "columns": 4,
+        "rows": 4,
+        "candidateCount": 5
+      },
+      {
+        "id": "L002",
+        "columns": 5,
+        "rows": 5,
+        "candidateCount": 7
+      },
+      {
+        "id": "L003",
+        "columns": 5,
+        "rows": 3,
+        "candidateCount": 7
+      },
+      {
+        "id": "L004",
+        "columns": 3,
+        "rows": 3,
+        "candidateCount": 5
+      },
+      {
+        "id": "L005",
+        "columns": 3,
+        "rows": 3,
+        "candidateCount": 5
+      },
+      {
+        "id": "L006",
+        "columns": 4,
+        "rows": 3,
+        "candidateCount": 8
+      },
+      {
+        "id": "L007",
+        "columns": 4,
+        "rows": 4,
+        "candidateCount": 8
+      },
+      {
+        "id": "L008",
+        "columns": 4,
+        "rows": 3,
+        "candidateCount": 8
+      },
+      {
+        "id": "L009",
+        "columns": 4,
+        "rows": 4,
+        "candidateCount": 9
+      },
+      {
+        "id": "L010",
+        "columns": 4,
+        "rows": 4,
+        "candidateCount": 10
+      },
+      {
+        "id": "L011",
+        "columns": 4,
+        "rows": 4,
+        "candidateCount": 11
+      },
+      {
+        "id": "L012",
+        "columns": 4,
+        "rows": 4,
+        "candidateCount": 12
+      }
+    ]
+  },
+  "scope": "Pure rules, progress, storage, platform mocks and layout geometry. Does not assert native IDE rendering, real advertising delivery, or device input."
+}

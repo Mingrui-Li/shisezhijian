@@ -8,7 +8,9 @@ export const HEALTHY_PLAY_LINES = [
   '合理安排时间，享受健康生活。',
 ] as const;
 
-export const DEVELOPMENT_AGE_NOTE = '适龄说明 · 开发测试版';
+export const AGE_RATING_NOTE = '适龄提示 · 8+';
+/** Kept as a source-compatible alias for callers; the displayed wording is the confirmed 8+ rating. */
+export const DEVELOPMENT_AGE_NOTE = AGE_RATING_NOTE;
 
 export interface LoadingScreenOptions {
   parent: Node;
@@ -58,6 +60,12 @@ export class LoadingScreen {
     this.artworkNode.active = false;
     if (options.artwork) this.setArtwork(options.artwork);
 
+    // The user has confirmed 8+ with Douyin. Keep the mark readable above the illustration.
+    const badgeY = safeTop + 31;
+    const ageBadge = this.round('Age8PlusBadge', 40, badgeY, 48, 54, 4, '#65AF32');
+    this.label('适龄提示', 40, badgeY - 17, 46, 11, 8, '#FFFFFF', true);
+    this.label('8+', 40, badgeY + 4, 45, 38, 30, '#FFFFFF', true);
+    ageBadge.on(Node.EventType.TOUCH_END, () => this.invokeAgeInfo());
     const titleY = Math.max(54, safeTop + 38);
     this.label('拾色之间', width / 2, titleY, width - 48, 58, 38, '#564740', true);
     this.label('收集自然的每一种颜色', width / 2, titleY + 42, width - 56, 28, 14, '#746053');
@@ -115,7 +123,7 @@ export class LoadingScreen {
     this.fallbackNode.active = false;
   }
 
-  /** Development disclosure; the production age mark is supplied by the Douyin platform. */
+  /** Confirmed age guidance, available from both the 8+ badge and footer entry. */
   openAgeInfo(): void {
     if (!this.node.isValid || this.ageLayer?.isValid) return;
     this.clearOwnControls();
@@ -128,19 +136,19 @@ export class LoadingScreen {
     scrim.clear(); scrim.rect(-width / 2, -height / 2, width, height); scrim.fill();
     this.ageLayer.addComponent(BlockInputEvents);
     const centerY = height / 2;
-    this.round('AgeInformationCard', width / 2, centerY, width - 44, 326, 28, '#FFF9F0', this.ageLayer);
-    this.label('适龄说明', width / 2, centerY - 113, width - 84, 36, 22, '#564740', true, this.ageLayer);
-    this.label('开发测试版', width / 2, centerY - 75, width - 84, 24, 12, '#8C705C', false, this.ageLayer);
-    this.label('本游戏通过点击色块完成渐变拼图，\n包含步数挑战和自愿观看广告的道具功能。',
-      width / 2, centerY - 18, width - 80, 58, 14, '#6E5D50', false, this.ageLayer);
-    this.label('正式适龄提示以抖音平台审核后展示为准。\n请合理安排游戏时间，未成年人请在\n监护人的指导下了解和体验游戏。',
-      width / 2, centerY + 56, width - 80, 76, 13, '#6E5D50', false, this.ageLayer);
-    const close = this.round('CloseAgeInformation', width / 2, centerY + 121,
+    this.round('AgeInformationCard', width / 2, centerY, width - 44, 358, 28, '#FFF9F0', this.ageLayer);
+    this.label('适龄说明 · 8+', width / 2, centerY - 132, width - 84, 36, 22, '#564740', true, this.ageLayer);
+    this.label('适合年满 8 周岁及以上用户', width / 2, centerY - 91, width - 84, 26, 14, '#65AF32', true, this.ageLayer);
+    this.label('本游戏为休闲益智类色彩拼图，\n通过点选色块补全渐变，包含倒计时挑战、\n积分兑换道具和自愿观看激励视频功能。',
+      width / 2, centerY - 29, width - 76, 78, 13, '#6E5D50', false, this.ageLayer);
+    this.label('游戏无陌生人社交及现金充值入口。\n建议未成年人在监护人指导下体验，\n合理安排游戏时间，避免长时间连续游戏。',
+      width / 2, centerY + 58, width - 76, 78, 13, '#6E5D50', false, this.ageLayer);
+    const close = this.round('CloseAgeInformation', width / 2, centerY + 137,
       168, 42, 21, '#F3CEB2', this.ageLayer);
-    this.label('知道了', width / 2, centerY + 121, 152, 38, 15, '#564740', true, this.ageLayer);
+    this.label('知道了', width / 2, centerY + 137, 152, 38, 15, '#564740', true, this.ageLayer);
     close.on(Node.EventType.TOUCH_END, () => this.closeAgeInfo());
     this.register('关闭适龄说明', () => this.closeAgeInfo(),
-      { x: width / 2, y: centerY + 121, width: 168, height: 42 });
+      { x: width / 2, y: centerY + 137, width: 168, height: 42 });
   }
 
   closeAgeInfo(): void {
@@ -169,8 +177,10 @@ export class LoadingScreen {
   }
 
   private registerAgeEntry(): void {
-    const { width, height, safeBottom } = this.options;
-    this.register(DEVELOPMENT_AGE_NOTE, () => this.invokeAgeInfo(),
+    const { width, height, safeTop, safeBottom } = this.options;
+    this.register('8+ 适龄提示', () => this.invokeAgeInfo(),
+      { x: 40, y: safeTop + 31, width: 48, height: 54 });
+    this.register(AGE_RATING_NOTE, () => this.invokeAgeInfo(),
       { x: width / 2, y: height - safeBottom - 23, width: Math.min(244, width - 60), height: 44 });
   }
 

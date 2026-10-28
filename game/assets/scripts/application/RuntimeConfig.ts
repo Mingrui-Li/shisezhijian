@@ -1,6 +1,6 @@
-/** This artifact is a tester build. Set testTools=false before a release build. */
+/** Shipping configuration. Empty ad unit IDs keep rewarded video explicitly unavailable. */
 export const runtimeConfig = {
-  version: '0.2.0-ui.1',
-  testTools: true,
+  version: '1.1.0',
+  browserAccessibility: true,
   rewardedAdUnitId: '',
 } as const;

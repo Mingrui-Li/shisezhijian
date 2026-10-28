@@ -12,9 +12,10 @@ from collections import Counter, deque
 from pathlib import Path
 
 sys.dont_write_bytecode=True
-from generate_levels import (ALLOWANCE_RATIOS, DATA_PATH, SCHEMA_VERSION, build_bank,
+from generate_levels import (DATA_PATH, SCHEMA_VERSION, VERSION, build_bank,
                              canonical_digest, distance, hex_to_lab, initial_state,
-                             lab_to_linear, load_source, palette_from_parameters)
+                             lab_to_linear, load_source, load_overrides, resolved_targets, palette_from_parameters, time_limit_seconds,
+                             constrained_shuffle, shuffle_quality, shuffle_passes, MAX_SHUFFLE_ATTEMPTS)
 
 from nature_palette import (colour_metrics, diversity_report, load_recipes, palette_distance,
                             MIN_ADJACENT_PALETTE_DISTANCE, field_diagnostics)
@@ -99,7 +100,8 @@ def validate(bank,check_digest=True,check_reproducible=True):
     def check(condition,message):
         if not condition:
             errors.append(message)
-    check(bank.get('schemaVersion')==SCHEMA_VERSION,'只接受schemaVersion 3.0.0')
+    check(bank.get('schemaVersion')==SCHEMA_VERSION,'只接受schemaVersion 4.1.0')
+    check(bank.get('contentVersion')==VERSION,'只接受contentVersion 0.6.0')
     check(bank.get('gameplayMode')=='click-fill' and bank.get('inputMode')=='tap','只接受点击补色模式')
     check(len(levels)==100,'题库必须100关')
     check([v['id'] for v in levels]==[f'L{i:03}' for i in range(1,101)],'关卡ID必须连续唯一')
@@ -112,6 +114,8 @@ def validate(bank,check_digest=True,check_reproducible=True):
             check(condition,l['id']+': '+message)
         try:
             ck(l.get('gameplayMode')=='click-fill' and l.get('inputMode')=='tap','关卡必须点击补色')
+            ck(l.get('contentVersion')==VERSION,'关卡内容版本必须0.6.0')
+            ck(l.get('scoreEpoch','base-v1')==('expanded-0.6' if l['number']<=12 else 'base-v1'),'关卡积分周期必须与前十二关改版一致')
             cells=l['cells'];by={c['id']:c for c in cells};positions={(c['x'],c['y']) for c in cells}
             ck(len(by)==len(cells)==len(positions),'格位ID/坐标重复')
             ck(all(isinstance(v,int) and 0<=v<=5 for c in cells for v in [c['x'],c['y']]),'坐标需为0–5整数')
@@ -129,13 +133,13 @@ def validate(bank,check_digest=True,check_reproducible=True):
                 for a,b in zip(ids,ids[1:]):
                     ck(abs(by[a]['x']-by[b]['x'])+abs(by[a]['y']-by[b]['y'])==1,'轨道断裂或非正交')
                     edges.add(tuple(sorted((a,b))))
-                if l['number']>=5:
+                if l['geometryKind']!='single':
                     ck(len({by[id]['x'] for id in ids})==1 or len({by[id]['y'] for id in ids})==1,'二维色场轨道必须为直行或直列')
             ck(set(counts)==set(by),'轨道没有覆盖所有格位')
             shared=sorted(id for id,n in counts.items() if n>1)
             ck(shared==sorted(l['intersectionCellIds']),'交点声明不一致')
             ck(max(counts.values())<=2,'一格最多横纵两条路径')
-            if l['number']>=5:
+            if l['geometryKind']!='single':
                 ck(len(shared)>=(4 if l['chapter']>=2 else 2),'二维题须有多个耦合交点')
             neighbours={c:set() for c in by}
             for a,b in edges:
@@ -162,9 +166,16 @@ def validate(bank,check_digest=True,check_reproducible=True):
             ck(any(l['initialBoard'][id]!=target[id] for id in by),'初始不得已经解开')
             ck(all(l['initialBoard'][id] is None for id in movable),'非锚点开局必须空缺')
             ck(len(l['initialPool'])==len(movable),'全部非锚点颜色必须位于下方候选区')
-            ck(l['trayHomeByTile']=={tile:i for i,tile in enumerate(l['initialPool'])},'候选区固定归位索引错误')
-            ck(l['shuffle']=={'algorithm':'xorshift32-fisher-yates-v1','scope':'non-anchor-tray-only','stableHomeSlots':True},'候选区打乱协议错误')
-            if l['number']>=5:
+            ck(l['trayHomeByTile']=={tile:i for i,tile in enumerate(l['initialPool'])},'候选区初始索引错误')
+            ck(l['trayHomeByTileRole'].startswith('initial-only;'),'候选索引只能描述初始开局')
+            ck(l['shuffle']=={'algorithm':'xorshift32-fisher-yates-rejection-v2','scope':'non-anchor-tray-only','stableHomeSlots':False,'candidateSlots':'any-empty','maxAttempts':MAX_SHUFFLE_ATTEMPTS},'候选区打乱协议错误')
+            ordered=[c['targetTileId'] for c in cells if c['id'] not in anchors]
+            quality=shuffle_quality(l['initialPool'],ordered)
+            ck(shuffle_passes(quality),'洗牌质量不足：候选必须至少4块、至少75%错位、顺逆连续不超过2且相邻目标对不超过35%')
+            _,expected_quality=constrained_shuffle(ordered,l['seed'])
+            ck(l['shuffleQuality']==expected_quality,'洗牌质量量化记录不符合确定性拒绝采样')
+            ck(all(l['shuffleQuality'][key]==value for key,value in quality.items()),'洗牌质量量化记录与实际候选不符')
+            if l['geometryKind']!='single':
                 ck(4<=len(anchors)<=5,'正式二维题使用四角加至多1个辅助锚')
                 ck(all(f'c{x}_{y}' in anchors for x,y in [(0,0),(w-1,0),(0,h-1),(w-1,h-1)]),'四角必须保留锚点')
             ck(len({c['targetHex'] for c in cells})==len(cells),'本关HEX重复')
@@ -191,7 +202,7 @@ def validate(bank,check_digest=True,check_reproducible=True):
             ck(metrics==p['metrics'],'实际HEX的色度/亮度/色相指标记录错误')
             ck(metrics['meanChroma']>=.045 and metrics['maxChroma']>=.095,'色盘低色度主导，未满足丰富色彩候选线')
             ck(metrics['lowChromaRatio']<=.6,'低色度块占比过高')
-            expected_corners=[by[f'c{x}_{y}']['targetHex'] for x,y in [(0,0),(w-1,0),(0,h-1),(w-1,h-1)]] if l['number']>=5 else [by[l['paths'][0]['cellIds'][0]]['targetHex'],by[l['paths'][0]['cellIds'][-1]]['targetHex']]
+            expected_corners=[by[f'c{x}_{y}']['targetHex'] for x,y in [(0,0),(w-1,0),(0,h-1),(w-1,h-1)]] if l['geometryKind']!='single' else [by[l['paths'][0]['cellIds'][0]]['targetHex'],by[l['paths'][0]['cellIds'][-1]]['targetHex']]
             ck(p['actualCornersHex']==expected_corners,'实际四角色条与目标不一致')
             if l['number']>1:
                 previous=levels[l['number']-2]
@@ -204,7 +215,7 @@ def validate(bank,check_digest=True,check_reproducible=True):
             else:
                 ck(p['distanceFromPrevious'] is None,'首关不应有前关距离')
             ck(l['qa'].get('colourArtReview')=='pending','艺术审阅必须保留pending')
-            ck(l['palette']['method']==('oklab-path-linear' if l['number']<=4 else 'oklab-bilinear-four-corners'),'配色方法不符合阶段')
+            ck(l['palette']['method']==('oklab-path-linear' if l['geometryKind']=='single' else 'oklab-bilinear-four-corners'),'配色方法不符合轨道结构')
             labs={c['id']:hex_to_lab(c['targetHex']) for c in cells}
             minimum=min(distance(labs[a],labs[b]) for i,a in enumerate(labs) for b in list(labs)[i+1:])
             adjacent=min(distance(labs[a],labs[b]) for p in l['paths'] for a,b in zip(p['cellIds'],p['cellIds'][1:]))
@@ -239,24 +250,16 @@ def validate(bank,check_digest=True,check_reproducible=True):
             exact=sum(tile is None for tile in l['initialBoard'].values())
             ck(exact==len(l['initialPool'])==len(movable)==m,'最低有效放置数应为初始空槽数N')
             ck(challenge['minimumMovesMetric']=='tray-to-empty-board-placements','最低动作度量必须点击放置')
-            ck(not any(k in challenge for k in ['slackMoves','budgetFactor','budgetBuffer']),'禁止遗留旧动作预算字段')
+            ck(not any(k in challenge for k in ['slackMoves','budgetFactor','budgetBuffer','moveBudget','moveAllowance','allowanceRatio','rhythmExtra']),'禁止遗留旧动作预算字段')
             ck(len(witness)==m,'证解长度不等于N')
             valid,message=replay_witness(l);ck(valid,message)
-            if l['number']<=4:
-                ck(challenge['mode']=='none' and challenge['moveBudget'] is None and challenge['moveAllowance'] is None,'前4关不限步')
-                ck(challenge['allowanceRatio'] is None and challenge['rhythmExtra']==0,'教学不设置步数宽容')
-                ck(challenge['revive']=={'maxPerAttempt':0,'addMoves':0},'教学不得出现失败复活')
-            else:
-                ck(challenge['mode']=='moves','L005起必须限步')
-                ratio=ALLOWANCE_RATIOS[l['chapter']-1]
-                extra=2 if l['rhythm']=='buffer' else 0
-                allowance=max(2,math.ceil(m*ratio))+extra;budget=m+allowance
-                ck(challenge['moveBudget']==budget and challenge['allowanceRatio']==ratio and challenge['rhythmExtra']==extra,'步数预算不符合点击放置章阶梯公式')
-                ck(budget>=m and challenge['moveAllowance']==allowance,'无道具无广告必须能在预算内完成')
-                ck(len(witness)<=budget,'无广告证解超出预算')
-                ck(challenge['revive']=={'maxPerAttempt':2,'addMoves':max(5,math.ceil(len(movable)*.2))},'复活补步不符合规则')
+            ck(challenge['mode']=='time','全部关卡必须使用倒计时')
+            seconds=challenge['timeLimitSeconds']
+            ck(type(seconds) is int and 45<=seconds<=240,'倒计时必须为45–240的整数秒')
+            ck(seconds==time_limit_seconds(l['number'],l['chapter'],m),'倒计时不符合章节时间公式')
+            ck(challenge['revive']=={'maxPerAttempt':2,'addSeconds':30},'复活续时不符合规则')
             expected_board,pool,homes,expected_witness=initial_state(cells,l['anchors'],l['seed'])
-            ck(expected_board==l['initialBoard'] and pool==l['initialPool'] and homes==l['trayHomeByTile'],'seed不能复现初始盘面与固定候选槽')
+            ck(expected_board==l['initialBoard'] and pool==l['initialPool'] and homes==l['trayHomeByTile'],'seed不能复现初始盘面与候选初始索引')
             ck(expected_witness==witness,'证解不能由固定候选顺序复现')
             qa=l['qa'];ck(qa['status']=='pending' and not qa['releaseApproved'],'全部候选必须保留人工QA pending')
             ck(all(qa[k]=='pending' for k in ['humanPlaytest','phoneDisplay','perceptualAlternativeSolutions','economyAndFailureRate','noAdHumanSolvability']),'不得预先宣称人工试玩/盈利/无广告人类通关验收')
@@ -266,7 +269,7 @@ def validate(bank,check_digest=True,check_reproducible=True):
             ck(layout['cellPitch']==48 and layout['poolColumns']==6,'布局必须保持候选区与轨道的格距契约')
             ck(layout['trayPageRows']==3 and layout['trayViewportHeight']==144 and layout['trayPageCapacity']==18,'候选区标准三行分页契约错误')
             ck(layout['allowedPageCapacities']==[18,12,6],'候选区小屏自适应分页容量错误')
-            ck(layout['stableHomeSlots'] and layout['boardAndTrayNeverOverlap'],'候选槽须稳定并与轨道分区')
+            ck(layout['candidateSlots']=='any-empty' and layout['boardAndTrayNeverOverlap'],'色块可取回任意候选空槽，候选区与轨道须分区')
             ck(layout['trayNavigation']=='tap-pagination','候选区只能点击翻页')
             height=h*48+24+144
             ck(layout['estimatedBoardAndTrayHeight']==height and height<=456,'棋盘和候选视窗高度预算错误或超限')
@@ -288,19 +291,29 @@ def validate(bank,check_digest=True,check_reproducible=True):
     source=load_source()
     preserved_keys=['id','number','chapter','chapterName','order','title','templateId','geometryKind','seed','rhythm','grid','cells','paths','intersectionCellIds','anchors','tiles','solution','palette']
     check(bank.get('acceptedTargetFieldsSha256')==source['targetFieldsSha256'],'认可目标色场摘要不一致')
-    for new,accepted in zip(levels,source['levels']):
-        check(all(new[k]==accepted[k] for k in preserved_keys),new['id']+': 不可变目标色场/轨道/锚点/身份被修改')
+    check(bank.get('introOverridesSha256')==load_overrides()['overridesSha256'],'前十二关改版摘要不一致')
+    for new,expected,accepted in zip(levels,resolved_targets(),source['levels']):
+        check(all(new[k]==expected[k] for k in preserved_keys),new['id']+': 目标色场/轨道/锚点不能由基线加明确改版复现')
+        if new['number']>=13:
+            check(all(new[k]==accepted[k] for k in preserved_keys if k!='palette'),new['id']+': L013起不可变目标色场/轨道/锚点/身份被修改')
+        else:
+            check(new['title']==accepted['title'] and all(new['palette'][k]==accepted['palette'][k] for k in ['themeId','themeName','family','mood','brief','seedCornersHex']),new['id']+': 前十二关必须保持已认可自然主题')
     policy=bank['challengePolicy']
-    check(policy['chargedActions']==['tray-to-empty-board','board-to-empty-board'],'有效落位动作协议错误')
-    check(policy['fixedTrayHomeSlots'] is True and policy['undoReturnsMoves'] is False,'固定候选槽与撤销协议错误')
-    check(policy['allowanceRatiosByChapter']==ALLOWANCE_RATIOS,'章节宽容比例错误')
+    check(policy['countedPlacementActions']==['tray-to-empty-board','board-to-empty-board'],'有效落位动作协议错误')
+    check(policy['candidateSlots']=='any-empty' and policy['undoRefundsTime'] is False,'任意候选空槽与撤销协议错误')
+    check(policy['mode']=='time' and policy['firstTimedLevel']==1,'全部关卡必须使用倒计时')
+    check(policy['secondsPerCandidateByChapter']==[6,6,5,5,4],'章节时间比例错误')
+    shuffle_policy=bank['shufflePolicy']
+    check(shuffle_policy['minimumCandidates']==4 and shuffle_policy['minimumDisplacedRatio']==.75
+        and shuffle_policy['maximumForwardOrReverseRun']==2 and shuffle_policy['maximumAdjacentTargetPairRatio']==.35
+        and shuffle_policy['maxAttempts']==MAX_SHUFFLE_ATTEMPTS and shuffle_policy['candidateSlots']=='any-empty','全库洗牌质量策略错误')
     per_chapter=[]
     for ch in range(1,6):
         group=[l for l in levels if l['chapter']==ch]
         if not group:
             continue
         check([l['order'] for l in group]==list(range(1,21)),f'第{ch}章顺序错误')
-        lower,upper=[(3,16),(16,20),(20,25),(25,30),(30,36)][ch-1]
+        lower,upper=[(7,16),(16,20),(20,25),(25,30),(30,36)][ch-1]
         check(all(lower<=len(l['cells'])<=upper for l in group),f'第{ch}章规模必须{lower}–{upper}格')
         if ch>=2:
             check(len({geometry_signature(l) for l in group})>=8,f'第{ch}章结构变化不足，不能只换色')
@@ -310,7 +323,6 @@ def validate(bank,check_digest=True,check_reproducible=True):
         check(max(chapter_chromas)-min(chapter_chromas)>=.035,f'第{ch}章缺少明显浓淡色度变化')
         check(max(chapter_ls)-min(chapter_ls)>=.15,f'第{ch}章缺少明显明暗变化')
         check(group[-1]['rhythm']=='finale',f'第{ch}章末需finale')
-        bounded=[l for l in group if l['challenge']['mode']=='moves']
         def range_of(fn,source=group):
             values=[fn(l) for l in source]
             return [min(values),max(values)]
@@ -323,16 +335,17 @@ def validate(bank,check_digest=True,check_reproducible=True):
                             'lightnessFullHitLevelIds':[l['id'] for l in group if independently_test_lightness_fill(l)['fullColourHitOrders']],
                             'lightnessMovableHitLevelIds':[l['id'] for l in group if independently_test_lightness_fill(l)['movableColourHitOrders']],
                             'minimumMovesRange':range_of(lambda l:l['challenge']['minimumMoves']),
-                            'moveBudgetRange':range_of(lambda l:l['challenge']['moveBudget'],bounded),
-                            'moveAllowanceRange':range_of(lambda l:l['challenge']['moveAllowance'],bounded),
+                            'timeLimitSecondsRange':range_of(lambda l:l['challenge']['timeLimitSeconds']),
                             'namedTemplateCount':len({l['templateId'] for l in group}),
                             'canonicalGeometryCount':len({geometry_signature(l) for l in group}),
                             'rhythm':dict(Counter(l['rhythm'] for l in group)),
                             'geometryKinds':dict(Counter(l['geometryKind'] for l in group))})
     if len(levels)==100:
-        check(len(levels[0]['cells'])==3 and len(levels[0]['initialPool'])==1,'L001须3格1块待放')
-        check(len(levels[1]['cells'])==5 and len(levels[1]['initialPool'])==3,'L002须5格3块待放')
-        check(levels[2]['challenge']['minimumMoves']==3 and len(levels[2]['initialPool'])==3,'L003须点击取回与调整教学')
+        check(len(levels[0]['cells'])==7 and len(levels[0]['initialPool'])==5,'L001须7格5块待放')
+        check(len(levels[1]['cells'])==9 and len(levels[1]['initialPool'])==7,'L002须9格7块待放')
+        check(levels[2]['challenge']['minimumMoves']==7 and len(levels[2]['initialPool'])==7,'L003须双转弯9格7候选')
+        check(all(len(l['initialPool'])>=4 for l in levels),'正式关卡至少4候选，不能通过二选顺逆序直接给答案')
+        check([len(l['cells']) for l in levels[:12]]==[7,9,9,9,9,12,12,12,13,14,15,16],'前十二关结构阶梯错误')
         for index in (71,77):
             check(len(levels[index]['cells'])>=25 and levels[index]['difficulty']['sharedCellCount']>=9,f'L{index+1:03}不得退回短线，至少25格和9共享格')
         check(len(levels[-1]['cells'])==36 and levels[-1]['grid']=={'columns':6,'rows':6},'L100须完整6×6 36格')
@@ -350,6 +363,12 @@ def validate(bank,check_digest=True,check_reproducible=True):
             'uniqueExactTargetClueCount':len(exact_seen),'uniqueCanonicalTargetClueCount':len(canonical_seen),
             'minPairDeltaEOK':round(worst_pair[0],6),'minPairLevel':worst_pair[1],
             'maxCells':max(len(l['cells']) for l in levels),'maxPool':max_pool,
+            'shuffleQuality':{'minimumCandidates':min(len(l['initialPool']) for l in levels),
+                'minimumDisplacedRatio':min(l['shuffleQuality']['displacedRatio'] for l in levels),
+                'maximumForwardOrReverseRun':max(l['shuffleQuality']['longestForwardOrReverseRun'] for l in levels),
+                'maximumAdjacentTargetPairRatio':max(l['shuffleQuality']['adjacentTargetPairRatio'] for l in levels),
+                'maximumRejectionAttemptsUsed':max(l['shuffleQuality']['acceptedAttempt'] for l in levels),
+                'forwardOrReverseLevelIds':[l['id'] for l in levels if l['shuffleQuality']['isForwardOrder'] or l['shuffleQuality']['isReverseOrder']]},
             'maxBoardAndPoolHeight':max_height,'perChapter':per_chapter,
             'proofsReplayed':len(levels),'fixedSeedReproduction':'pass' if reproduced else 'not-run-or-failed',
             'lightnessShortcutScreen':{'requiredChapters':[3,4,5],'spatialOrdersPerMode':8,'modes':['all-colours','movable-colours-with-fixed-anchors'],
@@ -359,13 +378,15 @@ def validate(bank,check_digest=True,check_reproducible=True):
                                        'scope':'rules out only these exact rank-L fill heuristics; not perceptual uniqueness or proof against other shortcuts'},
             'colourDiversity':{'familyCount':len(art['familyCounts']) if art else None,'globalMetrics':art['globalMetrics'] if art else None,
                                'minimumAdjacentPaletteDistance':min(l['palette']['distanceFromPrevious'] for l in levels[1:]),
-                               'acceptedTargetFieldsInvariant':'pass' if not any('不可变目标色场' in e for e in errors) else 'fail',
+                               'baselineL013ToL100Invariant':'pass' if not any('不可变目标色场' in e for e in errors) else 'fail',
+                               'introOverrideSource':'data/levels/source/overrides.v1.json',
                                'humanArtReview':'pending'},
             'sha256':digest,
             'notes':['100关全部保留人工QA pending；数值校验不证明人眼唯一合理解。',
-                     '每关N次候选色点击放置证解已重放；限步关均可不使用道具或广告完成。',
+                     '每关N次候选色点击放置证解已重放；证解不使用道具或广告，不证明真人能在倒计时内完成。',
                      '失败率、道具消耗、广告转化和实际时长均为待试玩/上线实验假设。',
-                     '全部关卡仅锚点预填，其余空缺，全部待填颜色在固定槽候选区；已放色可免费取回。',
+                     '全部关卡仅锚点预填，其余空缺；候选初始索引只供复现，已放色可取回任意候选空槽。',
+                     'L001–L012按明确作者改版增加轨道及采样，L013–L100保持基线目标色、轨道与锚点。',
                      '图鉴只做静态/模拟DOM检查，本轮没有浏览器视觉与真机验收。']}
 
 
@@ -382,18 +403,33 @@ def rejection_probes(bank):
     probe('reject-old-level-mode',lambda b:b['levels'][49].update(gameplayMode='other'),'关卡必须点击补色')
     probe('reject-occupied-non-anchor-start',lambda b:b['levels'][49]['initialBoard'].update({next(c['id'] for c in b['levels'][49]['cells'] if c['id'] not in b['levels'][49]['anchors']):b['levels'][49]['initialPool'][0]}),'非锚点开局必须空缺')
     probe('duplicate-initial-tile',lambda b:b['levels'][49]['initialPool'].__setitem__(0,b['levels'][49]['initialPool'][1]),'色块多重集不守恒')
-    probe('budget-below-minimum',lambda b:b['levels'][99]['challenge'].update(moveBudget=1),'步数预算不符合')
+    probe('legacy-action-budget-field',lambda b:b['levels'][99]['challenge'].update(moveBudget=1),'禁止遗留旧动作预算字段')
+    probe('timer-too-short',lambda b:b['levels'][99]['challenge'].update(timeLimitSeconds=1),'倒计时必须为')
+    probe('timer-formula-mismatch',lambda b:b['levels'][99]['challenge'].update(timeLimitSeconds=240),'倒计时不符合')
+    probe('timer-mode-mismatch',lambda b:b['levels'][0]['challenge'].update(mode='none'),'全部关卡必须使用倒计时')
+    probe('timer-first-level-mismatch',lambda b:b['levels'][0]['challenge'].update(timeLimitSeconds=51),'倒计时不符合')
+    probe('revive-seconds-mismatch',lambda b:b['levels'][99]['challenge']['revive'].update(addSeconds=5),'复活续时不符合')
     probe('illegal-anchor-placement',lambda b:b['levels'][77]['challenge']['witnessSolution'][0].update(toCellId=b['levels'][77]['anchors'][0]),'试图覆盖锚点')
     probe('illegal-board-source-in-witness',lambda b:b['levels'][77]['challenge']['witnessSolution'][0].update(fromCellId=b['levels'][77]['anchors'][0]),'证解只能使用候选区点击放置')
     probe('mismatched-field-colour',lambda b:b['levels'][71]['cells'][7].update(targetHex='#FFFFFF'))
     probe('false-minimum-moves',lambda b:b['levels'][69]['challenge'].update(minimumMoves=b['levels'][69]['challenge']['minimumMoves']-1),'最低有效放置数')
     probe('seed-mismatch',lambda b:b['levels'][88].update(seed=b['levels'][88]['seed']+1),'seed不能复现')
-    probe('false-tray-home',lambda b:b['levels'][88]['trayHomeByTile'].update({b['levels'][88]['initialPool'][0]:1}),'候选区固定归位索引错误')
+    probe('false-tray-home',lambda b:b['levels'][88]['trayHomeByTile'].update({b['levels'][88]['initialPool'][0]:1}),'候选区初始索引错误')
     probe('missing-candidate',lambda b:b['levels'][49]['initialPool'].pop(),'全部非锚点颜色必须位于下方候选区')
     probe('reused-pool-slot-in-witness',lambda b:b['levels'][49]['challenge']['witnessSolution'][1].update(fromPoolIndex=b['levels'][49]['challenge']['witnessSolution'][0]['fromPoolIndex']),'候选色块为空')
     probe('occupied-target-in-witness',lambda b:b['levels'][49]['challenge']['witnessSolution'][1].update(toCellId=b['levels'][49]['challenge']['witnessSolution'][0]['toCellId']),'目标不是空槽')
     probe('false-move-metric',lambda b:b['levels'][49]['challenge'].update(minimumMovesMetric='other'),'最低动作度量必须点击放置')
     probe('wrong-input-mode',lambda b:b['levels'][49].update(inputMode='drag'),'关卡必须点击补色')
+    probe('intro-score-epoch-missing',lambda b:b['levels'][0].pop('scoreEpoch'),'关卡积分周期')
+    def force_pool_order(bank,reverse=False):
+        level=bank['levels'][1]
+        pool=[c['targetTileId'] for c in level['cells'] if c['id'] not in level['anchors']]
+        if reverse:pool.reverse()
+        level['initialPool']=pool;level['trayHomeByTile']={tile:i for i,tile in enumerate(pool)}
+        level['challenge']['witnessSolution']=[{'fromPoolIndex':level['trayHomeByTile'][c['targetTileId']],'toCellId':c['id']} for c in level['cells'] if c['id'] not in level['anchors']]
+    probe('ordered-candidate-answer-leak',lambda b:force_pool_order(b),'洗牌质量不足')
+    probe('reversed-candidate-answer-leak',lambda b:force_pool_order(b,True),'洗牌质量不足')
+    probe('false-shuffle-quality',lambda b:b['levels'][1]['shuffleQuality'].update(displacedCount=0),'洗牌质量量化记录')
     def force_row_major_L_fill(b):
         level=b['levels'][-1]
         ordered=sorted(level['cells'],key=lambda c:(c['y'],c['x']))

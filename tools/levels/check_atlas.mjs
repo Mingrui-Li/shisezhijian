@@ -94,7 +94,7 @@ vm.runInContext("poolPages.L100=1;render()", h.context);
 assert.ok(h.element('chapters').innerHTML.includes('data-home="18"'));
 assert.ok(h.element('chapters').innerHTML.includes('data-home="31"'));
 assert.ok(!h.element('chapters').innerHTML.includes('data-home="0"'));
-checks.push('candidate-page-two-keeps-fixed-home-indices');
+checks.push('candidate-page-two-keeps-initial-slot-indices');
 h.element('mode').onchange({ target: { value: 'solved' } });
 assert.ok(!h.element('chapters').innerHTML.includes('class="pool-tile"'));
 assert.ok(h.element('stats').textContent.includes('目标盘面'));
@@ -109,21 +109,37 @@ assert.equal((overview.match(/class="item"/g) || []).length, 100);
 assert.equal((overview.match(/<section class="chapter"/g) || []).length, 5);
 assert.equal((overview.match(/<svg /g) || []).length, 100);
 assert.equal((overview.match(/href="atlas.html#L[0-9]{3}"/g) || []).length, 100);
-const data = JSON.parse(fs.readFileSync(new URL('../../data/levels/levels.v0.4.json', import.meta.url), 'utf8'));
+const data = JSON.parse(fs.readFileSync(new URL('../../data/levels/levels.v0.6.json', import.meta.url), 'utf8'));
 for (const level of data.levels) {
   assert.ok(overview.includes(`id="${level.id}"`));
   for (const cell of level.cells) assert.ok(overview.includes(`fill="${cell.targetHex}"`));
 }
 assert.ok(!/<(?:script|iframe|img|link)\b/.test(overview));
 checks.push('100-level-5-chapter-standalone-colour-overview', 'overview-exact-exported-hex-and-atlas-links', 'overview-no-external-media-or-code');
-assert.equal(data.schemaVersion, '3.0.0');
+assert.equal(data.schemaVersion, '4.1.0');
+assert.equal(data.contentVersion, '0.6.0');
 assert.equal(data.gameplayMode, 'click-fill');
 for(const l of data.levels){
   assert.equal(l.inputMode,'tap');
   assert.equal(l.initialPool.length,l.challenge.minimumMoves);
+  assert.equal(l.shuffle.candidateSlots, 'any-empty');
+  assert.equal(l.shuffle.stableHomeSlots, false);
+  assert.ok(l.shuffleQuality.displacedRatio >= .75 && l.shuffleQuality.longestForwardOrReverseRun <= 2);
+  assert.ok(!l.shuffleQuality.isForwardOrder && !l.shuffleQuality.isReverseOrder);
+  assert.equal(l.challenge.mode, 'time');
+  assert.ok(Number.isInteger(l.challenge.timeLimitSeconds) && l.challenge.timeLimitSeconds >= 45 && l.challenge.timeLimitSeconds <= 240);
+  assert.deepEqual(l.challenge.revive, { maxPerAttempt: 2, addSeconds: 30 });
+  assert.ok(!('moveBudget' in l.challenge) && !('moveAllowance' in l.challenge));
   for(const c of l.cells) assert.equal(l.initialBoard[c.id],l.anchors.includes(c.id)?c.targetTileId:null);
 }
-checks.push('schema-three-click-fill-tap-all-levels');
+assert.equal(data.levels[0].initialPool.length, 5);
+assert.equal(data.levels[1].initialPool.length, 7);
+assert.ok(h.element('detail-content').innerHTML.includes('初始错位'));
+checks.push('expanded-intro-and-quantified-constrained-shuffles');
+assert.ok(h.element('summary-table').innerHTML.includes('倒计时'));
+assert.ok(h.element('detail-content').innerHTML.includes('视频续时 +30秒'));
+assert.ok(!html.includes('教学不限步') && !html.includes('预算 B'));
+checks.push('schema-four-one-click-fill-tap-timed-flex-all-levels');
 const report = { contentVersion: data.contentVersion, status: 'pass', checks, browserLaunched: false, visualInspection: 'not-run',
   scope: 'JavaScript syntax and simulated DOM smoke only; no CSS layout, rendering, touch or real browser certification' };
 fs.writeFileSync(new URL('../../docs/levels/atlas-static-check.json', import.meta.url), JSON.stringify(report, null, 2) + '\n');

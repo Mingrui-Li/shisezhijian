@@ -116,14 +116,14 @@ def overview(bank, out):
 def opening_review(bank,out):
     chosen=[bank['levels'][n-1] for n in [3,20,72,100]]
     image=Image.new('RGB',(1440,1510),'#F8F6EF');draw=ImageDraw.Draw(image)
-    draw.text((30,20),'点击补色 · 初始空槽与固定候选槽',font=font(30,True),fill='#334A49')
+    draw.text((30,20),'点击补色 · 初始空槽与乱序候选',font=font(30,True),fill='#334A49')
     draw.text((30,66),'实际导出HEX布局审阅图 · 作者工具示意 · 非游戏截图 / 非真机验收',font=font(18),fill='#617574')
     for i,level in enumerate(chosen):
         x=24+(i%2)*708;y=110+(i//2)*695
         draw.rounded_rectangle((x,y,x+684,y+675),radius=18,fill='#FFFFFF')
         draw.text((x+20,y+16),f"{level['id']} {level['title']}",font=font(22,True),fill='#334A49')
-        n=len(level['initialPool']);b=level['challenge']['moveBudget']
-        draw.text((x+20,y+50),f"上方：固定锚点＋空槽   N={n}   B={b if b is not None else '不限'}",font=font(17),fill='#627B76')
+        n=len(level['initialPool']);b=level['challenge']['timeLimitSeconds']
+        draw.text((x+20,y+50),f"上方：固定锚点＋空槽   N={n}   T={b}秒",font=font(17),fill='#627B76')
         pitch=43;size=38;w=level['grid']['columns'];h=level['grid']['rows']
         left=x+(684-w*pitch)//2;top=y+88
         by={c['id']:c for c in level['cells']}
@@ -137,26 +137,26 @@ def opening_review(bank,out):
             draw.rounded_rectangle((bx,byy,bx+size-1,byy+size-1),radius=5,fill=colour)
             if c['id'] in level['anchors']:draw.ellipse((bx+30,byy-3,bx+38,byy+5),fill='#427868',outline='white',width=1)
         pool_top=y+380
-        draw.text((x+20,pool_top-30),'下方：候选区第1页（固定空位不重排）',font=font(17),fill='#627B76')
+        draw.text((x+20,pool_top-30),'下方：候选区第1页（色块可取回任意空槽）',font=font(17),fill='#627B76')
         tiles={t['id']:t for t in level['tiles']}
         left=x+(684-6*pitch)//2
         for home,tile in enumerate(level['initialPool'][:18]):
             bx=left+(home%6)*pitch;byy=pool_top+(home//6)*pitch
             draw.rounded_rectangle((bx,byy,bx+size-1,byy+size-1),radius=5,fill=tiles[tile]['hex'])
-        draw.text((x+20,y+535),f"先点候选色，再点空槽 · 共{math.ceil(n/18)}页 · {n}个固定候选槽",font=font(17),fill='#627B76')
-        draw.text((x+20,y+572),'已放颜色可免费取回；移到另一空槽扣1步',font=font(17),fill='#627B76')
+        draw.text((x+20,y+535),f"先点候选色，再点空槽 · 共{math.ceil(n/18)}页 · {n}个候选槽",font=font(17),fill='#627B76')
+        draw.text((x+20,y+572),'已放颜色可取回任意候选空槽；放置仅作效率计分',font=font(17),fill='#627B76')
         draw.text((x+20,y+609),'占用目标不可覆盖 · 答案仅在作者图鉴可切换',font=font(17),fill='#627B76')
     image.save(out)
 
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--data',type=Path,default=Path('data/levels/levels.v0.4.json'))
+    parser.add_argument('--data',type=Path,default=Path('data/levels/levels.v0.6.json'))
     parser.add_argument('--out',type=Path,default=Path('assets/reviews/colors'))
     args=parser.parse_args();bank=json.loads(args.data.read_text());args.out.mkdir(parents=True,exist_ok=True)
-    overview(bank,args.out/'nature-colors-100-v0.4.png')
-    opening_review(bank,args.out/'click-fill-openings-v0.4.png')
-    (args.out/'nature-colors-metrics-v0.4.json').write_text(json.dumps(metrics(bank),ensure_ascii=False,indent=2)+'\n')
+    overview(bank,args.out/'nature-colors-100-v0.6.png')
+    opening_review(bank,args.out/'click-fill-openings-v0.6.png')
+    (args.out/'nature-colors-metrics-v0.6.json').write_text(json.dumps(metrics(bank),ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({'data':str(args.data),'output':str(args.out),'figures':'exact target overview and click-fill openings; no browser/device capture'},ensure_ascii=False))
 
 

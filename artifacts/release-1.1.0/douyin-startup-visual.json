@@ -1,0 +1,22 @@
+{
+  "projectPath": "/Users/limingrui/IdeaProjects/shisezhijian/releases/douyin",
+  "projectType": "microgame",
+  "windowId": 2,
+  "windowConfirmed": true,
+  "compileAction": "compile",
+  "evidenceBaseline": "Post-compile console: engine helium, touch listener verbose warnings, scene loaded; no error-level entries",
+  "version": "1.1.0",
+  "runtimeAnchor": "/var/folders/r1/pyhg16p91k3bzgr3kpjw9y3h0000gn/T/1793151071434.png",
+  "screenshotScale": {
+    "x": 2,
+    "y": 2
+  },
+  "layoutViewport": {
+    "clientWidth": 393,
+    "clientHeight": 852
+  },
+  "lastAction": "compile then screenshot and console",
+  "blocker": "Native gameplay interaction not asserted; browser interaction and pure core tested separately.",
+  "visualResult": "Home rendered normally after compile; no red/error console entries in returned baseline",
+  "nativeInteractionAsserted": false
+}

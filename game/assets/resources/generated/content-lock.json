@@ -1,8 +1,8 @@
 {
-  "source": "data/levels/levels.v0.4.json",
-  "contentVersion": "0.4.0-candidate",
+  "source": "data/levels/levels.v0.6.json",
+  "contentVersion": "0.6.0",
   "gameplayMode": "click-fill",
   "inputMode": "tap",
   "levels": 100,
-  "sha256": "3f082b131a0b12fc4359bc7b232064a8ec6aa4642a2c9c20f2c9b62696a4f551"
+  "sha256": "2ff7a3e95f038db4da5a0e2c415f61ad46f69f3a99e6362ed94c4b9db74dab4c"
 }

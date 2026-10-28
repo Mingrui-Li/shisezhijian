@@ -1,5 +1,5 @@
 {
-  "contentVersion": "0.4.0-candidate",
+  "contentVersion": "0.6.0",
   "status": "candidate-human-colour-review-pending",
   "scope": "actual occupied HEXs; numeric palette variety and gamut screens, not human judgement",
   "screenPolicy": {
@@ -17,14 +17,14 @@
     "humanReview": "pending; screens cannot certify attractive, unambiguous or accessible colour"
   },
   "globalMetrics": {
-    "meanChroma": 0.107885,
+    "meanChroma": 0.107979,
     "minChroma": 0.006712,
     "maxChroma": 0.209495,
     "lowChromaThreshold": 0.035,
-    "lowChromaRatio": 0.012494,
-    "belowChroma007Ratio": 0.127175,
-    "vividChroma012Ratio": 0.348505,
-    "meanLightness": 0.64415,
+    "lowChromaRatio": 0.012319,
+    "belowChroma007Ratio": 0.127145,
+    "vividChroma012Ratio": 0.351518,
+    "meanLightness": 0.644457,
     "lightnessRange": [
       0.244722,
       0.940562
@@ -44,18 +44,18 @@
       11
     ],
     "chromaWeightedHueHistogram": [
-      0.165219,
-      0.112245,
-      0.066957,
-      0.050517,
-      0.081734,
-      0.067706,
-      0.048845,
-      0.05351,
-      0.100808,
-      0.091547,
-      0.064916,
-      0.095996
+      0.164055,
+      0.115505,
+      0.065954,
+      0.049761,
+      0.08199,
+      0.066737,
+      0.049526,
+      0.054313,
+      0.102353,
+      0.090631,
+      0.064335,
+      0.094841
     ],
     "hueCoverageDegrees": 358.11,
     "dominantHueBins": [
@@ -99,14 +99,14 @@
       "familyCount": 12,
       "moodCount": 8,
       "metrics": {
-        "meanChroma": 0.113598,
+        "meanChroma": 0.113715,
         "minChroma": 0.016555,
         "maxChroma": 0.1856,
         "lowChromaThreshold": 0.035,
-        "lowChromaRatio": 0.008811,
-        "belowChroma007Ratio": 0.070485,
-        "vividChroma012Ratio": 0.462555,
-        "meanLightness": 0.642619,
+        "lowChromaRatio": 0.007722,
+        "belowChroma007Ratio": 0.07722,
+        "vividChroma012Ratio": 0.474903,
+        "meanLightness": 0.645501,
         "lightnessRange": [
           0.273944,
           0.939674
@@ -126,36 +126,36 @@
           11
         ],
         "chromaWeightedHueHistogram": [
-          0.063222,
-          0.123006,
-          0.10788,
-          0.02885,
-          0.076787,
-          0.097959,
-          0.065498,
-          0.069417,
-          0.102344,
-          0.111461,
-          0.084347,
-          0.069228
+          0.06625,
+          0.148794,
+          0.094435,
+          0.025255,
+          0.079531,
+          0.086119,
+          0.069091,
+          0.074121,
+          0.115004,
+          0.101354,
+          0.077091,
+          0.062955
         ],
         "hueCoverageDegrees": 341.41,
         "dominantHueBins": [
           1,
-          9
+          8
         ],
-        "mainColourSignature": "1-9:mid:colourful",
+        "mainColourSignature": "1-8:mid:colourful",
         "lightnessClass": "mid",
         "chromaClass": "colourful",
         "scope": "descriptive actual 8-bit HEX metrics; not a human vision or display guarantee"
       },
       "meanChromaRange": [
-        0.057819,
-        0.15845
+        0.057447,
+        0.158272
       ],
       "meanLightnessRange": [
-        0.504067,
-        0.825885
+        0.503942,
+        0.828584
       ],
       "vividLevels": [
         "L001",
@@ -582,18 +582,18 @@
       "fieldChecks": {
         "localGamutMappingUsed": false,
         "allowedPathLinearityDeltaEOK": 0.004,
-        "maxObservedPathLinearityDeltaEOK": 0.00103952,
-        "maxHexQuantisationDeltaEOK": 0.00105128,
+        "maxObservedPathLinearityDeltaEOK": 0.00110427,
+        "maxHexQuantisationDeltaEOK": 0.00107392,
         "scope": "one shared field; path deviation only arises from 8-bit HEX quantisation"
       },
-      "meanChroma": 0.152729,
+      "meanChroma": 0.151859,
       "minChroma": 0.135782,
       "maxChroma": 0.172301,
       "lowChromaThreshold": 0.035,
       "lowChromaRatio": 0.0,
       "belowChroma007Ratio": 0.0,
       "vividChroma012Ratio": 1.0,
-      "meanLightness": 0.69652,
+      "meanLightness": 0.696259,
       "lightnessRange": [
         0.607594,
         0.78586
@@ -603,8 +603,8 @@
         1
       ],
       "chromaWeightedHueHistogram": [
-        0.37605,
-        0.62395,
+        0.463857,
+        0.536143,
         0.0,
         0.0,
         0.0,
@@ -656,22 +656,22 @@
         "hueAdjustmentDegrees": 0,
         "lightnessClamp": null
       },
-      "distanceFromPrevious": 0.280262,
+      "distanceFromPrevious": 0.278493,
       "fieldChecks": {
         "localGamutMappingUsed": false,
         "allowedPathLinearityDeltaEOK": 0.004,
-        "maxObservedPathLinearityDeltaEOK": 0.00049759,
-        "maxHexQuantisationDeltaEOK": 0.00049759,
+        "maxObservedPathLinearityDeltaEOK": 0.00069345,
+        "maxHexQuantisationDeltaEOK": 0.00069345,
         "scope": "one shared field; path deviation only arises from 8-bit HEX quantisation"
       },
-      "meanChroma": 0.128812,
+      "meanChroma": 0.128367,
       "minChroma": 0.12009,
       "maxChroma": 0.143472,
       "lowChromaThreshold": 0.035,
       "lowChromaRatio": 0.0,
       "belowChroma007Ratio": 0.0,
       "vividChroma012Ratio": 1.0,
-      "meanLightness": 0.590015,
+      "meanLightness": 0.590052,
       "lightnessRange": [
         0.484002,
         0.696115
@@ -688,8 +688,8 @@
         0.0,
         0.0,
         0.0,
-        0.570383,
-        0.429617,
+        0.528285,
+        0.471715,
         0.0,
         0.0,
         0.0
@@ -734,7 +734,7 @@
         "hueAdjustmentDegrees": 0,
         "lightnessClamp": null
       },
-      "distanceFromPrevious": 0.279107,
+      "distanceFromPrevious": 0.278545,
       "fieldChecks": {
         "localGamutMappingUsed": false,
         "allowedPathLinearityDeltaEOK": 0.004,
@@ -742,14 +742,14 @@
         "maxHexQuantisationDeltaEOK": 0.00105569,
         "scope": "one shared field; path deviation only arises from 8-bit HEX quantisation"
       },
-      "meanChroma": 0.15845,
+      "meanChroma": 0.158272,
       "minChroma": 0.145944,
       "maxChroma": 0.172382,
       "lowChromaThreshold": 0.035,
       "lowChromaRatio": 0.0,
       "belowChroma007Ratio": 0.0,
       "vividChroma012Ratio": 1.0,
-      "meanLightness": 0.600896,
+      "meanLightness": 0.601065,
       "lightnessRange": [
         0.506698,
         0.695418
@@ -793,7 +793,9 @@
       ],
       "actualCornersHex": [
         "#147961",
-        "#5CBD72"
+        "#5CBD72",
+        "#3D9AA2",
+        "#B7E5AB"
       ],
       "commonChromaScale": 1.0,
       "adjustment": {
@@ -810,52 +812,53 @@
         "hueAdjustmentDegrees": 0,
         "lightnessClamp": null
       },
-      "distanceFromPrevious": 0.232173,
+      "distanceFromPrevious": 0.232312,
       "fieldChecks": {
         "localGamutMappingUsed": false,
         "allowedPathLinearityDeltaEOK": 0.004,
-        "maxObservedPathLinearityDeltaEOK": 0.00129135,
-        "maxHexQuantisationDeltaEOK": 0.00129135,
+        "maxObservedPathLinearityDeltaEOK": 0.00151465,
+        "maxHexQuantisationDeltaEOK": 0.00146995,
         "scope": "one shared field; path deviation only arises from 8-bit HEX quantisation"
       },
-      "meanChroma": 0.117282,
-      "minChroma": 0.094934,
+      "meanChroma": 0.10075,
+      "minChroma": 0.075449,
       "maxChroma": 0.142113,
       "lowChromaThreshold": 0.035,
       "lowChromaRatio": 0.0,
       "belowChroma007Ratio": 0.0,
-      "vividChroma012Ratio": 0.428571,
-      "meanLightness": 0.617772,
+      "vividChroma012Ratio": 0.111111,
+      "meanLightness": 0.686034,
       "lightnessRange": [
         0.515683,
-        0.720614
+        0.874751
       ],
       "hueBins30Degrees": [
         4,
-        5
+        5,
+        6
       ],
       "chromaWeightedHueHistogram": [
         0.0,
         0.0,
         0.0,
         0.0,
-        0.173104,
-        0.826896,
-        0.0,
+        0.38632,
+        0.421347,
+        0.192333,
         0.0,
         0.0,
         0.0,
         0.0,
         0.0
       ],
-      "hueCoverageDegrees": 22.56,
+      "hueCoverageDegrees": 63.87,
       "dominantHueBins": [
         5,
         4
       ],
-      "mainColourSignature": "4-5:mid:vivid",
+      "mainColourSignature": "4-5:mid:colourful",
       "lightnessClass": "mid",
-      "chromaClass": "vivid",
+      "chromaClass": "colourful",
       "scope": "descriptive actual 8-bit HEX metrics; not a human vision or display guarantee"
     },
     {
@@ -890,22 +893,22 @@
         "hueAdjustmentDegrees": 0,
         "lightnessClamp": null
       },
-      "distanceFromPrevious": 0.243697,
+      "distanceFromPrevious": 0.196686,
       "fieldChecks": {
         "localGamutMappingUsed": false,
         "allowedPathLinearityDeltaEOK": 0.004,
-        "maxObservedPathLinearityDeltaEOK": 0.00131873,
-        "maxHexQuantisationDeltaEOK": 0.00131873,
+        "maxObservedPathLinearityDeltaEOK": 0.00090669,
+        "maxHexQuantisationDeltaEOK": 0.00090669,
         "scope": "one shared field; path deviation only arises from 8-bit HEX quantisation"
       },
-      "meanChroma": 0.127614,
+      "meanChroma": 0.126204,
       "minChroma": 0.063244,
       "maxChroma": 0.165638,
       "lowChromaThreshold": 0.035,
       "lowChromaRatio": 0.0,
-      "belowChroma007Ratio": 0.125,
-      "vividChroma012Ratio": 0.625,
-      "meanLightness": 0.694681,
+      "belowChroma007Ratio": 0.111111,
+      "vividChroma012Ratio": 0.666667,
+      "meanLightness": 0.694428,
       "lightnessRange": [
         0.546166,
         0.876632
@@ -925,8 +928,8 @@
         0.0,
         0.0,
         0.0,
-        0.29488,
-        0.70512
+        0.305236,
+        0.694764
       ],
       "hueCoverageDegrees": 52.8,
       "dominantHueBins": [
@@ -970,22 +973,22 @@
         "hueAdjustmentDegrees": 0,
         "lightnessClamp": null
       },
-      "distanceFromPrevious": 0.214825,
+      "distanceFromPrevious": 0.210759,
       "fieldChecks": {
         "localGamutMappingUsed": false,
         "allowedPathLinearityDeltaEOK": 0.004,
-        "maxObservedPathLinearityDeltaEOK": 0.00139256,
-        "maxHexQuantisationDeltaEOK": 0.00139256,
+        "maxObservedPathLinearityDeltaEOK": 0.00211336,
+        "maxHexQuantisationDeltaEOK": 0.00152235,
         "scope": "one shared field; path deviation only arises from 8-bit HEX quantisation"
       },
-      "meanChroma": 0.091473,
+      "meanChroma": 0.090819,
       "minChroma": 0.062825,
       "maxChroma": 0.122488,
       "lowChromaThreshold": 0.035,
       "lowChromaRatio": 0.0,
-      "belowChroma007Ratio": 0.111111,
-      "vividChroma012Ratio": 0.111111,
-      "meanLightness": 0.581874,
+      "belowChroma007Ratio": 0.083333,
+      "vividChroma012Ratio": 0.083333,
+      "meanLightness": 0.581701,
       "lightnessRange": [
         0.382845,
         0.821736
@@ -1001,9 +1004,9 @@
         0.0,
         0.0,
         0.0,
-        0.528302,
-        0.374606,
-        0.097092,
+        0.582171,
+        0.344485,
+        0.073344,
         0.0,
         0.0,
         0.0,
@@ -1051,22 +1054,22 @@
         "hueAdjustmentDegrees": 0,
         "lightnessClamp": null
       },
-      "distanceFromPrevious": 0.206925,
+      "distanceFromPrevious": 0.20597,
       "fieldChecks": {
         "localGamutMappingUsed": false,
         "allowedPathLinearityDeltaEOK": 0.004,
-        "maxObservedPathLinearityDeltaEOK": 0.00134965,
+        "maxObservedPathLinearityDeltaEOK": 0.00122898,
         "maxHexQuantisationDeltaEOK": 0.00122898,
         "scope": "one shared field; path deviation only arises from 8-bit HEX quantisation"
       },
-      "meanChroma": 0.143532,
-      "minChroma": 0.123252,
+      "meanChroma": 0.144032,
+      "minChroma": 0.12066,
       "maxChroma": 0.1856,
       "lowChromaThreshold": 0.035,
       "lowChromaRatio": 0.0,
       "belowChroma007Ratio": 0.0,
       "vividChroma012Ratio": 1.0,
-      "meanLightness": 0.623267,
+      "meanLightness": 0.620639,
       "lightnessRange": [
         0.438715,
         0.819824
@@ -1077,9 +1080,9 @@
         2
       ],
       "chromaWeightedHueHistogram": [
-        0.322925,
-        0.397817,
-        0.279257,
+        0.26817,
+        0.499924,
+        0.231906,
         0.0,
         0.0,
         0.0,
@@ -1135,22 +1138,22 @@
           0.94
         ]
       },
-      "distanceFromPrevious": 0.219665,
+      "distanceFromPrevious": 0.219334,
       "fieldChecks": {
         "localGamutMappingUsed": false,
         "allowedPathLinearityDeltaEOK": 0.004,
-        "maxObservedPathLinearityDeltaEOK": 0.00180706,
+        "maxObservedPathLinearityDeltaEOK": 0.00148332,
         "maxHexQuantisationDeltaEOK": 0.00145281,
         "scope": "one shared field; path deviation only arises from 8-bit HEX quantisation"
       },
-      "meanChroma": 0.057819,
+      "meanChroma": 0.057447,
       "minChroma": 0.016555,
       "maxChroma": 0.097562,
       "lowChromaThreshold": 0.035,
-      "lowChromaRatio": 0.2,
-      "belowChroma007Ratio": 0.6,
+      "lowChromaRatio": 0.166667,
+      "belowChroma007Ratio": 0.666667,
       "vividChroma012Ratio": 0.0,
-      "meanLightness": 0.825885,
+      "meanLightness": 0.828584,
       "lightnessRange": [
         0.709858,
         0.924636
@@ -1163,23 +1166,23 @@
         10
       ],
       "chromaWeightedHueHistogram": [
-        0.072159,
+        0.059767,
         0.0,
         0.0,
         0.0,
         0.0,
         0.0,
         0.0,
-        0.096511,
-        0.262104,
-        0.42858,
-        0.140645,
+        0.079937,
+        0.339721,
+        0.32665,
+        0.193924,
         0.0
       ],
       "hueCoverageDegrees": 142.34,
       "dominantHueBins": [
-        9,
-        8
+        8,
+        9
       ],
       "mainColourSignature": "8-9:light:soft",
       "lightnessClass": "light",
@@ -1218,22 +1221,22 @@
         "hueAdjustmentDegrees": 0,
         "lightnessClamp": null
       },
-      "distanceFromPrevious": 0.164421,
+      "distanceFromPrevious": 0.167133,
       "fieldChecks": {
         "localGamutMappingUsed": false,
         "allowedPathLinearityDeltaEOK": 0.004,
-        "maxObservedPathLinearityDeltaEOK": 0.00096411,
-        "maxHexQuantisationDeltaEOK": 0.00096411,
+        "maxObservedPathLinearityDeltaEOK": 0.00131541,
+        "maxHexQuantisationDeltaEOK": 0.00132791,
         "scope": "one shared field; path deviation only arises from 8-bit HEX quantisation"
       },
-      "meanChroma": 0.113611,
-      "minChroma": 0.088798,
+      "meanChroma": 0.116293,
+      "minChroma": 0.089955,
       "maxChroma": 0.166131,
       "lowChromaThreshold": 0.035,
       "lowChromaRatio": 0.0,
       "belowChroma007Ratio": 0.0,
-      "vividChroma012Ratio": 0.272727,
-      "meanLightness": 0.686882,
+      "vividChroma012Ratio": 0.461538,
+      "meanLightness": 0.682459,
       "lightnessRange": [
         0.471607,
         0.905809
@@ -1247,9 +1250,9 @@
         0.0,
         0.0,
         0.0,
-        0.07902,
-        0.771981,
-        0.148999,
+        0.065322,
+        0.74,
+        0.194679,
         0.0,
         0.0,
         0.0,
@@ -1262,9 +1265,9 @@
         4,
         5
       ],
-      "mainColourSignature": "4-5:mid:colourful",
+      "mainColourSignature": "4-5:mid:vivid",
       "lightnessClass": "mid",
-      "chromaClass": "colourful",
+      "chromaClass": "vivid",
       "scope": "descriptive actual 8-bit HEX metrics; not a human vision or display guarantee"
     },
     {
@@ -1299,22 +1302,22 @@
         "hueAdjustmentDegrees": 0,
         "lightnessClamp": null
       },
-      "distanceFromPrevious": 0.209453,
+      "distanceFromPrevious": 0.208905,
       "fieldChecks": {
         "localGamutMappingUsed": false,
         "allowedPathLinearityDeltaEOK": 0.004,
-        "maxObservedPathLinearityDeltaEOK": 0.00145717,
-        "maxHexQuantisationDeltaEOK": 0.00129141,
+        "maxObservedPathLinearityDeltaEOK": 0.00129487,
+        "maxHexQuantisationDeltaEOK": 0.00129487,
         "scope": "one shared field; path deviation only arises from 8-bit HEX quantisation"
       },
-      "meanChroma": 0.116748,
+      "meanChroma": 0.1175,
       "minChroma": 0.097523,
       "maxChroma": 0.148733,
       "lowChromaThreshold": 0.035,
       "lowChromaRatio": 0.0,
       "belowChroma007Ratio": 0.0,
-      "vividChroma012Ratio": 0.333333,
-      "meanLightness": 0.504067,
+      "vividChroma012Ratio": 0.357143,
+      "meanLightness": 0.503942,
       "lightnessRange": [
         0.273944,
         0.760981
@@ -1332,8 +1335,8 @@
         0.0,
         0.0,
         0.0,
-        0.327041,
-        0.672959,
+        0.348048,
+        0.651952,
         0.0,
         0.0
       ],
@@ -1379,22 +1382,22 @@
         "hueAdjustmentDegrees": 0,
         "lightnessClamp": null
       },
-      "distanceFromPrevious": 0.096998,
+      "distanceFromPrevious": 0.095317,
       "fieldChecks": {
         "localGamutMappingUsed": false,
         "allowedPathLinearityDeltaEOK": 0.004,
-        "maxObservedPathLinearityDeltaEOK": 0.00149126,
-        "maxHexQuantisationDeltaEOK": 0.00149126,
+        "maxObservedPathLinearityDeltaEOK": 0.00164378,
+        "maxHexQuantisationDeltaEOK": 0.00155868,
         "scope": "one shared field; path deviation only arises from 8-bit HEX quantisation"
       },
-      "meanChroma": 0.111791,
-      "minChroma": 0.085879,
+      "meanChroma": 0.110722,
+      "minChroma": 0.082415,
       "maxChroma": 0.16167,
       "lowChromaThreshold": 0.035,
       "lowChromaRatio": 0.0,
       "belowChroma007Ratio": 0.0,
-      "vividChroma012Ratio": 0.25,
-      "meanLightness": 0.644487,
+      "vividChroma012Ratio": 0.266667,
+      "meanLightness": 0.647027,
       "lightnessRange": [
         0.515212,
         0.77509
@@ -1411,10 +1414,10 @@
         0.0,
         0.0,
         0.0,
-        0.094944,
-        0.220851,
-        0.215182,
-        0.469023,
+        0.076688,
+        0.24119,
+        0.226948,
+        0.455174,
         0.0,
         0.0,
         0.0
@@ -1461,22 +1464,22 @@
         "hueAdjustmentDegrees": 0,
         "lightnessClamp": null
       },
-      "distanceFromPrevious": 0.050799,
+      "distanceFromPrevious": 0.04847,
       "fieldChecks": {
         "localGamutMappingUsed": false,
         "allowedPathLinearityDeltaEOK": 0.004,
-        "maxObservedPathLinearityDeltaEOK": 0.00112038,
+        "maxObservedPathLinearityDeltaEOK": 0.00136868,
         "maxHexQuantisationDeltaEOK": 0.00112038,
         "scope": "one shared field; path deviation only arises from 8-bit HEX quantisation"
       },
-      "meanChroma": 0.090478,
+      "meanChroma": 0.087279,
       "minChroma": 0.036916,
       "maxChroma": 0.139873,
       "lowChromaThreshold": 0.035,
       "lowChromaRatio": 0.0,
-      "belowChroma007Ratio": 0.230769,
-      "vividChroma012Ratio": 0.230769,
-      "meanLightness": 0.724796,
+      "belowChroma007Ratio": 0.3125,
+      "vividChroma012Ratio": 0.1875,
+      "meanLightness": 0.731472,
       "lightnessRange": [
         0.51647,
         0.937562
@@ -1494,11 +1497,11 @@
         0.0,
         0.0,
         0.0,
-        0.031385,
-        0.121774,
-        0.291187,
-        0.480578,
-        0.075076,
+        0.026435,
+        0.102568,
+        0.289353,
+        0.518408,
+        0.063236,
         0.0,
         0.0
       ],
@@ -1547,7 +1550,7 @@
           0.94
         ]
       },
-      "distanceFromPrevious": 0.188996,
+      "distanceFromPrevious": 0.187715,
       "fieldChecks": {
         "localGamutMappingUsed": false,
         "allowedPathLinearityDeltaEOK": 0.004,

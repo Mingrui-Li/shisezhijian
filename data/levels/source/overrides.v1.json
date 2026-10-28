@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "1.0.0",
+  "role": "author-only-intro-difficulty-overrides",
+  "generatorRevision": "intro-structure-v1+constrained-shuffle-v2",
+  "baselineTargetFieldsSha256": "04037c28c139fee60bbea95b43735ba324e596dd8e9bd5785b2ae2ac933a3be3",
+  "scope": "Only L001-L012 rail geometry and additional samples are revised. Preserve each level natural theme and accepted endpoint/corner direction. L013-L100 target colours, rails and anchors remain exact baseline.",
+  "overridesSha256": "3d6311ddaa13949511133188e91ca3ea76cfde7449ef25b969c500bb118956e2",
+  "overrides": [
+    {
+      "levelId": "L001",
+      "templateId": "IntroBend7",
+      "kind": "path",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "palette": "accepted-endpoints"
+    },
+    {
+      "levelId": "L002",
+      "templateId": "IntroBend9",
+      "kind": "path",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "palette": "accepted-endpoints"
+    },
+    {
+      "levelId": "L003",
+      "templateId": "IntroTurn9",
+      "kind": "path",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "palette": "accepted-endpoints"
+    },
+    {
+      "levelId": "L004",
+      "templateId": "IntroG3x3",
+      "kind": "grid",
+      "columns": 3,
+      "rows": 3,
+      "palette": "natural-seed-corners"
+    },
+    {
+      "levelId": "L005",
+      "templateId": "IntroG3x3",
+      "kind": "grid",
+      "columns": 3,
+      "rows": 3,
+      "palette": "accepted-corners"
+    },
+    {
+      "levelId": "L006",
+      "templateId": "IntroG4x3",
+      "kind": "grid",
+      "columns": 4,
+      "rows": 3,
+      "palette": "accepted-corners"
+    },
+    {
+      "levelId": "L007",
+      "templateId": "IntroFork12",
+      "kind": "rails",
+      "coordinatePaths": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      ],
+      "palette": "accepted-corners",
+      "anchors": "four-corners"
+    },
+    {
+      "levelId": "L008",
+      "templateId": "IntroG4x3",
+      "kind": "grid",
+      "columns": 4,
+      "rows": 3,
+      "palette": "accepted-corners"
+    },
+    {
+      "levelId": "L009",
+      "templateId": "IntroC13",
+      "kind": "borrowed-rails",
+      "geometryFromLevelId": "L012",
+      "palette": "accepted-corners",
+      "anchors": "four-corners"
+    },
+    {
+      "levelId": "L010",
+      "templateId": "IntroC14",
+      "kind": "borrowed-rails",
+      "geometryFromLevelId": "L013",
+      "palette": "accepted-corners",
+      "anchors": "four-corners"
+    },
+    {
+      "levelId": "L011",
+      "templateId": "IntroC15",
+      "kind": "borrowed-rails",
+      "geometryFromLevelId": "L015",
+      "palette": "accepted-corners",
+      "anchors": "four-corners"
+    },
+    {
+      "levelId": "L012",
+      "templateId": "IntroG4x4",
+      "kind": "grid",
+      "columns": 4,
+      "rows": 4,
+      "palette": "accepted-corners"
+    }
+  ]
+}

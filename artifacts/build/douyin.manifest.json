@@ -1,6 +1,6 @@
 {
   "target": "douyin",
-  "verifiedAt": "2026-10-27T08:57:55.051Z",
+  "verifiedAt": "2026-10-28T01:24:54.039Z",
   "output": "/Users/limingrui/IdeaProjects/shisezhijian/game/build/bytedance-mini-game",
   "success": true,
   "checks": [
@@ -65,36 +65,36 @@
       "detail": ""
     }
   ],
-  "fileCount": 44,
-  "totalBytes": 10238962,
+  "fileCount": 47,
+  "totalBytes": 9468532,
   "localAppId": "ttad3cdb8133424e0102",
   "localDevelopmentOnly": false,
   "note": "Package structure and official compiler verification only. This report does not assert browser, simulator, phone, or advertising runtime verification.",
   "files": [
     {
       "path": "application.js",
-      "bytes": 3300,
-      "sha256": "3876486e03ffd49f5cb8bce6d5a23b7ec392a533487229483a3b2429530093f2"
+      "bytes": 3302,
+      "sha256": "359f85dd922e2568aa991af95a5c356a0102042c8918252987bfbd37f2153eb2"
     },
     {
       "path": "assets/internal/config.json",
-      "bytes": 4991,
-      "sha256": "a91281913c9fbcf2942946e1c46f48ad759c5975bf02ebfc78059b62748708ff"
+      "bytes": 1849,
+      "sha256": "4015c2df47f24e581af83a166de242a47d13fbe435a96ca064d18248ded13a03"
     },
     {
       "path": "assets/internal/import/0e/0e107f583.json",
-      "bytes": 111733,
-      "sha256": "a940f862284a781614bf6afef158480b925bf279be109c963e6d7ddeddc0c54b"
+      "bytes": 111677,
+      "sha256": "5a497e1e6b3af777a879c5924dbb7a93b5492bce5ece1a4713c0e8809ef2c31b"
     },
     {
       "path": "assets/internal/index.js",
-      "bytes": 103562,
-      "sha256": "d842bf596127320ad8cd42ce506a2817cd8a6402fbec6735e6b13af359a40757"
+      "bytes": 45110,
+      "sha256": "19bd675acfdd6f12d4bfec92fa4fa354b57c1dee7256325dce20ebfc5657b58c"
     },
     {
       "path": "assets/main/config.json",
-      "bytes": 1083,
-      "sha256": "bc57cb48104f6d4677585fad8aeca8f3e45104b29fa57648b2ff6b4868fff053"
+      "bytes": 580,
+      "sha256": "9d2e09d4b9ceea4579333b9cafa40bb644209c1b32a86b5b9b8639194f6395ed"
     },
     {
       "path": "assets/main/import/ba/ba21476f-2866-4f81-9c4d-6e359316e448.json",
@@ -113,18 +113,18 @@
     },
     {
       "path": "assets/main/index.js",
-      "bytes": 176205,
-      "sha256": "a1d5478186809fc52023c44ad01653dda6ac7bc509916400ae7ff86c55b99d9d"
+      "bytes": 97686,
+      "sha256": "c6fae74a9c908ab36f31f5c18a417fafa755ce0e48acad0d95a5330afea84481"
     },
     {
       "path": "assets/resources/config.json",
-      "bytes": 3720,
-      "sha256": "6812722f4ddd9eb72d6e42cc4c7005e26a7684bc549f79d32bf18327d421ad56"
+      "bytes": 1520,
+      "sha256": "90c210e1852ce92165cb9112b2bc8596f6e42a70d697d071c759f97b1f6bc7e9"
     },
     {
-      "path": "assets/resources/import/07/074cd3a43.json",
-      "bytes": 261,
-      "sha256": "cdc7a3dc5e3d45bcb7b378281337bdc899943a986f4eabcd21c63c684f59ff5e"
+      "path": "assets/resources/import/0c/0ce6b0a7f.json",
+      "bytes": 248,
+      "sha256": "814b784e7455cc03fe855bcae859447a03fe0f71574841cc9edcd1cc268c3928"
     },
     {
       "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506.json",
@@ -133,13 +133,13 @@
     },
     {
       "path": "assets/resources/import/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506@f9941.json",
-      "bytes": 571,
-      "sha256": "2df7e7e62460cf334ab5ed352638a30af8d2e59897cc2522b0f54c9047704710"
+      "bytes": 557,
+      "sha256": "a0a8fbaed9721ac91b1da15a32b0aae5d71dc22f59734de5f440f05c09e5bdb4"
     },
     {
       "path": "assets/resources/import/44/44fc4258-994c-4972-b659-18530b47ec03.json",
-      "bytes": 304,
-      "sha256": "7642ad3f8cdd8a84fa03de7a187e18e30b21487cfc6735c55f1e5630129f7341"
+      "bytes": 294,
+      "sha256": "9c1f82dfdd66b71c626c95ce316e812053650bcf27ce0ecf30b382c5bf1fecef"
     },
     {
       "path": "assets/resources/import/5c/5c71a8f9-1482-4ebf-9309-5b20b95b6813.json",
@@ -148,13 +148,23 @@
     },
     {
       "path": "assets/resources/import/5c/5c71a8f9-1482-4ebf-9309-5b20b95b6813@f9941.json",
-      "bytes": 581,
-      "sha256": "a748272462a1ce0830deeb4b1ff86377dcd92edae2e79125f72be5b263fd100c"
+      "bytes": 567,
+      "sha256": "d92007602a719d70ffb3a2b0a204a471e4b8c26171ed7f2d9a11c3cf63b35094"
     },
     {
       "path": "assets/resources/import/a6/a62aa0e1-7433-40fd-a43f-e96d4241fab2.json",
-      "bytes": 1135836,
-      "sha256": "61884651d7f005f4eb89e161b03ca24ddbc848e32c4a6dfb8f7fcb81cbc7977d"
+      "bytes": 1196197,
+      "sha256": "130617ad569744fd175135886df2b17562aa43826f7033509fcfbfbc8390f678"
+    },
+    {
+      "path": "assets/resources/import/c3/c39c33fc-2788-405e-9469-365d18e6fd4b.json",
+      "bytes": 72,
+      "sha256": "60928632edcd22b5694a8c22de01de0d2cbb6f374103242a99a4394cc767f44d"
+    },
+    {
+      "path": "assets/resources/import/c3/c39c33fc-2788-405e-9469-365d18e6fd4b@f9941.json",
+      "bytes": 708,
+      "sha256": "3a73ba5d185bc1041fb1664d8b1959f3a2a3fbf737362d0bdb4004dedac53b8b"
     },
     {
       "path": "assets/resources/import/d0/d0ac27e3-29e8-4d37-9a96-84b31542cdc8.json",
@@ -163,8 +173,8 @@
     },
     {
       "path": "assets/resources/import/d0/d0ac27e3-29e8-4d37-9a96-84b31542cdc8@f9941.json",
-      "bytes": 583,
-      "sha256": "fb39b75852e9d569f0567e76531e90c295f10d8e4d0dae9b0f61c76ae7ff1462"
+      "bytes": 569,
+      "sha256": "2f9648a9355698874d57e98a451ae8087ba7b6d9d92fa2ea7d068cf06178ddda"
     },
     {
       "path": "assets/resources/import/d5/d577e3e9-6d96-46cd-bfdf-21c1a75b556d.json",
@@ -183,13 +193,13 @@
     },
     {
       "path": "assets/resources/import/f3/f34983c5-25bb-4c89-9587-c6b6ab7f2610@f9941.json",
-      "bytes": 667,
-      "sha256": "774538b0ec9bd94aec09747f64f4074768669a20d7ab6a762fda3bff1afd9b2f"
+      "bytes": 653,
+      "sha256": "19f5e86b699c6d7410bec17f73622d80e97aa359df4fd4e82665dd6c4a3b3b17"
     },
     {
       "path": "assets/resources/index.js",
-      "bytes": 624,
-      "sha256": "a8a8842dba5661964a271fa0d82e5d00ba102dcbfe02407a66ed1a15dd5335bf"
+      "bytes": 605,
+      "sha256": "51a07ab61ee49561d29734ff6ee095b0d8a47998bbe30a6f1973bf3c8b7faa25"
     },
     {
       "path": "assets/resources/native/1e/1e6a1769-12e3-440d-be5c-295a3b3b5506.png",
@@ -200,6 +210,11 @@
       "path": "assets/resources/native/5c/5c71a8f9-1482-4ebf-9309-5b20b95b6813.png",
       "bytes": 1749321,
       "sha256": "a51e4201e033c450aa3586b045205255214a6b15d61d8127f8be5e25f90bc805"
+    },
+    {
+      "path": "assets/resources/native/c3/c39c33fc-2788-405e-9469-365d18e6fd4b.png",
+      "bytes": 1560288,
+      "sha256": "1b3e7e6e71c4b1794ffc982737fd03871ba5747d9d4e76b7903f0b8b4448fed1"
     },
     {
       "path": "assets/resources/native/d0/d0ac27e3-29e8-4d37-9a96-84b31542cdc8.png",
@@ -223,13 +238,13 @@
     },
     {
       "path": "cocos-js/cc.js",
-      "bytes": 3513807,
-      "sha256": "f048cb1f02131b1541d52db9f236b9acf5ca29ee3d02f325632c12b9268dcada"
+      "bytes": 1412916,
+      "sha256": "326e42495d686fde7436b511a7a74bd2182d4cb3ec06c635c5a6abd77d262fce"
     },
     {
       "path": "engine-adapter.js",
-      "bytes": 55431,
-      "sha256": "d0e7c68186f0639aa03b0d14985788791dcab4957b9c2cdf9bef787fc8f5d06f"
+      "bytes": 24164,
+      "sha256": "1a754f1bf0f1a26571394348e6d590cee578f8022e2f661d6c120f115ff5a841"
     },
     {
       "path": "game.js",
@@ -253,8 +268,8 @@
     },
     {
       "path": "src/chunks/bundle.js",
-      "bytes": 7243,
-      "sha256": "fc3f944ff5c56b34949cfdf621a290b224dd714c598fbbec27510aa76a44c6f5"
+      "bytes": 3414,
+      "sha256": "8ea7b6c98a721a5c629c1ce09abb3d95a472ece4f364b51c2bd6da6d6685695e"
     },
     {
       "path": "src/effect.bin",
@@ -278,18 +293,18 @@
     },
     {
       "path": "src/settings.json",
-      "bytes": 22406,
-      "sha256": "97dfc3c07704562b567e9e8a50916b5c71fc49433990adfc2d33766ceac12531"
+      "bytes": 21262,
+      "sha256": "3c957b040027b093161f29368de6af099bb83ff7502910bd68771ce6605f51bf"
     },
     {
       "path": "src/system.bundle.js",
-      "bytes": 27303,
-      "sha256": "f1bf370e6df5bf58763175b5135fc999c0b09e9a1b75f42e19eb37678c84c157"
+      "bytes": 8319,
+      "sha256": "9e52437715d2e6a8acacb41f1c64d916e4b455d2a9d448f09cecd551dc084b84"
     },
     {
       "path": "web-adapter.js",
-      "bytes": 171615,
-      "sha256": "bb2ea46f8f2af1b7c21a2b25be4fd0b356575aed7e261712cd8770c2d7c9a751"
+      "bytes": 78839,
+      "sha256": "de345992e79a8583354d9dea6913ad58bd1d1de97088e7d6fd11a092544f4a22"
     }
   ]
 }

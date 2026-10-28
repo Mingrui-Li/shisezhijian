@@ -1,0 +1,34 @@
+{
+  "projectPath": "/Users/limingrui/IdeaProjects/shisezhijian/releases/douyin",
+  "projectType": "microgame",
+  "windowId": 2,
+  "compileAction": "refresh",
+  "refresh": {
+    "ok": true
+  },
+  "screenshot": {
+    "ok": true,
+    "filePath": "/var/folders/r1/pyhg16p91k3bzgr3kpjw9y3h0000gn/T/1793148954602.png",
+    "imageSize": {
+      "width": 786,
+      "height": 1704
+    },
+    "screenshotScale": {
+      "x": 2,
+      "y": 2
+    },
+    "layoutViewport": {
+      "pageX": 0,
+      "pageY": 0,
+      "clientWidth": 393,
+      "clientHeight": 852
+    },
+    "contentSize": {
+      "x": 0,
+      "y": 0,
+      "width": 393,
+      "height": 852
+    }
+  },
+  "scope": "Startup visual check only; no state-changing gameplay assertion."
+}
